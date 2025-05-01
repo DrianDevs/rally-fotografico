@@ -1,0 +1,17 @@
+{
+    "name": "driandevs/rally_backend",
+    "autoload": {
+        "psr-4": {
+            "Driandevs\\RallyBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DrianDevs",
+            "email": "driandevs@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.11"
+    }
+}

@@ -1,0 +1,53 @@
+<h1>Configurar Parámetros del Rally</h1>
+<div class="form-container">
+  <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <h2>📸 Recepción de fotografías</h2>
+      <div class="form-group">
+        <label for="recepcionInicio">Desde:</label>
+        <input
+          type="date"
+          id="recepcionInicio"
+          formControlName="recepcionInicio"
+        />
+      </div>
+      <div class="form-group">
+        <label for="recepcionFin">Hasta:</label>
+        <input type="date" id="recepcionFin" formControlName="recepcionFin" />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>🗳️ Votación</h2>
+      <div class="form-group">
+        <label for="votacionInicio">Desde:</label>
+        <input
+          type="date"
+          id="votacionInicio"
+          formControlName="votacionInicio"
+        />
+      </div>
+      <div class="form-group">
+        <label for="votacionFin">Hasta:</label>
+        <input type="date" id="votacionFin" formControlName="votacionFin" />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>📷 Límite de fotos</h2>
+      <div class="form-group">
+        <label for="limiteFotos">Número de fotos por participante:</label>
+        <input
+          type="number"
+          id="limiteFotos"
+          formControlName="limiteFotos"
+          min="1"
+        />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!configForm.valid">
+      Guardar Configuración
+    </button>
+  </form>
+</div>
