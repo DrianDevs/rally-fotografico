@@ -31,30 +31,34 @@ export class RallyConfigComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.configForm.valid) {
-      const { recepcionInicio, recepcionFin, votacionInicio, votacionFin } =
-        this.configForm.value;
-      if (
-        this.validarPeriodoFechas(recepcionInicio, recepcionFin, 'recepción')
-          .valido &&
-        this.validarPeriodoFechas(votacionInicio, votacionFin, 'votación')
-          .valido
-      ) {
-        this.actualizarConfig();
-      }
-    }
+    if (this.validarCampos()) this.actualizarConfig();
   }
+
+  validarCampos() {
+    // Validación inicial del form
+    if (!this.configForm.valid) return false;
+
+    // Obtiene los valores del form
+    const { recepcionInicio, recepcionFin, votacionInicio, votacionFin } =
+      this.configForm.value;
+
+    // Comprueba que los pares de fechas sean válidos
+    return (
+      this.validarPeriodoFechas(recepcionInicio, recepcionFin, 'recepción') &&
+      this.validarPeriodoFechas(votacionInicio, votacionFin, 'votación')
+    );
+  }
+
+  // ----------------- PETICIONES SERVICIO CONFIG -----------------
 
   cargarConfig() {
     this.configService.obtenerConfig().subscribe({
       next: (data) => {
-        console.log(data);
-        console.log('Tipo de data:', typeof data);
         this.configForm.patchValue({
-          recepcionInicio: this.formatDate(data.upload_start_date),
-          recepcionFin: this.formatDate(data.upload_end_date),
-          votacionInicio: this.formatDate(data.voting_start_date),
-          votacionFin: this.formatDate(data.voting_end_date),
+          recepcionInicio: this.formatearFecha(data.upload_start_date),
+          recepcionFin: this.formatearFecha(data.upload_end_date),
+          votacionInicio: this.formatearFecha(data.voting_start_date),
+          votacionFin: this.formatearFecha(data.voting_end_date),
           limiteFotos: data.max_photos_per_user,
         });
       },
@@ -65,13 +69,21 @@ export class RallyConfigComponent implements OnInit {
   }
 
   actualizarConfig() {
-    console.log(this.configForm.value);
+    this.configService.actualizarConfig(this.configForm.value).subscribe({
+      next: (data) => {
+        alert('Configuración actualizada exitosamente');
+      },
+      error: (error) => {
+        console.error('Error al actualizar la configuración:', error);
+        alert('Error al actualizar la configuración');
+      },
+    });
   }
 
   // ----------------- FUNCIONES AUXILIARES -----------------
 
   // Función para formatear la fecha que devuelve el backend a yyyy-MM-dd (formato del formulario)
-  formatDate = (dateString: string) => {
+  formatearFecha = (dateString: string) => {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0];
   };
@@ -81,7 +93,7 @@ export class RallyConfigComponent implements OnInit {
     fechaDesde: string,
     fechaHasta: string,
     nombrePeriodo: string
-  ): { valido: boolean; dias: number } {
+  ) {
     const fechaInicio = new Date(fechaDesde);
     const fechaFin = new Date(fechaHasta);
 
@@ -89,20 +101,18 @@ export class RallyConfigComponent implements OnInit {
     const diffTime = fechaFin.getTime() - fechaInicio.getTime();
     const dias = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    console.log(`Días de ${nombrePeriodo}: ${dias}`);
-
     if (fechaInicio >= fechaFin) {
       alert(
         `La fecha de inicio de ${nombrePeriodo} debe ser anterior a la fecha de fin`
       );
-      return { valido: false, dias };
+      return false;
     }
 
     if (dias === 0) {
       alert(`El período de ${nombrePeriodo} debe ser de al menos un día`);
-      return { valido: false, dias };
+      return false;
     }
 
-    return { valido: true, dias };
+    return true;
   }
 }

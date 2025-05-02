@@ -28,7 +28,8 @@ h1 {
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .form-group label {
@@ -63,4 +64,19 @@ button[type="submit"]:disabled {
 
 button[type="submit"]:hover:not(:disabled) {
   background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

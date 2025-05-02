@@ -14,10 +14,13 @@ $datos = json_decode($datos);
 if ($datos != null) {
     switch ($datos->servicio) {
         case 'getConfig':
-            print json_encode($modelo->ObtenerOwners());
+            print json_encode($modelo->ObtenerConfig());
             break;
         case 'updateConfig':
-            // Falta updateConfig
+            if ($modelo->ActualizarConfig($datos))
+                print '{"result":"OK"}';
+            else
+                print '{"result":"FAIL"}';
             break;
     }
 }
@@ -37,7 +40,7 @@ class Modelo
         }
     }
 
-    public function ObtenerOwners()
+    public function ObtenerConfig()
     {
         try {
             $consulta = "SELECT * FROM settings";
@@ -46,6 +49,30 @@ class Modelo
             return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             die($e->getMessage());
+        }
+    }
+
+    public function ActualizarConfig($data)
+    {
+        try {
+            $sql = "UPDATE settings SET 
+                                    max_photos_per_user = ?,
+                                    upload_start_date = ?,
+                                    upload_end_date = ?,
+                                    voting_start_date = ?,
+                                    voting_end_date = ?
+                            WHERE id = 1";
+            $this->pdo->prepare($sql)->execute(array(
+                $data->limiteFotos,
+                $data->recepcionInicio,
+                $data->recepcionFin,
+                $data->votacionInicio,
+                $data->votacionFin
+            ));
+            return true;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
         }
     }
 }
