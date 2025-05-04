@@ -35,5 +35,13 @@ export const routes: Routes = [
       ),
     canActivate: [authGuard],
   },
+  {
+    path: 'lista-usuarios',
+    loadComponent: () =>
+      import('./components/lista-users/lista-users.component').then(
+        (m) => m.ListaUsersComponent
+      ),
+    canActivate: [authGuard, adminGuard],
+  },
   { path: '**', redirectTo: '' },
 ];
