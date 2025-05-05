@@ -61,20 +61,17 @@ class Modelo
     public function ActualizarUser($data)
     {
         try {
-            // $sql = "UPDATE settings SET 
-            //                         max_photos_per_user = ?,
-            //                         upload_start_date = ?,
-            //                         upload_end_date = ?,
-            //                         voting_start_date = ?,
-            //                         voting_end_date = ?
-            //                 WHERE id = 1";
-            // $this->pdo->prepare($sql)->execute(array(
-            //     $data->limiteFotos,
-            //     $data->recepcionInicio,
-            //     $data->recepcionFin,
-            //     $data->votacionInicio,
-            //     $data->votacionFin
-            // ));
+            $sql = "UPDATE users SET 
+                    email = ?,
+                    name = ?,
+                    role = ?
+                WHERE id = ?";
+            $this->pdo->prepare($sql)->execute(array(
+                $data->email,
+                $data->name,
+                $data->role,
+                $data->id
+            ));
             return true;
         } catch (Exception $e) {
             error_log($e->getMessage());

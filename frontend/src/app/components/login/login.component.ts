@@ -38,7 +38,6 @@ export class LoginComponent {
       next: () => {
         const role = this.authService.getUserRole();
         this.router.navigate([role === 'admin' ? '/admin' : '/participante']);
-        this.error = 'Inicio de sesión exitoso';
       },
       error: () => {
         this.error = 'Correo o contraseña incorrectos';

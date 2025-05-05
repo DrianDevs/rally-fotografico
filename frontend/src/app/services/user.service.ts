@@ -23,13 +23,14 @@ export class UserService {
       servicio: 'updateUser',
       ...user,
     });
+    console.log('body:', body);
     return this.http.post<any>(this.url, body);
   }
 
   eliminarUser(userId: number) {
     let body = JSON.stringify({
       servicio: 'deleteUser',
-      userId: userId,
+      id: userId,
     });
     return this.http.post<any>(this.url, body);
   }
