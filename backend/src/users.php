@@ -16,6 +16,12 @@ if ($datos != null) {
         case 'getUsers':
             print json_encode($modelo->ObtenerUsers());
             break;
+        case 'insertarUser':
+            if ($modelo->InsertarUser($datos))
+                print '{"result":"OK"}';
+            else
+                print '{"result":"FAIL"}';
+            break;
         case 'updateUser':
             if ($modelo->ActualizarUser($datos))
                 print '{"result":"OK"}';
@@ -42,7 +48,7 @@ class Modelo
             require_once('../config.php');
             $this->pdo = $pdo;
         } catch (Exception $e) {
-            die($e->getMessage());
+            error_log($e->getMessage());
         }
     }
 
@@ -54,7 +60,26 @@ class Modelo
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            die($e->getMessage());
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function InsertarUser($data)
+    {
+        try {
+            $passwordHash = password_hash($data->password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO users (email, password_hash, name, role) VALUES (?,?,?,?)";
+            $this->pdo->prepare($sql)->execute(array(
+                $data->email,
+                $passwordHash,
+                $data->name,
+                $data->role
+            ));
+            return true;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
         }
     }
 

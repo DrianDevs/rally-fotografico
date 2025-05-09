@@ -20,6 +20,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'signup',
+    loadComponent: () =>
+      import('./components/signup/signup.component').then(
+        (m) => m.SignupComponent
+      ),
+  },
+  {
     path: 'admin',
     loadComponent: () =>
       import('./components/zona-admin/zona-admin.component').then(

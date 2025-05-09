@@ -18,10 +18,18 @@ export class UserService {
     return this.http.post<any>(this.url, body);
   }
 
-  actualizarUser(user: User) {
+  insertarUser(data: any) {
+    let body = JSON.stringify({
+      servicio: 'insertarUser',
+      ...data,
+    });
+    return this.http.post<any>(this.url, body);
+  }
+
+  actualizarUser(data: any) {
     let body = JSON.stringify({
       servicio: 'updateUser',
-      ...user,
+      ...data,
     });
     console.log('body:', body);
     return this.http.post<any>(this.url, body);
