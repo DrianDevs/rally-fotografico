@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
@@ -10,14 +10,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './lista-users.component.html',
   styleUrl: './lista-users.component.css',
 })
-export class ListaUsersComponent {
+export class ListaUsersComponent implements OnInit {
   public users: User[] = [];
   public showEditForm: boolean = false;
   public selectedUser: User | null = null;
   public formModified: boolean = false;
   private originalUser: User | null = null;
 
-  constructor(private peticion: UserService) {
+  constructor(private peticion: UserService) {}
+
+  ngOnInit(): void {
     this.peticion.obtenerUsers().subscribe({
       next: (data) => {
         this.users = data;

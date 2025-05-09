@@ -14,14 +14,11 @@
             signupForm.get('name')?.invalid && signupForm.get('name')?.touched
         }"
       />
-      <div
-        class="error-message"
-        *ngIf="
-          signupForm.get('name')?.invalid && signupForm.get('name')?.touched
-        "
-      >
-        El nombre es requerido y debe tener al menos 3 caracteres
-      </div>
+      @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+        <div class="error-message">
+          El nombre es requerido y debe tener al menos 3 caracteres
+        </div>
+      }
     </div>
 
     <div class="form-group">
@@ -36,14 +33,11 @@
             signupForm.get('email')?.invalid && signupForm.get('email')?.touched
         }"
       />
-      <div
-        class="error-message"
-        *ngIf="
-          signupForm.get('email')?.invalid && signupForm.get('email')?.touched
-        "
-      >
-        Por favor ingrese un email válido
-      </div>
+      @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+        <div class="error-message">
+          Por favor ingrese un email válido
+        </div>
+      }
     </div>
 
     <div class="form-group">
@@ -59,20 +53,18 @@
             signupForm.get('password')?.touched
         }"
       />
-      <div
-        class="error-message"
-        *ngIf="
-          signupForm.get('password')?.invalid &&
-          signupForm.get('password')?.touched
-        "
-      >
-        La contraseña debe tener al menos 6 caracteres
-      </div>
+      @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+        <div class="error-message">
+          La contraseña debe tener al menos 6 caracteres
+        </div>
+      }
     </div>
 
-    <div class="error-message" *ngIf="errorMessage">
-      {{ errorMessage }}
-    </div>
+    @if (errorMessage) {
+      <div class="error-message">
+        {{ errorMessage }}
+      </div>
+    }
 
     <button type="submit" [disabled]="signupForm.invalid">Registrarse</button>
   </form>
