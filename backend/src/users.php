@@ -16,6 +16,9 @@ if ($datos != null) {
         case 'getUsers':
             print json_encode($modelo->ObtenerUsers());
             break;
+        case 'getUser':
+            print json_encode($modelo->ObtenerUser($datos->id));
+            break;
         case 'insertarUser':
             if ($modelo->InsertarUser($datos))
                 print '{"result":"OK"}';
@@ -59,6 +62,19 @@ class Modelo
             $stm = $this->pdo->prepare($consulta);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function ObtenerUser($id)
+    {
+        try {
+            $consulta = "SELECT * FROM users WHERE id = ?";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute(array($id));
+            return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
             return false;

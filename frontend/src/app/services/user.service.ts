@@ -9,11 +9,19 @@ import { User } from '../models/user';
 export class UserService {
   private url: string = environment.API_URL + '/src/users.php';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   obtenerUsers() {
     let body = JSON.stringify({
       servicio: 'getUsers',
+    });
+    return this.http.post<any>(this.url, body);
+  }
+
+  obtenerUser(userId: number) {
+    let body = JSON.stringify({
+      servicio: 'getUser',
+      id: userId,
     });
     return this.http.post<any>(this.url, body);
   }
