@@ -1,3 +1,4 @@
+@if(!showEditForm){
 <div
   class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-8 p-6 flex flex-col items-center"
 >
@@ -20,8 +21,67 @@
     </p>
     <button
       class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+      (click)="showEditForm = true"
     >
       Editar perfil
     </button>
   </div>
 </div>
+} @else {
+<div
+  class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-8 p-6 flex flex-col items-center"
+>
+  <form
+    class="flex flex-col items-center w-full"
+    (ngSubmit)="confirmarEdicion()"
+  >
+    <div
+      class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center mb-4"
+    >
+      <img
+        src="https://www.gravatar.com/avatar/?d=mp"
+        alt="Perfil"
+        class="w-20 h-20 rounded-full object-cover"
+      />
+    </div>
+    <input
+      type="text"
+      class="mb-2 px-3 py-2 border rounded w-full"
+      value="{{ user.name }}"
+      name="name"
+      placeholder="Nombre de usuario"
+      required
+    />
+    <input
+      type="email"
+      class="mb-2 px-3 py-2 border rounded w-full"
+      value="{{ user.email }}"
+      name="email"
+      placeholder="Email"
+      required
+    />
+    <input
+      type="password"
+      class="mb-4 px-3 py-2 border rounded w-full"
+      name="password"
+      placeholder="Ingresa una nueva contraseña"
+      required
+    />
+    <div class="flex gap-2">
+      <button
+        type="submit"
+        class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+      >
+        Confirmar edición
+      </button>
+      <button
+        type="button"
+        class="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500 transition"
+        (click)="cancelarEdicion()"
+      >
+        Cancelar edición
+      </button>
+    </div>
+  </form>
+</div>
+}

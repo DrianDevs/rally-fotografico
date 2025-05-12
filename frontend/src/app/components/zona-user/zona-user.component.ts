@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './zona-user.component.css',
 })
 export class ZonaUserComponent implements OnInit {
+  public showEditForm: boolean = false;
   public user = {
     id: '',
     name: '',
@@ -23,4 +24,8 @@ export class ZonaUserComponent implements OnInit {
       this.user.email = userInfo.email;
     }
   }
+
+  confirmarEdicion() {}
+
+  cancelarEdicion() {}
 }
