@@ -50,5 +50,13 @@ export const routes: Routes = [
       ),
     canActivate: [authGuard, adminGuard],
   },
+  {
+    path: 'subir-foto',
+    loadComponent: () =>
+      import('./components/upload-photo/upload-photo.component').then(
+        (m) => m.UploadPhotoComponent
+      ),
+    canActivate: [authGuard],
+  },
   { path: '**', redirectTo: '' },
 ];

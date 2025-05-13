@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import { MyPhotosComponent } from "../my-photos/my-photos.component";
 
 @Component({
   selector: 'app-zona-user',
-  imports: [RouterLink],
+  imports: [RouterLink, MyPhotosComponent],
   templateUrl: './zona-user.component.html',
   styleUrl: './zona-user.component.css',
 })
