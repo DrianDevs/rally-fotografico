@@ -15,6 +15,7 @@ export class ZonaUserComponent implements OnInit {
     name: '',
     email: '',
     role: '',
+    password: '',
   };
   constructor(private userService: UserService, private authService: AuthService, private router: Router) { }
 
@@ -23,11 +24,13 @@ export class ZonaUserComponent implements OnInit {
     if (userId) {
       this.userService.obtenerUser(userId).subscribe({
         next: (userData) => {
+          console.log(userData);
           this.user = {
             id: userData.id,
             name: userData.name,
             email: userData.email,
-            role: userData.role
+            role: userData.role,
+            password: '',
           };
         },
         error: (error) => {
@@ -79,9 +82,26 @@ export class ZonaUserComponent implements OnInit {
     const campoElement = document.getElementById(campo) as HTMLInputElement;
     const nuevoValor = campoElement.value;
 
-    // Check if the new value is different from the current value
+
+    // Si el campo editado es la contraseña, se llama a un servicio dedicado por seguridad
+    if (campo === 'password') {
+      this.userService.actualizarPassword(this.user.id, nuevoValor).subscribe({
+        next: (data) => {
+          console.log("Contraseña actualizada con éxito:", data);
+        },
+        error: (error) => {
+          console.error('Error al actualizar la contraseña:', error);
+        },
+      });
+
+      this.quitarEdicion(campo)
+      return
+    }
+
+
+    // Comprobar si el nuevo valor es igual al valor anterior (name y email)
     if (this.user[campo as keyof typeof this.user] === nuevoValor) {
-      console.log(`No changes made to ${campo}`);
+      console.log(`El ${campo} es igual al anterior.`);
       return;
     } else {
       this.user[campo as keyof typeof this.user] = nuevoValor
@@ -89,7 +109,7 @@ export class ZonaUserComponent implements OnInit {
 
     this.userService.actualizarUser(this.user).subscribe({
       next: (data) => {
-        console.log(data);
+        console.log("Datos del usuario actualizados con éxito:", data);
       },
       error: (error) => {
         console.error('Error al actualizar el usuario:', error);

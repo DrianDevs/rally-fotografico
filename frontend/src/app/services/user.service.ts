@@ -39,7 +39,15 @@ export class UserService {
       servicio: 'updateUser',
       ...data,
     });
-    console.log('body:', body);
+    return this.http.post<any>(this.url, body);
+  }
+
+  actualizarPassword(id: any, password: any) {
+    let body = JSON.stringify({
+      servicio: 'updatePassword',
+      password: password,
+      id: id,
+    });
     return this.http.post<any>(this.url, body);
   }
 

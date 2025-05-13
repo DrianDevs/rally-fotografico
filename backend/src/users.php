@@ -31,6 +31,12 @@ if ($datos != null) {
             else
                 print '{"result":"FAIL"}';
             break;
+        case 'updatePassword':
+            if ($modelo->ActualizarPassword($datos))
+                print '{"result":"OK"}';
+            else
+                print '{"result":"FAIL"}';
+            break;
         case 'deleteUser':
             if ($modelo->EliminarUser($datos->id))
                 print '{"result":"OK"}';
@@ -111,6 +117,22 @@ class Modelo
                 $data->email,
                 $data->name,
                 $data->role,
+                $data->id
+            ));
+            return true;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function ActualizarPassword($data)
+    {
+        try {
+            $passwordHash = password_hash($data->password, PASSWORD_DEFAULT);
+            $sql = "UPDATE users SET password_hash = ? WHERE id = ?";
+            $this->pdo->prepare($sql)->execute(array(
+                $passwordHash,
                 $data->id
             ));
             return true;
