@@ -22,3 +22,8 @@ try {
 
 // Clave secreta para JWT
 $jwt_secret = 'clave-super-secreta-que-deberías-cambiar';
+
+// Configuración para fotos
+$uploadDir = __DIR__ . '/uploads/';
+$allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+$maxSize = 5 * 1024 * 1024; // 5 MB

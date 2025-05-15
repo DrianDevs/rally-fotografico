@@ -1,0 +1,120 @@
+[15-May-2025 21:28:33 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+)
+
+[15-May-2025 21:28:33 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => fsfdfdfdsfd
+    [description] => fdfdssdfds
+    [image] => C:\fakepath\pkW1ua9A_400x400.jpg
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:30:43 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+)
+
+[15-May-2025 21:30:43 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => dfsdsffd
+    [description] => fdsfdsfdfds
+    [image] => C:\fakepath\Captura de pantalla 2025-05-10 072003.png
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:35:25 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+)
+
+[15-May-2025 21:35:25 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => dfdsffdssdf
+    [description] => dsfdsffsdsfdfd
+    [image] => C:\fakepath\Captura de pantalla 2025-05-10 072003.png
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:38:11 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+)
+
+[15-May-2025 21:38:11 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => adssadsad
+    [description] => dssadsad
+    [image] => C:\fakepath\pkW1ua9A_400x400.jpg
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:42:21 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+    [image] => Array
+        (
+            [name] => pkW1ua9A_400x400.jpg
+            [full_path] => pkW1ua9A_400x400.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php87D7.tmp
+            [error] => 0
+            [size] => 26725
+        )
+
+)
+
+[15-May-2025 21:42:21 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => khhhhh
+    [description] => kjjlljljkljk
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:42:21 Europe/Berlin] PHP Warning:  move_uploaded_file(C:\Users\Adria\DWES\PHP\rally-fotografico\backend/src/uploads/photo_6826439d7f9c24.36651562.jpg): Failed to open stream: No such file or directory in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php on line 232
+[15-May-2025 21:42:21 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\php87D7.tmp&quot; to &quot;C:\Users\Adria\DWES\PHP\rally-fotografico\backend/src/uploads/photo_6826439d7f9c24.36651562.jpg&quot; in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php on line 232
+[15-May-2025 21:49:08 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+    [image] => Array
+        (
+            [name] => pkW1ua9A_400x400.jpg
+            [full_path] => pkW1ua9A_400x400.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpBBFB.tmp
+            [error] => 0
+            [size] => 26725
+        )
+
+)
+
+[15-May-2025 21:49:08 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => khhhhh
+    [description] => kjjlljljkljk
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[15-May-2025 21:52:37 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+    [image] => Array
+        (
+            [name] => Captura de pantalla 2025-05-10 072003.png
+            [full_path] => Captura de pantalla 2025-05-10 072003.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpED3F.tmp
+            [error] => 0
+            [size] => 147352
+        )
+
+)
+
+[15-May-2025 21:52:37 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => ffgdfffggddf
+    [description] => holaholahola
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
