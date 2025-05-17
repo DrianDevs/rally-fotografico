@@ -11,10 +11,6 @@ export class PhotoService {
   constructor(private http: HttpClient) { }
 
   uploadPhoto(formData: FormData) {
-    // Log para verificar el contenido del FormData
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-    }
     return this.http.post(this.url, formData);
   }
 }

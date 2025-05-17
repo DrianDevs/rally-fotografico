@@ -1,23 +1,24 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 0);
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/../logs/php-error.log');
+error_reporting(E_ALL); // 1 para mostrar todos los tipos de errores
+ini_set('display_errors', 0); // para no mostrar errores
+ini_set('log_errors', 1); // para logear errores
+ini_set('error_log', __DIR__ . '/../logs/php-error.log'); // ruta del log de errores
 
 require_once(__DIR__ . '/../config.php');
 
-header("Access-Control-Allow-Origin: *"); // allow request from all origin
+header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');
 header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization");
-header('Content-Type: application/json');  //  Todo se devolverá en formato JSON.
+header('Content-Type: application/json');
 
 try {
     $modelo = new Modelo();
 
-    // Obtener el servicio del FormData o del JSON
+    // Comprueba si el servicio viene en FormData (para subir files)
     $servicio = isset($_POST['servicio']) ? $_POST['servicio'] : null;
 
+    // Si no viene en FormData, lo intenta obtener de JSON
     if (!$servicio) {
         $datos = json_decode(file_get_contents('php://input'));
         $servicio = $datos->servicio ?? null;
@@ -32,20 +33,20 @@ try {
                 print json_encode($modelo->ObtenerPhoto($datos->id));
                 break;
             case 'uploadPhoto':
-                error_log('DEBUG: $_FILES contents: ' . print_r($_FILES, true));
-                error_log('DEBUG: $_POST contents: ' . print_r($_POST, true));
+                // error_log('DEBUG: $_FILES contents: ' . print_r($_FILES, true)); // Para logear los detalles de la imagen
+                // error_log('DEBUG: $_POST contents: ' . print_r($_POST, true));   // Para logear los detalles del formulario
 
                 if (!isset($_FILES['image'])) {
                     print json_encode(['result' => 'FAIL', 'error' => 'No se ha enviado ninguna imagen']);
                     break;
                 }
 
-                if (!$modelo->validarPhoto($_FILES['image'])) {
+                if (!$modelo->ValidarPhoto($_FILES['image'])) {
                     print json_encode(['result' => 'FAIL', 'error' => 'Imagen no válida']);
                     break;
                 }
 
-                $filePath = $modelo->guardarPhoto($_FILES['image']);
+                $filePath = $modelo->GuardarPhoto($_FILES['image']);
                 if (!$filePath) {
                     print json_encode(['result' => 'FAIL', 'error' => 'No se pudo guardar la imagen']);
                     break;
@@ -85,7 +86,8 @@ try {
                 break;
         }
     } else {
-        print json_encode(['result' => 'FAIL', 'error' => 'No se especificó el servicio']);
+        error_log('DEBUG: No se ha encontrado el servicio');
+        print json_encode(['result' => 'FAIL', 'error' => 'No se ha encontrado el servicio']);
     }
 } catch (Exception $e) {
     error_log($e->getMessage());
@@ -202,7 +204,7 @@ class Modelo
         }
     }
 
-    public function validarPhoto($file)
+    public function ValidarPhoto($file)
     {
         global $maxSize, $allowedTypes; // Para poder acceder a las variables de configuración
 
@@ -221,16 +223,17 @@ class Modelo
         return true;
     }
 
-    public function guardarPhoto($file)
+    public function GuardarPhoto($file)
     {
-        global $uploadDir;
+        global $uploadDir; // Para poder acceder a la carpeta
 
+        // Si la carpeta no existe, la crea
         if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true); // crea recursivamente la carpeta si no existe
+            mkdir($uploadDir, 0777, true); // Crea la ruta completa, y si faltan carpetas en el camino, también se crean
         }
 
-        $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $filename = uniqid('photo_', true) . '.' . $ext;
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('photo_', true) . '.' . $extension;
         $relativePath = 'uploads/' . $filename;
         $fullPath = $uploadDir . $filename;
 
@@ -240,7 +243,7 @@ class Modelo
             return false;
         }
 
-        return $relativePath; // esto es lo que guardarás en la base de datos
+        return $relativePath;
 
     }
 

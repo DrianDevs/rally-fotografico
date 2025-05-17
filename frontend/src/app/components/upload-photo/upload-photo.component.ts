@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from '../../services/photo.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-upload-photo',
@@ -25,7 +26,8 @@ export class UploadPhotoComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
-    private photoService: PhotoService
+    private photoService: PhotoService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -63,18 +65,29 @@ export class UploadPhotoComponent implements OnInit {
     const formData = new FormData();
     formData.append('title', this.photoForm.value.title);
     formData.append('description', this.photoForm.value.description);
-    formData.append('image', this.selectedFile); // ✅ Ahora sí
+    formData.append('image', this.selectedFile);
     formData.append('user_id', this.user.id);
     formData.append('servicio', 'uploadPhoto');
 
     this.photoService.uploadPhoto(formData).subscribe({
       next: (res) => {
-        console.log('Foto subida', res);
         this.photoForm.reset();
         this.selectedFile = null;
+
+        this.snackBar.open('✅ La foto se ha subido correctamente', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+
         this.router.navigate(['/participante']);
       },
       error: (err) => {
+        this.snackBar.open('❌ Error al subir la foto', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
         console.error('Error al subir la foto', err);
       },
     });

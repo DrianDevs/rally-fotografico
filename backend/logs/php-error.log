@@ -118,3 +118,47 @@
     [servicio] => uploadPhoto
 )
 
+[16-May-2025 23:01:51 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+    [image] => Array
+        (
+            [name] => ♡.jpg
+            [full_path] => ♡.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpADFF.tmp
+            [error] => 0
+            [size] => 34093
+        )
+
+)
+
+[16-May-2025 23:01:51 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => Holanda
+    [description] => Ironmandingo
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
+[16-May-2025 23:04:46 Europe/Berlin] DEBUG: $_FILES contents: Array
+(
+    [image] => Array
+        (
+            [name] => el_piso_es_faltar_a_baile.png
+            [full_path] => el_piso_es_faltar_a_baile.png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php5825.tmp
+            [error] => 0
+            [size] => 3002070
+        )
+
+)
+
+[16-May-2025 23:04:46 Europe/Berlin] DEBUG: $_POST contents: Array
+(
+    [title] => fsdffds
+    [description] => dsffdsfdsfds
+    [user_id] => 7
+    [servicio] => uploadPhoto
+)
+
