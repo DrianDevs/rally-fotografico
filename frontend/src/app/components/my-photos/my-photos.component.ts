@@ -2,13 +2,12 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { RouterLink } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { PhotoService } from '../../services/photo.service';
-import { forkJoin, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { NgClass } from '@angular/common';
+import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 
 @Component({
   selector: 'app-my-photos',
-  imports: [RouterLink, NgClass],
+  imports: [RouterLink, NgClass, ImageViewerComponent],
   templateUrl: './my-photos.component.html',
   styleUrl: './my-photos.component.css'
 })
@@ -18,6 +17,7 @@ export class MyPhotosComponent implements OnInit, OnChanges {
   public photos: any[] = [];
   public cantidadPhotos: number[] = [];
   public fotosRestantes: number[] = [];
+  public selectedImage: { url: string; alt: string } | null = null;
 
   constructor(private configService: ConfigService, private photoService: PhotoService) { }
 
@@ -73,5 +73,13 @@ export class MyPhotosComponent implements OnInit, OnChanges {
         }
       });
     }
+  }
+
+  openImageViewer(imageUrl: string, imageAlt: string) {
+    this.selectedImage = { url: imageUrl, alt: imageAlt };
+  }
+
+  closeImageViewer() {
+    this.selectedImage = null;
   }
 }

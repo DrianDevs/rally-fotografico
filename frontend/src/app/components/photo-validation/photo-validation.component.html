@@ -26,7 +26,8 @@
                         HH:mm:ss'}}</td>
                     <td class="px-4 py-3 whitespace-nowrap">
                         <img [src]="getPhotoUrl(photo.file_path)" [alt]="photo.description"
-                            class="w-28 h-28 object-cover rounded-md shadow-sm">
+                            class="w-28 h-28 object-cover rounded-md shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+                            (click)="openImageViewer(getPhotoUrl(photo.file_path), photo.description)">
                     </td>
                     <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">
                         <div class="flex space-x-2">
@@ -46,3 +47,7 @@
         </table>
     </div>
 </div>
+
+<app-image-viewer [isOpen]="selectedImage !== null" [imageUrl]="selectedImage?.url || ''"
+    [imageAlt]="selectedImage?.alt || ''" (closeViewer)="closeImageViewer()">
+</app-image-viewer>

@@ -9,8 +9,8 @@
 <div class="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
     @for (photo of photos; track $index) {
     <div class="flex flex-col items-center w-64">
-        <div
-            class="w-64 h-64 bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:bg-gray-300 transition-colors cursor-pointer mb-2 shadow-inner">
+        <div class="w-64 h-64 bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:bg-gray-300 transition-colors cursor-pointer mb-2 shadow-inner"
+            (click)="openImageViewer(getPhotoUrl(photos[$index].file_path), photos[$index].title)">
             <img [src]="getPhotoUrl(photos[$index].file_path)" alt="{{photos[$index].title}}"
                 class="w-full h-full object-cover rounded-lg" />
         </div>
@@ -47,3 +47,7 @@
     </div>
     }
 </div>
+
+<app-image-viewer [isOpen]="selectedImage !== null" [imageUrl]="selectedImage?.url || ''"
+    [imageAlt]="selectedImage?.alt || ''" (closeViewer)="closeImageViewer()">
+</app-image-viewer>
