@@ -35,6 +35,9 @@ try {
             case 'getPhotosByUserId':
                 print json_encode($modelo->ObtenerPhotosByUserId($datos->userId));
                 break;
+            case 'getPendingPhotos':
+                print json_encode($modelo->ObtenerPhotosPending());
+                break;
             case 'uploadPhoto':
                 // error_log('DEBUG: $_FILES contents: ' . print_r($_FILES, true)); // Para logear los detalles de la imagen
                 // error_log('DEBUG: $_POST contents: ' . print_r($_POST, true));   // Para logear los detalles del formulario
@@ -73,10 +76,12 @@ try {
                     print json_encode(['result' => 'FAIL']);
                 break;
             case 'updateStatus':
-                if ($modelo->ActualizarStatus($datos))
-                    print json_encode(['result' => 'OK']);
-                else
+                if ($modelo->ActualizarStatus($datos)) {
+                    $pendingPhotos = $modelo->ObtenerPhotosPending();
+                    print json_encode($pendingPhotos);
+                } else {
                     print json_encode(['result' => 'FAIL']);
+                }
                 break;
             case 'deletePhoto':
                 if ($modelo->EliminarPhoto($datos->id))
@@ -146,6 +151,19 @@ class Modelo
             $consulta = "SELECT * FROM photos WHERE user_id = ?";
             $stm = $this->pdo->prepare($consulta);
             $stm->execute(array($userId));
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function ObtenerPhotosPending()
+    {
+        try {
+            $consulta = "SELECT * FROM photos WHERE status = 'pending'";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());

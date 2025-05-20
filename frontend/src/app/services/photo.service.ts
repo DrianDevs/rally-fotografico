@@ -27,4 +27,27 @@ export class PhotoService {
     return `http://localhost/Drian/rally-fotografico/backend/${filePath}`;
   }
 
+  getPendingPhotos() {
+    const body = {
+      servicio: 'getPendingPhotos'
+    }
+    return this.http.post<any>(this.url, body);
+  }
+
+  updatePhotoStatus(photoId: number, status: 'accepted' | 'rejected') {
+    const body = {
+      servicio: 'updateStatus',
+      id: photoId,
+      status: status
+    }
+    return this.http.post<any>(this.url, body);
+  }
+
+  deletePhoto(photoId: number) {
+    const body = {
+      servicio: 'deletePhoto',
+      id: photoId
+    }
+    return this.http.post<any>(this.url, body);
+  }
 }

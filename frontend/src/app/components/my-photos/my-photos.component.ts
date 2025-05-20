@@ -59,4 +59,19 @@ export class MyPhotosComponent implements OnInit, OnChanges {
       this.fotosRestantes = Array.from({ length: cantidadFotosRestantes });
     });
   }
+
+  deletePhoto(photoId: number) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta foto?')) {
+      this.photoService.deletePhoto(photoId).subscribe({
+        next: () => {
+          // Actualizar la lista de fotos después de eliminar
+          this.getPhotos();
+        },
+        error: (error) => {
+          console.error('Error al eliminar la foto:', error);
+          alert('Hubo un error al eliminar la foto');
+        }
+      });
+    }
+  }
 }

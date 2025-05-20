@@ -1,0 +1,48 @@
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold text-center mb-8">Validación de Fotos</h2>
+
+    <div class="overflow-x-auto rounded-lg shadow-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-16">ID
+                    </th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-48">
+                        Descripción</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-40">
+                        Fecha de subida</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-36">
+                        Foto</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-48">
+                        Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                @for (photo of pendingPhotos; track photo.id) {
+                <tr class="hover:bg-gray-50 transition-colors duration-150">
+                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{{photo.id}}</td>
+                    <td class="px-4 py-3 text-sm text-gray-900 truncate max-w-xs">{{photo.description}}</td>
+                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{{photo.upload_date | date:'dd/MM/yyyy
+                        HH:mm:ss'}}</td>
+                    <td class="px-4 py-3 whitespace-nowrap">
+                        <img [src]="getPhotoUrl(photo.file_path)" [alt]="photo.description"
+                            class="w-28 h-28 object-cover rounded-md shadow-sm">
+                    </td>
+                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button (click)="acceptPhoto(photo.id)"
+                                class="px-3 py-1.5 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-150 text-sm font-medium">
+                                Aceptar
+                            </button>
+                            <button (click)="rejectPhoto(photo.id)"
+                                class="px-3 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-150 text-sm font-medium">
+                                Rechazar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
