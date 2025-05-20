@@ -13,4 +13,18 @@ export class PhotoService {
   uploadPhoto(formData: FormData) {
     return this.http.post(this.url, formData);
   }
+
+  getPhotosById(userId: number) {
+    const body = {
+      servicio: 'getPhotosByUserId',
+      userId: userId
+    }
+
+    return this.http.post<any>(this.url, body);
+  }
+
+  getPhotoUrl(filePath: string): string {
+    return `http://localhost/Drian/rally-fotografico/backend/${filePath}`;
+  }
+
 }

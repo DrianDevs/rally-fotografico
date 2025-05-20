@@ -1,0 +1,27 @@
+<header class="bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo y título -->
+            <div class="flex items-center space-x-4">
+                <a routerLink="/" class="text-white text-2xl font-bold hover:text-blue-100 transition-colors">
+                    Rally Fotográfico
+                </a>
+            </div>
+
+            <!-- Botones de navegación -->
+            <nav class="flex items-center space-x-4">
+                @if (authService.isLoggedIn()) {
+                <button (click)="logout()"
+                    class="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium">
+                    Cerrar Sesión
+                </button>
+                } @else {
+                <a routerLink="/login"
+                    class="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium">
+                    Iniciar Sesión
+                </a>
+                }
+            </nav>
+        </div>
+    </div>
+</header>

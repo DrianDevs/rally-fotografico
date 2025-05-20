@@ -32,6 +32,9 @@ try {
             case 'getPhoto':
                 print json_encode($modelo->ObtenerPhoto($datos->id));
                 break;
+            case 'getPhotosByUserId':
+                print json_encode($modelo->ObtenerPhotosByUserId($datos->userId));
+                break;
             case 'uploadPhoto':
                 // error_log('DEBUG: $_FILES contents: ' . print_r($_FILES, true)); // Para logear los detalles de la imagen
                 // error_log('DEBUG: $_POST contents: ' . print_r($_POST, true));   // Para logear los detalles del formulario
@@ -131,6 +134,19 @@ class Modelo
             $stm = $this->pdo->prepare($consulta);
             $stm->execute(array($id));
             return $stm->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function ObtenerPhotosByUserId($userId)
+    {
+        try {
+            $consulta = "SELECT * FROM photos WHERE user_id = ?";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute(array($userId));
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
             return false;
