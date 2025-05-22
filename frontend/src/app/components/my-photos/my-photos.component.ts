@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { PhotoService } from '../../services/photo.service';
 import { NgClass } from '@angular/common';
 import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-my-photos',
@@ -19,7 +20,7 @@ export class MyPhotosComponent implements OnInit, OnChanges {
   public fotosRestantes: number[] = [];
   public selectedImage: { url: string; alt: string } | null = null;
 
-  constructor(private configService: ConfigService, private photoService: PhotoService) { }
+  constructor(private configService: ConfigService, private photoService: PhotoService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loadConfig();
@@ -32,13 +33,18 @@ export class MyPhotosComponent implements OnInit, OnChanges {
   }
 
   private loadConfig() {
-    this.configService.obtenerConfig().subscribe((config) => {
-      this.config = config;
-      this.cantidadPhotos = Array.from({ length: this.config.max_photos_per_user });
+    this.configService.obtenerConfig().subscribe({
+      next: (config) => {
+        this.config = config;
+        this.cantidadPhotos = Array.from({ length: this.config.max_photos_per_user });
 
-      // Solo cargar las fotos si tenemos un usuario
-      if (this.user) {
-        this.getPhotos();
+        // Solo cargar las fotos si hemos recibido un usuario
+        if (this.user) {
+          this.getPhotos();
+        }
+      },
+      error: (error) => {
+        console.error('Error al obtener la configuración:', error);
       }
     });
   }
@@ -81,5 +87,45 @@ export class MyPhotosComponent implements OnInit, OnChanges {
 
   closeImageViewer() {
     this.selectedImage = null;
+  }
+
+  goToUploadPhoto() {
+    if (!this.verificarFechaSubida()) {
+      this.snackBar.open('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.', 'Cerrar', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+      return;
+    }
+    if (this.config.max_photos_per_user <= this.photos.length) {
+      this.snackBar.open('❌ No puedes subir más fotos. Elimina alguna foto para poder subir una nueva.', 'Cerrar', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+      return;
+    } else {
+      this.router.navigate(['/subir-foto']);
+    }
+  }
+
+  verificarFechaSubida() {
+    if (!this.config || !this.config.upload_start_date || !this.config.upload_end_date) {
+      return false;
+    }
+    // Obtener la fecha de hoy en el formato YYYY-MM-DD 00:00:00
+    const today = new Date();
+    const todayStr = today.getFullYear() + '-' +
+      String(today.getMonth() + 1).padStart(2, '0') + '-' +
+      String(today.getDate()).padStart(2, '0') + ' 00:00:00';
+
+    // Convertir fechas a objetos Date para poder compararlos
+    const startDate = new Date(this.config.upload_start_date.replace(' ', 'T'));
+    const endDate = new Date(this.config.upload_end_date.replace(' ', 'T'));
+    const currentDate = new Date(todayStr.replace(' ', 'T'));
+
+    // Comparar si la fecha de hoy está en el rango (inclusive)
+    return currentDate >= startDate && currentDate <= endDate;
   }
 }

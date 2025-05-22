@@ -11,7 +11,7 @@ export class AuthService {
   private apiUrl = environment.API_URL;
   private tokenKey = 'jwt_token';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
     console.log('Iniciando sesión');
@@ -52,5 +52,9 @@ export class AuthService {
   getUserRole(): string | null {
     const info = this.getUserInfo();
     return info?.role || null;
+  }
+
+  get isAdmin(): boolean {
+    return this.getUserRole() === 'admin';
   }
 }
