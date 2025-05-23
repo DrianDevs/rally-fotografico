@@ -90,24 +90,40 @@ export class MyPhotosComponent implements OnInit, OnChanges {
   }
 
   goToUploadPhoto() {
+    if (!this.validarPeriodoSubida()) {
+      return;
+    }
+
+    if (!this.validarLimiteFotos()) {
+      return;
+    }
+
+    // Si pasa las validaciones, navega a la página de subida de fotos
+    this.router.navigate(['/subir-foto']);
+  }
+
+  private validarPeriodoSubida(): boolean {
     if (!this.verificarFechaSubida()) {
-      this.snackBar.open('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.', 'Cerrar', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-      });
-      return;
+      this.mostrarMensajeError('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.');
+      return false;
     }
+    return true;
+  }
+
+  private validarLimiteFotos(): boolean {
     if (this.config.max_photos_per_user <= this.photos.length) {
-      this.snackBar.open('❌ No puedes subir más fotos. Elimina alguna foto para poder subir una nueva.', 'Cerrar', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-      });
-      return;
-    } else {
-      this.router.navigate(['/subir-foto']);
+      this.mostrarMensajeError('❌ No puedes subir más fotos. Elimina alguna foto para poder subir una nueva.');
+      return false;
     }
+    return true;
+  }
+
+  private mostrarMensajeError(mensaje: string): void {
+    this.snackBar.open(mensaje, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 
   verificarFechaSubida() {
