@@ -29,6 +29,9 @@ try {
             case 'getPhotos':
                 print json_encode($modelo->ObtenerPhotos());
                 break;
+            case 'getAcceptedPhotos':
+                print json_encode($modelo->ObtenerPhotosAccepted());
+                break;
             case 'getPhoto':
                 print json_encode($modelo->ObtenerPhoto($datos->id));
                 break;
@@ -123,6 +126,19 @@ class Modelo
     {
         try {
             $consulta = "SELECT * FROM photos ORDER BY upload_date DESC";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    public function ObtenerPhotosAccepted()
+    {
+        try {
+            $consulta = "SELECT * FROM photos WHERE status = 'accepted' ORDER BY upload_date DESC";
             $stm = $this->pdo->prepare($consulta);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);

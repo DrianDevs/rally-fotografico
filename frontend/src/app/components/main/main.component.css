@@ -1,10 +1,8 @@
 :host {
   display: block;
   width: 100%;
-  height: calc(100vh - 64px);
   margin: 0;
   padding: 0;
-  overflow: hidden;
   position: relative;
 }
 
@@ -13,14 +11,15 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  overflow-x: hidden; /* ✅ solo oculta scroll lateral */
 }
 
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  height: auto;
   background-image: url("../../../assets/uploads/photo_682a21038a67f9.30922357.jpg");
   background-size: cover;
   background-position: center;
@@ -65,4 +64,262 @@ html {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Info Section Styles */
+.info-section {
+  background-color: #1e3a8a;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.info-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.info-text {
+  flex: 1;
+  color: white;
+  padding-right: 2rem;
+}
+
+.info-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #60a5fa;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.info-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  color: #e2e8f0;
+}
+
+.info-image {
+  flex: 0 0 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.info-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .info-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-text {
+    padding-right: 0;
+  }
+
+  .info-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .info-text h2 {
+    font-size: 2rem;
+  }
+
+  .info-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+  background-color: #1e3a8a;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-header p {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.photo-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-container:hover .photo-image {
+  transform: scale(1.05);
+}
+
+.photo-info {
+  padding: 1.5rem;
+}
+
+.photo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.photo-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.like-button:hover {
+  background-color: #f3f4f6;
+}
+
+.heart {
+  font-size: 1rem;
+}
+
+.like-count {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.photo-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.photo-description {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.no-photos {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for Gallery */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .gallery-header h2 {
+    font-size: 2rem;
+  }
+
+  .gallery-header p {
+    font-size: 1rem;
+  }
+
+  .photo-container {
+    height: 200px;
+  }
+
+  .photo-info {
+    padding: 1rem;
+  }
+
+  .photo-title {
+    font-size: 1.1rem;
+  }
+
+  .photo-description {
+    font-size: 0.9rem;
+  }
 }

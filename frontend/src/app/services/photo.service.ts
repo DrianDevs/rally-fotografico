@@ -50,4 +50,19 @@ export class PhotoService {
     }
     return this.http.post<any>(this.url, body);
   }
+
+  getAcceptedPhotos() {
+    const body = {
+      servicio: 'getAcceptedPhotos'
+    }
+    return this.http.post<any>(this.url, body);
+  }
+
+  likePhoto(photoId: number) {
+    const body = {
+      servicio: 'likePhoto',
+      photoId: photoId
+    }
+    return this.http.post<any>(this.url, body);
+  }
 }

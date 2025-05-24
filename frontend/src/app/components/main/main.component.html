@@ -1,24 +1,3 @@
-<!-- <a
-  routerLink="/login"
-  class="inline-flex items-center px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out"
->
-  Iniciar Sesión
-  <svg
-    class="w-5 h-5 ml-2"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M17 8l4 4m0 0l-4 4m4-4H3"
-    ></path>
-  </svg>
-</a> -->
-
 <div class="hero-container">
   <div class="hero-content">
     <h1>Bienvenido al Rally Fotográfico</h1>
@@ -26,3 +5,77 @@
     <p>¡Sube tus fotos favoritas de Punta Cana!</p>
   </div>
 </div>
+
+<div class="info-section">
+  <div class="info-content">
+    <div class="info-text">
+      <h2>¿Qué es el Rally Fotográfico?</h2>
+      <p>
+        El Rally Fotográfico de Punta Cana es un evento único que celebra la belleza natural y cultural
+        de uno de los destinos más espectaculares del Caribe. Durante este emocionante período,
+        fotógrafos aficionados y profesionales tienen la oportunidad de capturar la esencia
+        de Punta Cana a través de sus lentes.
+      </p>
+      <p>
+        Desde sus playas de arena blanca y aguas cristalinas hasta sus exuberantes paisajes tropicales,
+        cada rincón de Punta Cana ofrece una historia visual que contar. El rally incluye diferentes
+        categorías como paisajes naturales, vida silvestre, cultura local, arquitectura colonial
+        y momentos cotidianos que reflejan la vida auténtica de la región.
+      </p>
+      <p>
+        Los participantes pueden explorar diversos locations icónicos como Playa Bávaro,
+        el Hoyo Azul, los manglares, plantaciones de caña de azúcar, pueblos pesqueros tradicionales
+        y sitios históricos. Cada fotografía enviada será evaluada por un panel de expertos
+        que valorará la creatividad, composición, técnica y la capacidad de transmitir
+        la esencia única de Punta Cana.
+      </p>
+      <p>
+        ¡Únete a esta aventura fotográfica y comparte tu visión única de este paraíso tropical!
+        Los mejores trabajos serán premiados y exhibidos en una galería especial.
+      </p>
+    </div>
+    <div class="info-image">
+      <img src="/uploads/photo_682a21038a67f9.30922357.jpg" alt="Fotografía del Rally de Punta Cana" />
+    </div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-header">
+    <h2>Galería de Fotos Aceptadas</h2>
+    <p>Descubre las mejores fotografías del Rally Fotográfico de Punta Cana</p>
+  </div>
+
+  <div class="gallery-grid">
+    @for (photo of acceptedPhotos; track photo.id) {
+    <div class="photo-card">
+      <div class="photo-container" (click)="openImageViewer(getPhotoUrl(photo.file_path), photo.title)">
+        <img [src]="getPhotoUrl(photo.file_path)" [alt]="photo.title" class="photo-image" />
+      </div>
+      <div class="photo-info">
+        <div class="photo-header">
+          <span class="author-name">{{ photo.user_name }}</span>
+          <div class="photo-actions">
+            <button class="like-button" (click)="likePhoto(photo.id)">
+              <span class="heart">❤️</span>
+              <span class="like-count">{{ photo.votes_count || 0 }}</span>
+            </button>
+          </div>
+        </div>
+        <h3 class="photo-title">{{ photo.title }}</h3>
+        <p class="photo-description">{{ photo.description }}</p>
+      </div>
+    </div>
+    }
+
+    @if (acceptedPhotos.length === 0) {
+    <div class="no-photos">
+      <p>No hay fotos aceptadas aún. ¡Sé el primero en participar!</p>
+    </div>
+    }
+  </div>
+</div>
+
+<app-image-viewer [isOpen]="selectedImage !== null" [imageUrl]="selectedImage?.url || ''"
+  [imageAlt]="selectedImage?.alt || ''" (closeViewer)="closeImageViewer()">
+</app-image-viewer>
