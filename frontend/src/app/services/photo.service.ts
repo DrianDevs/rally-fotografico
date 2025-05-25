@@ -58,10 +58,11 @@ export class PhotoService {
     return this.http.post<any>(this.url, body);
   }
 
-  likePhoto(photoId: number) {
+  likePhoto(photoId: number, userId: number) {
     const body = {
       servicio: 'likePhoto',
-      photoId: photoId
+      photoId: photoId,
+      userId: userId
     }
     return this.http.post<any>(this.url, body);
   }

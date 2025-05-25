@@ -86,6 +86,15 @@ try {
                     print json_encode(['result' => 'FAIL']);
                 }
                 break;
+            case 'likePhoto':
+                if ($modelo->ExisteVoto($datos->photoId, $datos->userId)) {
+                    $modelo->BorrarVoto($datos->photoId, $datos->userId);
+                    print json_encode(['result' => 'OK', 'action' => 'unliked']);
+                } else {
+                    $modelo->CrearVoto($datos->photoId, $datos->userId);
+                    print json_encode(['result' => 'OK', 'action' => 'liked']);
+                }
+                break;
             case 'deletePhoto':
                 if ($modelo->EliminarPhoto($datos->id))
                     print '{"result":"OK"}';
@@ -138,7 +147,11 @@ class Modelo
     public function ObtenerPhotosAccepted()
     {
         try {
-            $consulta = "SELECT * FROM photos WHERE status = 'accepted' ORDER BY upload_date DESC";
+            $consulta = "SELECT p.*, u.name as user_name 
+                     FROM photos p 
+                     JOIN users u ON p.user_id = u.id 
+                     WHERE p.status = 'accepted' 
+                     ORDER BY p.votes_count DESC";
             $stm = $this->pdo->prepare($consulta);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -164,7 +177,10 @@ class Modelo
     public function ObtenerPhotosByUserId($userId)
     {
         try {
-            $consulta = "SELECT * FROM photos WHERE user_id = ?";
+            $consulta = "SELECT p.*, u.name as user_name 
+                     FROM photos p 
+                     JOIN users u ON p.user_id = u.id 
+                     WHERE p.user_id = ?";
             $stm = $this->pdo->prepare($consulta);
             $stm->execute(array($userId));
             return $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -177,7 +193,10 @@ class Modelo
     public function ObtenerPhotosPending()
     {
         try {
-            $consulta = "SELECT * FROM photos WHERE status = 'pending'";
+            $consulta = "SELECT p.*, u.name as user_name 
+                     FROM photos p 
+                     JOIN users u ON p.user_id = u.id 
+                     WHERE p.status = 'pending'";
             $stm = $this->pdo->prepare($consulta);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -295,6 +314,64 @@ class Modelo
 
         return $relativePath;
 
+    }
+
+    /**
+     * Verifica si un usuario ya ha votado por una foto en concreto.
+     *
+     * @param int $photoId ID de la foto.
+     * @param int $userId ID del usuario.
+     * @return bool True si el usuario ya ha votado, false en caso contrario.
+     */
+    public function ExisteVoto($photoId, $userId)
+    {
+        try {
+            $sql = "SELECT COUNT(*) FROM votes WHERE photo_id = ? AND user_id = ?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$photoId, $userId]);
+            return $stm->fetchColumn() > 0;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Elimina el voto de un usuario por una foto en concreto.
+     *
+     * @param int $photoId ID de la foto.
+     * @param int $userId ID del usuario.
+     * @return bool True si se eliminó el voto, false en caso contrario.
+     */
+    public function BorrarVoto($photoId, $userId)
+    {
+        try {
+            $sql = "DELETE FROM votes WHERE photo_id = ? AND user_id = ?";
+            $stm = $this->pdo->prepare($sql);
+            return $stm->execute([$photoId, $userId]);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Crea un nuevo voto para una foto por parte de un usuario.
+     *
+     * @param int $photoId ID de la foto.
+     * @param int $userId ID del usuario.
+     * @return bool True si se creó el voto, false en caso contrario.
+     */
+    public function CrearVoto($photoId, $userId)
+    {
+        try {
+            $sql = "INSERT INTO votes (photo_id, user_id) VALUES (?, ?)";
+            $stm = $this->pdo->prepare($sql);
+            return $stm->execute([$photoId, $userId]);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
     }
 
 }
