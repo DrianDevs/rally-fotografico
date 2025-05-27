@@ -140,7 +140,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 
@@ -157,7 +157,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 
@@ -170,7 +170,7 @@ class Modelo
             return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 
@@ -186,7 +186,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 
@@ -202,7 +202,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 

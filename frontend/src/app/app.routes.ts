@@ -27,6 +27,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'estadisticas',
+    loadComponent: () =>
+      import('./components/stats/stats.component').then(
+        (m) => m.StatsComponent
+      ),
+  },
+  {
     path: 'admin',
     loadComponent: () =>
       import('./components/zona-admin/zona-admin.component').then(

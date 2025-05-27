@@ -10,6 +10,14 @@
 
             <!-- Botones de navegación -->
             <nav class="flex items-center space-x-4">
+                <button (click)="irAGaleria()"
+                    class="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium">
+                    Galería
+                </button>
+                <a routerLink="/estadisticas"
+                    class="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium">
+                    Estadísticas
+                </a>
                 @if (authService.isLoggedIn()) {
                 @if (authService.isAdmin) {
                 <a routerLink="/admin"

@@ -19,6 +19,9 @@ if ($datos != null) {
         case 'getUser':
             print json_encode($modelo->ObtenerUser($datos->id));
             break;
+        case 'getMostVotedUsers':
+            print json_encode($modelo->ObtenerUsuariosMasVotados());
+            break;
         case 'insertarUser':
             if ($modelo->InsertarUser($datos))
                 print '{"result":"OK"}';
@@ -70,7 +73,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
     }
 
@@ -83,7 +86,23 @@ class Modelo
             return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            return $e->getMessage();
+        }
+    }
+
+    public function ObtenerUsuariosMasVotados()
+    {
+        try {
+            $consulta = "SELECT u.id AS user_id, u.name, SUM(p.votes_count) AS total_votes
+                        FROM users u JOIN photos p ON u.id = p.user_id
+                        GROUP BY u.id, u.name ORDER BY total_votes DESC
+                        LIMIT 10;";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return $e->getMessage();
         }
     }
 

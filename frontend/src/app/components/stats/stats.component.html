@@ -1,0 +1,104 @@
+<div class="stats-container">
+    <div class="top-photos-section">
+        <h2>🏆 Top 3 Fotos</h2>
+        <p>Las fotografías más votadas del Rally Fotográfico</p>
+
+        <div class="podium-container">
+            @if (topPhotos.length > 0) {
+            <!-- Segundo lugar -->
+            @if (topPhotos.length > 1) {
+            <div class="podium-position second-place">
+                <div class="position-number">2</div>
+                <div class="photo-card">
+                    <img [src]="getPhotoUrl(topPhotos[1].file_path)" [alt]="topPhotos[1].title" class="podium-photo" />
+                    <div class="photo-info">
+                        <h3>{{ topPhotos[1].title }}</h3>
+                        <p class="author">{{ topPhotos[1].user_name }}</p>
+                        <div class="votes">
+                            <span class="heart">❤️</span>
+                            <span>{{ topPhotos[1].votes_count || 0 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            <!-- Primer lugar -->
+            <div class="podium-position first-place">
+                <div class="position-number">1</div>
+                <div class="photo-card">
+                    <img [src]="getPhotoUrl(topPhotos[0].file_path)" [alt]="topPhotos[0].title" class="podium-photo" />
+                    <div class="photo-info">
+                        <h3>{{ topPhotos[0].title }}</h3>
+                        <p class="author">{{ topPhotos[0].user_name }}</p>
+                        <div class="votes">
+                            <span class="heart">❤️</span>
+                            <span>{{ topPhotos[0].votes_count || 0 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tercer lugar -->
+            @if (topPhotos.length > 2) {
+            <div class="podium-position third-place">
+                <div class="position-number">3</div>
+                <div class="photo-card">
+                    <img [src]="getPhotoUrl(topPhotos[2].file_path)" [alt]="topPhotos[2].title" class="podium-photo" />
+                    <div class="photo-info">
+                        <h3>{{ topPhotos[2].title }}</h3>
+                        <p class="author">{{ topPhotos[2].user_name }}</p>
+                        <div class="votes">
+                            <span class="heart">❤️</span>
+                            <span>{{ topPhotos[2].votes_count || 0 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            } @else {
+            <div class="no-photos">
+                <p>No hay fotos suficientes para mostrar el podio aún.</p>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Nueva sección de usuarios más votados -->
+    <div class="top-users-section">
+        <h2>🏆 Top 10 Usuarios Más Votados</h2>
+        <p>Los usuarios con más votos acumulados en sus fotografías</p>
+
+        <div class="chart-container">
+            @if (topUsers.length > 0) {
+            <div class="chart-bars">
+                @for (user of topUsers; track user.user_id; let i = $index) {
+                <div class="bar-item">
+                    <div class="bar-container">
+                        <div class="bar-background">
+                            <div class="bar-fill" [style.width.%]="getBarWidth(user.total_votes)"
+                                [class]="'position-' + (i + 1)">
+                            </div>
+                        </div>
+                        <div class="bar-info">
+                            <div class="user-position">{{ i + 1 }}</div>
+                            <div class="user-details">
+                                <span class="username">{{ user.name }}</span>
+                                <div class="vote-count">
+                                    <span class="heart">❤️</span>
+                                    <span class="votes">{{ user.total_votes }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            } @else {
+            <div class="no-users">
+                <p>No hay datos de usuarios disponibles aún.</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>

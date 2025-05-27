@@ -26,6 +26,13 @@ export class UserService {
     return this.http.post<any>(this.url, body);
   }
 
+  obtenerUsuariosMasVotados() {
+    let body = JSON.stringify({
+      servicio: 'getMostVotedUsers',
+    });
+    return this.http.post<any>(this.url, body);
+  }
+
   insertarUser(data: any) {
     let body = JSON.stringify({
       servicio: 'insertarUser',

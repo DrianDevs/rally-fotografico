@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,9 +11,20 @@ import { AuthService } from '../../services/auth.service';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    constructor(public authService: AuthService) { }
+    constructor(public authService: AuthService, private router: Router) { }
 
     logout() {
         this.authService.logout();
+    }
+
+    irAGaleria() {
+        this.router.navigate(['/']).then(() => {
+            setTimeout(() => {
+                const gallerySection = document.querySelector('.gallery-section');
+                if (gallerySection) {
+                    gallerySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        });
     }
 } 
