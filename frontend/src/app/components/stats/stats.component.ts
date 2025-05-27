@@ -11,12 +11,14 @@ import { UserService } from '../../services/user.service';
 export class StatsComponent implements OnInit {
   public topPhotos: any[] = [];
   public topUsers: any[] = [];
+  public topPhotosToday: any[] = [];
 
   constructor(private photoService: PhotoService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.loadTopPhotos();
     this.loadTopUsers();
+    this.loadTopPhotosToday();
   }
 
   loadTopPhotos() {
@@ -33,7 +35,6 @@ export class StatsComponent implements OnInit {
       }
     });
   }
-
   loadTopUsers() {
     this.userService.obtenerUsuariosMasVotados().subscribe({
       next: (users) => {
@@ -42,6 +43,18 @@ export class StatsComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error loading top users:', error);
+      }
+    });
+  }
+
+  loadTopPhotosToday() {
+    this.photoService.getTopPhotosToday().subscribe({
+      next: (photos) => {
+        this.topPhotosToday = photos;
+        console.log('Top photos today loaded:', this.topPhotosToday);
+      },
+      error: (error) => {
+        console.error('Error loading top photos today:', error);
       }
     });
   }

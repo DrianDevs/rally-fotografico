@@ -365,8 +365,211 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
-
   .vote-count {
     align-self: flex-end;
+  }
+}
+
+/* Estilos para la sección de fotos más votadas de hoy */
+.today-photos-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #fff5f5, #ffffff);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.today-photos-section h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #e74c3c, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.today-photos-section p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.today-photos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.today-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+.today-photo-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  max-width: 100%;
+}
+
+.today-photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.today-photo-card.position-1 {
+  border: 3px solid #ffd700;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.today-photo-card.position-2 {
+  border: 3px solid #c0c0c0;
+  box-shadow: 0 8px 25px rgba(192, 192, 192, 0.3);
+}
+
+.today-photo-card.position-3 {
+  border: 3px solid #cd7f32;
+  box-shadow: 0 8px 25px rgba(205, 127, 50, 0.3);
+}
+
+.photo-rank {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(44, 62, 80, 0.9);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.today-photo-card.position-1 .photo-rank {
+  background: linear-gradient(45deg, #ffd700, #f39c12);
+  color: #2c3e50;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+}
+
+.today-photo-card.position-2 .photo-rank {
+  background: linear-gradient(45deg, #bdc3c7, #95a5a6);
+  color: #2c3e50;
+  box-shadow: 0 4px 12px rgba(189, 195, 199, 0.5);
+}
+
+.today-photo-card.position-3 .photo-rank {
+  background: linear-gradient(45deg, #cd7f32, #d35400);
+  color: white;
+  box-shadow: 0 4px 12px rgba(205, 127, 50, 0.5);
+}
+
+.photo-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.today-photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.today-photo-card:hover .today-photo-image {
+  transform: scale(1.05);
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.today-photo-card:hover .photo-overlay {
+  transform: translateY(0);
+}
+
+.photo-details {
+  text-align: center;
+}
+
+.photo-details h4 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.photo-author {
+  color: #bdc3c7;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.photo-votes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.photo-votes .heart {
+  font-size: 1.3rem;
+}
+
+.no-photos-today {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Media queries para fotos de hoy */
+@media (max-width: 768px) {
+  .today-photos-section {
+    padding: 2rem 1rem;
+  }
+
+  .today-photos-section h2 {
+    font-size: 2rem;
+  }
+
+  .today-photos-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .today-photo-card.position-1 {
+    transform: none;
+  }
+
+  .photo-container {
+    height: 200px;
   }
 }

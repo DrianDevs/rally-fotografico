@@ -101,4 +101,39 @@
             }
         </div>
     </div>
+
+    <!-- Nueva sección de fotos más votadas de hoy -->
+    <div class="today-photos-section">
+        <h2>📅 Top 10 Fotos Más Votadas de Hoy</h2>
+        <p>Las fotografías con más votos subidas en el día de hoy</p>
+
+        <div class="today-photos-container">
+            @if (topPhotosToday.length > 0) {
+            <div class="today-photos-grid">
+                @for (photo of topPhotosToday; track photo.id; let i = $index) {
+                <div class="today-photo-card" [class]="'position-' + (i + 1)">
+                    <div class="photo-rank">{{ i + 1 }}</div>
+                    <div class="photo-container">
+                        <img [src]="getPhotoUrl(photo.file_path)" [alt]="photo.title" class="today-photo-image" />
+                        <div class="photo-overlay">
+                            <div class="photo-details">
+                                <h4>{{ photo.title }}</h4>
+                                <p class="photo-author">{{ photo.user_name }}</p>
+                                <div class="photo-votes">
+                                    <span class="heart">❤️</span>
+                                    <span>{{ photo.votes_count || 0 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            } @else {
+            <div class="no-photos-today">
+                <p>No hay fotos votadas de hoy aún. ¡Sé el primero en votar!</p>
+            </div>
+            }
+        </div>
+    </div>
 </div>

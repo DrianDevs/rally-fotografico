@@ -101,6 +101,9 @@ try {
                 else
                     print '{"result":"FAIL"}';
                 break;
+            case 'getTopPhotosToday':
+                print json_encode($modelo->ObtenerTopPhotosDeHoy());
+                break;
             default:
                 print json_encode(['result' => 'FAIL', 'error' => 'Servicio no válido']);
                 break;
@@ -353,15 +356,13 @@ class Modelo
             error_log($e->getMessage());
             return false;
         }
-    }
-
-    /**
-     * Crea un nuevo voto para una foto por parte de un usuario.
-     *
-     * @param int $photoId ID de la foto.
-     * @param int $userId ID del usuario.
-     * @return bool True si se creó el voto, false en caso contrario.
-     */
+    }    /**
+         * Crea un nuevo voto para una foto por parte de un usuario.
+         *
+         * @param int $photoId ID de la foto.
+         * @param int $userId ID del usuario.
+         * @return bool True si se creó el voto, false en caso contrario.
+         */
     public function CrearVoto($photoId, $userId)
     {
         try {
@@ -371,6 +372,30 @@ class Modelo
         } catch (Exception $e) {
             error_log($e->getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Obtiene las 10 fotos más votadas del día actual.
+     *
+     * @return array Array con las fotos más votadas de hoy.
+     */
+    public function ObtenerTopPhotosDeHoy()
+    {
+        try {
+            $consulta = "SELECT p.*, u.name as user_name 
+                        FROM photos p 
+                        JOIN users u ON p.user_id = u.id 
+                        WHERE p.status = 'accepted' 
+                        AND DATE(p.upload_date) = CURDATE()
+                        ORDER BY p.votes_count DESC 
+                        LIMIT 10";
+            $stm = $this->pdo->prepare($consulta);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return [];
         }
     }
 
