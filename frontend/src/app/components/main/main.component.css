@@ -32,16 +32,6 @@ html {
   overflow: hidden;
 }
 
-.hero-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -49,7 +39,7 @@ html {
   padding: 2rem;
   max-width: 600px;
   margin-left: 2rem;
-  margin-top: 0;
+  margin-top: -3rem;
   margin-bottom: 0;
 }
 
@@ -68,7 +58,7 @@ html {
 
 /* Info Section Styles */
 .info-section {
-  background-color: #1e3a8a;
+  background: linear-gradient(to bottom, #016691, #014a6b);
   padding: 4rem 2rem;
   min-height: 100vh;
 }
@@ -149,7 +139,7 @@ html {
 
 /* Gallery Section Styles */
 .gallery-section {
-  background-color: #1e3a8a;
+  background: linear-gradient(to bottom, #014a6b, #012a3b);
   padding: 4rem 2rem;
   min-height: 100vh;
 }
@@ -345,7 +335,7 @@ html {
   left: 0;
   width: 100%;
   height: 100px;
-  background: url("../../../assets/wave.png");
+  background: url("../../../assets/wave_blue.png");
   background-size: 1000px 100px;
 }
 
