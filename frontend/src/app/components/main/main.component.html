@@ -50,6 +50,15 @@
     <p>Descubre las mejores fotografías del Rally Fotográfico de Punta Cana</p>
   </div>
 
+  <div class="sort-buttons">
+    <button class="sort-button" [class.active]="sortBy === 'popular'" (click)="setSortBy('popular')">
+      🔥 Populares
+    </button>
+    <button class="sort-button" [class.active]="sortBy === 'recent'" (click)="setSortBy('recent')">
+      ⏰ Recientes
+    </button>
+  </div>
+
   <div class="gallery-grid">
     @for (photo of acceptedPhotos; track photo.id) {
     <div class="photo-card">

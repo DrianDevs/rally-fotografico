@@ -15,7 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class MainComponent implements OnInit {
   public user: any = null;
   public acceptedPhotos: any[] = [];
+  public allPhotos: any[] = []; // Store original photos array
   public selectedImage: { url: string; alt: string } | null = null;
+  public sortBy: 'popular' | 'recent' = 'popular'; // Default to popular
 
   constructor(private photoService: PhotoService, private authService: AuthService, private snackBar: MatSnackBar) { }
 
@@ -26,7 +28,8 @@ export class MainComponent implements OnInit {
   loadAcceptedPhotos() {
     this.photoService.getAcceptedPhotos().subscribe({
       next: (photos) => {
-        this.acceptedPhotos = photos;
+        this.allPhotos = photos; // Store original data
+        this.sortPhotos(); // Apply current sorting
         console.log('Accepted photos loaded:', this.acceptedPhotos);
       },
       error: (error) => {
@@ -39,6 +42,19 @@ export class MainComponent implements OnInit {
       console.log('User info:', this.user);
     }
 
+  }
+
+  setSortBy(sortType: 'popular' | 'recent') {
+    this.sortBy = sortType;
+    this.sortPhotos();
+  }
+
+  sortPhotos() {
+    if (this.sortBy === 'popular') {
+      this.acceptedPhotos = [...this.allPhotos].sort((a, b) => (b.votes_count || 0) - (a.votes_count || 0));
+    } else if (this.sortBy === 'recent') {
+      this.acceptedPhotos = [...this.allPhotos].sort((a, b) => new Date(b.upload_date).getTime() - new Date(a.upload_date).getTime());
+    }
   }
 
   getPhotoUrl(filePath: string): string {
@@ -56,7 +72,7 @@ export class MainComponent implements OnInit {
     console.log('Liking photo with ID:', photoId, this.user.sub);
     this.photoService.likePhoto(photoId, this.user.sub).subscribe({
       next: (respuesta) => {
-        this.loadAcceptedPhotos();
+        this.loadAcceptedPhotos(); // This will refresh and re-sort
         if (respuesta.action === 'unliked') {
           this.snackBar.open('💔 Has quitado tu voto de esta foto.', 'Cerrar', {
             duration: 3000,
