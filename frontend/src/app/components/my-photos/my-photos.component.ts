@@ -70,8 +70,7 @@ export class MyPhotosComponent implements OnInit, OnChanges {
     if (confirm('¿Estás seguro de que quieres eliminar esta foto?')) {
       this.photoService.deletePhoto(photoId).subscribe({
         next: () => {
-          // Actualizar la lista de fotos después de eliminar
-          this.getPhotos();
+          this.getPhotos();   // Actualizar la lista de fotos después de eliminar
         },
         error: (error) => {
           console.error('Error al eliminar la foto:', error);

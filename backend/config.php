@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 $host = 'localhost';
 $db = 'rally_fotografico';
 $user = 'root';
@@ -22,6 +24,11 @@ try {
 
 // Clave secreta para JWT
 $jwt_secret = 'clave-super-secreta-que-deberías-cambiar';
+
+// Configuración de Resend
+$resend_api_key = 're_aru5N42R_386Cmt1cmPYfZ8kZkTifsHfB';
+$from_email = 'onboarding@resend.dev'; // Dominio de prueba, cambiar en el futuro
+$app_url = 'http://localhost:4200'; // URL del frontend
 
 // Configuración para fotos
 $uploadDir = __DIR__ . '/uploads/';

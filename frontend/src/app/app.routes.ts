@@ -5,6 +5,7 @@ import { ZonaAdminComponent } from './components/zona-admin/zona-admin.component
 import { MainComponent } from './components/main/main.component';
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
+import { tokenGuard } from './guards/token.guard';
 
 export const routes: Routes = [
   {
@@ -18,13 +19,26 @@ export const routes: Routes = [
       import('./components/login/login.component').then(
         (m) => m.LoginComponent
       ),
-  },
-  {
+  }, {
     path: 'signup',
     loadComponent: () =>
       import('./components/signup/signup.component').then(
         (m) => m.SignupComponent
       ),
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./components/forgot-password/forgot-password.component').then(
+        (m) => m.ForgotPasswordComponent
+      ),
+  }, {
+    path: 'reset-password/:token',
+    loadComponent: () =>
+      import('./components/reset-password/reset-password.component').then(
+        (m) => m.ResetPasswordComponent
+      ),
+    canActivate: [tokenGuard],
   },
   {
     path: 'estadisticas',

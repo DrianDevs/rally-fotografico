@@ -65,4 +65,12 @@ export class UserService {
     });
     return this.http.post<any>(this.url, body);
   }
+
+  forgotPassword(email: string) {
+    let body = JSON.stringify({
+      servicio: 'forgotPassword',
+      email: email,
+    });
+    return this.http.post<any>(this.url, body);
+  }
 }

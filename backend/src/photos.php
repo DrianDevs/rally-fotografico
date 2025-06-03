@@ -297,7 +297,7 @@ class Modelo
 
     public function GuardarPhoto($file)
     {
-        global $uploadDir; // Para poder acceder a la carpeta
+        global $uploadDir; // La carpeta donde se guardarán las fotos (Establecida en config.php)
 
         // Si la carpeta no existe, la crea
         if (!is_dir($uploadDir)) {
@@ -316,7 +316,6 @@ class Modelo
         }
 
         return $relativePath;
-
     }
 
     /**

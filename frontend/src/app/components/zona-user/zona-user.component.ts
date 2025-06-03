@@ -77,7 +77,6 @@ export class ZonaUserComponent implements OnInit {
       inputElement.focus();
     }
   }
-
   confirmarEdicion(campo: string) {
     // Obtener el valor del campo editado
     const campoElement = document.getElementById(campo) as HTMLInputElement;
@@ -86,6 +85,12 @@ export class ZonaUserComponent implements OnInit {
 
     // Si el campo editado es la contraseña, se llama a un servicio dedicado por seguridad
     if (campo === 'password') {
+      // Validar que la contraseña tenga al menos 6 caracteres
+      if (nuevoValor.length < 6) {
+        alert('La contraseña debe tener al menos 6 caracteres');
+        return;
+      }
+
       this.userService.actualizarPassword(this.user.id, nuevoValor).subscribe({
         next: (data) => {
           console.log("Contraseña actualizada con éxito:", data);

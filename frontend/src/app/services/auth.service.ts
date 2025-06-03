@@ -57,4 +57,14 @@ export class AuthService {
   get isAdmin(): boolean {
     return this.getUserRole() === 'admin';
   }
+
+  verificarTokenPassword(token: string) {
+    const body = {
+      servicio: 'verificarToken',
+      token: token
+    }
+    return this.http.post<any>(this.apiUrl + '/src/users.php', body)
+  }
+
 }
+
