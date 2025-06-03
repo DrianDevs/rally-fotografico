@@ -14,6 +14,11 @@ $modelo = new Modelo();
 $datos = file_get_contents('php://input');
 $datos = json_decode($datos);
 
+// AGREGAR ESTAS LÍNEAS PARA DEBUG
+error_log('DEBUG - Datos raw recibidos: ' . file_get_contents('php://input'));
+error_log('DEBUG - Datos decodificados: ' . json_encode($datos));
+error_log('DEBUG - Servicio solicitado: ' . ($datos->servicio ?? 'NO DEFINIDO'));
+
 if ($datos != null) {
     switch ($datos->servicio) {
         case 'getUsers':
@@ -50,7 +55,9 @@ if ($datos != null) {
                 print '{"result":"FAIL"}';
             break;
         case 'forgotPassword':
+            error_log('DEBUG - Ejecutando forgotPassword para email: ' . $datos->email);
             $resultado = $modelo->ForgotPassword($datos->email);
+            error_log('DEBUG - Resultado ForgotPassword: ' . json_encode($resultado));
             if ($resultado['success'])
                 print json_encode(['result' => 'OK', 'message' => $resultado['message']]);
             else
@@ -78,7 +85,15 @@ if ($datos != null) {
             else
                 print json_encode(['result' => 'FAIL', 'message' => $resultado['message']]);
             break;
+        default:
+            error_log('DEBUG - Servicio no encontrado: ' . ($datos->servicio ?? 'NULL'));
+            error_log('DEBUG - Datos completos: ' . print_r($datos, true));
+            print json_encode(['result' => 'FAIL', 'message' => 'Servicio no encontrado']);
+            break;
     }
+} else {
+    error_log('DEBUG - No se recibieron datos válidos');
+    print json_encode(['result' => 'FAIL', 'message' => 'No se recibieron datos válidos']);
 }
 
 
@@ -213,6 +228,8 @@ class Modelo
     public function ForgotPassword($email)
     {
         try {
+            error_log('DEBUG - Iniciando ForgotPassword para: ' . $email);
+
             // Verificar si el email existe en la base de datos
             $sql = "SELECT id, name FROM users WHERE email = ?";
             $stmt = $this->pdo->prepare($sql);
@@ -220,15 +237,22 @@ class Modelo
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$user) {
+                error_log('DEBUG - Email no encontrado: ' . $email);
                 return [
                     'success' => false,
                     'message' => 'El correo electrónico no está registrado en nuestro sistema'
                 ];
             }
 
+            error_log('DEBUG - Usuario encontrado: ' . $user['name']);
+
             // Generar token único
             $token = bin2hex(random_bytes(32));
-            $expiresAt = date('Y-m-d H:i:s', strtotime('+1 hour')); // Token válido por 1 hora            // Limpiar tokens anteriores del usuario
+            $expiresAt = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+            error_log('DEBUG - Token generado: ' . $token);
+
+            // Limpiar tokens anteriores del usuario
             $cleanupSql = "DELETE FROM password_resets WHERE user_id = ?";
             $this->pdo->prepare($cleanupSql)->execute(array($user['id']));
 
@@ -236,23 +260,23 @@ class Modelo
             $insertSql = "INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)";
             $this->pdo->prepare($insertSql)->execute(array($user['id'], $token, $expiresAt));
 
-            // Enviar email con enlace de recuperación
-            $emailSent = $this->sendPasswordResetEmail($email, $user['name'], $token);
+            error_log('DEBUG - Token guardado en BD');
 
-            if ($emailSent) {
-                return [
-                    'success' => true,
-                    'message' => 'Se ha enviado un correo electrónico con las instrucciones para restablecer tu contraseña'
-                ];
-            } else {
-                return [
-                    'success' => false,
-                    'message' => 'Error al enviar el correo electrónico. Inténtalo de nuevo más tarde'
-                ];
-            }
+            // TEMPORAL: Simular envío exitoso y mostrar enlace en logs
+            $resetLink = $this->app_url . '/reset-password?token=' . $token;
+            error_log('=== EMAIL SIMULADO ===');
+            error_log('Para: ' . $email);
+            error_log('Nombre: ' . $user['name']);
+            error_log('Enlace de recuperación: ' . $resetLink);
+            error_log('======================');
+
+            return [
+                'success' => true,
+                'message' => 'Se ha enviado un correo electrónico con las instrucciones para restablecer tu contraseña'
+            ];
 
         } catch (Exception $e) {
-            error_log($e->getMessage());
+            error_log('ERROR en ForgotPassword: ' . $e->getMessage());
             return [
                 'success' => false,
                 'message' => 'Error interno del servidor'
@@ -262,46 +286,66 @@ class Modelo
     private function sendPasswordResetEmail($email, $name, $token)
     {
         try {
+            // Verificar que las configuraciones estén disponibles
+            error_log('DEBUG - API Key: ' . ($this->resend_api_key ? 'Configurada' : 'NO configurada'));
+            error_log('DEBUG - From Email: ' . $this->from_email);
+            error_log('DEBUG - App URL: ' . $this->app_url);
+
+            if (empty($this->resend_api_key)) {
+                error_log('ERROR: Resend API key no configurada');
+                return false;
+            }
+
+            // Verificar que la clase Resend esté disponible
+            if (!class_exists('\Resend')) {
+                error_log('ERROR: Clase Resend no encontrada. Verificar composer install');
+                return false;
+            }
+
             $resend = \Resend::client($this->resend_api_key);
 
             $resetLink = $this->app_url . '/reset-password?token=' . $token;
 
             $htmlContent = '
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Recuperar Contraseña - Rally Fotográfico</title>
-                <style>
-                    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                    .container { max-width: 600px; margin: 0 auto; padding: 20px; }                    .header { background-color: #2563eb; color: white; padding: 20px; text-align: center; }
-                    .content { padding: 20px; background-color: #f9f9f9; }
-                    .button { display: inline-block; background-color: #2563eb; color: white !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-                    .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <div class="header">
-                        <h1>Rally Fotográfico</h1>
-                    </div>
-                    <div class="content">
-                        <h2>Restablecer tu contraseña</h2>
-                        <p>Hola ' . htmlspecialchars($name) . ',</p>
-                        <p>Hemos recibido una solicitud para restablecer tu contraseña. Si no fuiste tú quien hizo esta solicitud, puedes ignorar este correo.</p>
-                        <p>Para restablecer tu contraseña, haz clic en el siguiente enlace:</p>
-                        <a href="' . $resetLink . '" class="button">Restablecer Contraseña</a>
-                        <p>Este enlace expirará en 1 hora por seguridad.</p>
-                        <p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>
-                        <p>' . $resetLink . '</p>
-                    </div>
-                    <div class="footer">
-                        <p>Este es un correo automático, por favor no respondas a este mensaje.</p>
-                        <p>&copy; 2025 Rally Fotográfico. Todos los derechos reservados.</p>
-                    </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Recuperar Contraseña - Rally Fotográfico</title>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                .header { background-color: #2563eb; color: white; padding: 20px; text-align: center; }
+                .content { padding: 20px; background-color: #f9f9f9; }
+                .button { display: inline-block; background-color: #2563eb; color: white !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+                .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>Rally Fotográfico</h1>
                 </div>
-            </body>
-            </html>';
+                <div class="content">
+                    <h2>Restablecer tu contraseña</h2>
+                    <p>Hola ' . htmlspecialchars($name) . ',</p>
+                    <p>Hemos recibido una solicitud para restablecer tu contraseña. Si no fuiste tú quien hizo esta solicitud, puedes ignorar este correo.</p>
+                    <p>Para restablecer tu contraseña, haz clic en el siguiente enlace:</p>
+                    <a href="' . $resetLink . '" class="button">Restablecer Contraseña</a>
+                    <p>Este enlace expirará en 1 hora por seguridad.</p>
+                    <p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>
+                    <p>' . $resetLink . '</p>
+                </div>
+                <div class="footer">
+                    <p>Este es un correo automático, por favor no respondas a este mensaje.</p>
+                    <p>&copy; 2025 Rally Fotográfico. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </body>
+        </html>';
+
+            error_log('DEBUG - Intentando enviar email a: ' . $email);
+
             $result = $resend->emails->send([
                 'from' => $this->from_email,
                 'to' => [$email],
@@ -309,10 +353,12 @@ class Modelo
                 'html' => $htmlContent,
             ]);
 
+            error_log('DEBUG - Email enviado exitosamente. ID: ' . (isset($result->id) ? $result->id : 'Sin ID'));
             return true;
 
-        } catch (Exception $e) {
-            error_log('Error enviando email: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            error_log('ERROR enviando email: ' . $e->getMessage());
+            error_log('ERROR Stack trace: ' . $e->getTraceAsString());
             return false;
         }
     }

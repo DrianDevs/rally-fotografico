@@ -5,6 +5,7 @@ import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-main',
@@ -18,11 +19,29 @@ export class MainComponent implements OnInit {
   public allPhotos: any[] = []; // Store original photos array
   public selectedImage: { url: string; alt: string } | null = null;
   public sortBy: 'popular' | 'recent' = 'popular'; // Default to popular
+  public config: any = null; // Configuración del rally
 
-  constructor(private photoService: PhotoService, private authService: AuthService, private snackBar: MatSnackBar) { }
-
+  constructor(
+    private photoService: PhotoService,
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+    private configService: ConfigService
+  ) { }
   ngOnInit(): void {
+    this.loadConfig();
     this.loadAcceptedPhotos();
+  }
+
+  loadConfig() {
+    this.configService.obtenerConfig().subscribe({
+      next: (config) => {
+        this.config = config;
+        console.log('Configuración cargada:', this.config);
+      },
+      error: (error) => {
+        console.error('Error al obtener la configuración:', error);
+      }
+    });
   }
 
   loadAcceptedPhotos() {
@@ -56,15 +75,41 @@ export class MainComponent implements OnInit {
       this.acceptedPhotos = [...this.allPhotos].sort((a, b) => new Date(b.upload_date).getTime() - new Date(a.upload_date).getTime());
     }
   }
-
   getPhotoUrl(filePath: string): string {
     return this.photoService.getPhotoUrl(filePath);
   }
 
+  verificarFechaVotacion(): boolean {
+    if (!this.config || !this.config.voting_start_date || !this.config.voting_end_date) {
+      return false;
+    }
+
+    // Obtener la fecha de hoy en el formato YYYY-MM-DD 00:00:00
+    const today = new Date();
+    const todayStr = today.getFullYear() + '-' +
+      String(today.getMonth() + 1).padStart(2, '0') + '-' +
+      String(today.getDate()).padStart(2, '0') + ' 00:00:00';
+
+    // Convertir fechas a objetos Date para poder compararlos
+    const startDate = new Date(this.config.voting_start_date.replace(' ', 'T'));
+    const endDate = new Date(this.config.voting_end_date.replace(' ', 'T'));
+    const currentDate = new Date(todayStr.replace(' ', 'T'));
+
+    // Comparar si la fecha de hoy está en el rango (inclusive)
+    return currentDate >= startDate && currentDate <= endDate;
+  }
   likePhoto(photoId: number) {
     if (!this.user) {
       this.snackBar.open('ℹ️ Necesitas iniciar sesión para poder votar las fotografías.', 'Cerrar', {
         duration: 3000,
+      });
+      return;
+    }
+
+    // Verificar si estamos en el período de votación
+    if (!this.verificarFechaVotacion()) {
+      this.snackBar.open('❌ Las votaciones no están activas en este momento. Consulta las fechas del período de votación.', 'Cerrar', {
+        duration: 4000,
       });
       return;
     }
