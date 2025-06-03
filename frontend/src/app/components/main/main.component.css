@@ -20,7 +20,7 @@ html {
   width: 100%;
   min-height: 100vh;
   height: auto;
-  background-image: url("../../../assets/hero_banner_4.png");
+  background-image: url("../../../assets/punta_cana_7.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,9 +32,20 @@ html {
   overflow: hidden;
 }
 
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* Overlay oscuro semi-transparente */
+  z-index: 1;
+}
+
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2; /* Aseguramos que el contenido esté por encima del overlay */
   color: white;
   padding: 2rem;
   max-width: 600px;
