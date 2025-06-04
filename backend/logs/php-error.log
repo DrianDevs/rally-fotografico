@@ -1,778 +1,272 @@
-[15-May-2025 21:28:33 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-)
-
-[15-May-2025 21:28:33 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => fsfdfdfdsfd
-    [description] => fdfdssdfds
-    [image] => C:\fakepath\pkW1ua9A_400x400.jpg
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:30:43 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-)
-
-[15-May-2025 21:30:43 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => dfsdsffd
-    [description] => fdsfdsfdfds
-    [image] => C:\fakepath\Captura de pantalla 2025-05-10 072003.png
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:35:25 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-)
-
-[15-May-2025 21:35:25 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => dfdsffdssdf
-    [description] => dsfdsffsdsfdfd
-    [image] => C:\fakepath\Captura de pantalla 2025-05-10 072003.png
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:38:11 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-)
-
-[15-May-2025 21:38:11 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => adssadsad
-    [description] => dssadsad
-    [image] => C:\fakepath\pkW1ua9A_400x400.jpg
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:42:21 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-    [image] => Array
-        (
-            [name] => pkW1ua9A_400x400.jpg
-            [full_path] => pkW1ua9A_400x400.jpg
-            [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\php87D7.tmp
-            [error] => 0
-            [size] => 26725
-        )
-
-)
-
-[15-May-2025 21:42:21 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => khhhhh
-    [description] => kjjlljljkljk
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:42:21 Europe/Berlin] PHP Warning:  move_uploaded_file(C:\Users\Adria\DWES\PHP\rally-fotografico\backend/src/uploads/photo_6826439d7f9c24.36651562.jpg): Failed to open stream: No such file or directory in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php on line 232
-[15-May-2025 21:42:21 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\php87D7.tmp&quot; to &quot;C:\Users\Adria\DWES\PHP\rally-fotografico\backend/src/uploads/photo_6826439d7f9c24.36651562.jpg&quot; in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php on line 232
-[15-May-2025 21:49:08 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-    [image] => Array
-        (
-            [name] => pkW1ua9A_400x400.jpg
-            [full_path] => pkW1ua9A_400x400.jpg
-            [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\phpBBFB.tmp
-            [error] => 0
-            [size] => 26725
-        )
-
-)
-
-[15-May-2025 21:49:08 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => khhhhh
-    [description] => kjjlljljkljk
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[15-May-2025 21:52:37 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-    [image] => Array
-        (
-            [name] => Captura de pantalla 2025-05-10 072003.png
-            [full_path] => Captura de pantalla 2025-05-10 072003.png
-            [type] => image/png
-            [tmp_name] => C:\xampp\tmp\phpED3F.tmp
-            [error] => 0
-            [size] => 147352
-        )
-
-)
-
-[15-May-2025 21:52:37 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => ffgdfffggddf
-    [description] => holaholahola
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[16-May-2025 23:01:51 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-    [image] => Array
-        (
-            [name] => ♡.jpg
-            [full_path] => ♡.jpg
-            [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\phpADFF.tmp
-            [error] => 0
-            [size] => 34093
-        )
-
-)
-
-[16-May-2025 23:01:51 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => Holanda
-    [description] => Ironmandingo
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[16-May-2025 23:04:46 Europe/Berlin] DEBUG: $_FILES contents: Array
-(
-    [image] => Array
-        (
-            [name] => el_piso_es_faltar_a_baile.png
-            [full_path] => el_piso_es_faltar_a_baile.png
-            [type] => image/png
-            [tmp_name] => C:\xampp\tmp\php5825.tmp
-            [error] => 0
-            [size] => 3002070
-        )
-
-)
-
-[16-May-2025 23:04:46 Europe/Berlin] DEBUG: $_POST contents: Array
-(
-    [title] => fsdffds
-    [description] => dsffdsfdsfds
-    [user_id] => 7
-    [servicio] => uploadPhoto
-)
-
-[17-May-2025 14:11:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:11:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:11:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:12:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:13:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:13:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:15:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:15:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:15:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:16:39 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:40:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:41:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:45:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 14:45:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[17-May-2025 15:03:31 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:03:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:08:39 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:14:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:18:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:19:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:20:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:32:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:32:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:36:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:39:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:39:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:40:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:42:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:43:32 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:45:31 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:45:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:47:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:47:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:47:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:48:01 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:59:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 19:59:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:03:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:03:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:04:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:07:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:07:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:08:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:51:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 20:51:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:19:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:19:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:20:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:20:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:20:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:21:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:21:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:21:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:38:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:38:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:39:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:39:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:41:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:41:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:41:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:41:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[18-May-2025 21:41:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:37:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:38:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:39:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:40:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:40:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:40:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:40:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:40:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:41:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:41:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:41:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:43:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:44:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:44:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:44:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:44:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:46:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:46:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:49:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:49:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:50:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 19:50:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:14:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:14:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:16:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:17:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:19:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:20:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:21:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:22:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:23:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:24:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:24:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:25:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:42:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:43:06 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:44:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:44:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:44:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:45:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:45:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:47:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:47:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:48:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:49:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:52:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:52:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:53:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:53:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:54:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:54:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:55:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:55:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:55:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:55:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:56:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:56:39 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:57:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:58:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:58:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:58:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[20-May-2025 20:58:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:44:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:44:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:44:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:44:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:45:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:45:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:46:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:46:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:47:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:47:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:49:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:52:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:52:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:52:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:52:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:53:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:54:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:54:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:54:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:54:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[21-May-2025 21:54:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:25:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:25:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:34:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:37:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:37:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:41:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:41:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:41:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:41:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:41:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:42:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:42:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:45:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:47:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:49:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:50:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:51:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:51:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:52:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:52:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:52:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:52:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:53:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:53:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:53:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 19:54:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:09:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:09:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:10:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:10:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:39:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:39:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:40:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:41:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:41:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:43:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:44:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:44:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:44:35 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:44:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:45:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:45:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:46:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:46:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:46:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:47:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:48:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:48:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:50:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:50:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:50:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[22-May-2025 20:51:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:31 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:24:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:25:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:26:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:26:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:27:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:27:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:28:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:28:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:29:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:29:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:58:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 11:58:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:20:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:20:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:20:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:20:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:21:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:21:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:21:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[23-May-2025 12:21:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:40:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:41:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:41:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:41:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:43:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:43:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 19:43:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:15:42 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:15:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:16:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:17:01 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:17:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:18:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:21:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:21:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:24:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:39:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[24-May-2025 20:47:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:13:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:13:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:20:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:20:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:25:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:25:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:26:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:26:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:26:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:27:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:27:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:27:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:27:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:28:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:28:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:28:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:28:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:29:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:29:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:29:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:30:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:31:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:31:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:32:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:32:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:32:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:33:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:33:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:33:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:38:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:38:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:38:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:38:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:38:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:39:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:39:31 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:39:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:42:20 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:42:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:43:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:43:35 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:43:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:44:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:49:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:57:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:57:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:57:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:57:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:58:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:58:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:58:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:58:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 19:58:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php on line 98
-[25-May-2025 20:00:39 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:00:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:32 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:48 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:01:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:02:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:02:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:02:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:40:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:41:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:43:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:44:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:28 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:45:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:46:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:47:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:47:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:48:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:48:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:48:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:48:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:49:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:51:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:52:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:52:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:52:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:52:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:52:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:53:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:55:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:55:31 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:55:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:55:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:55:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[25-May-2025 20:56:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[26-May-2025 21:52:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[26-May-2025 21:55:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 20:31:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 20:54:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:02:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:06:06 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:06:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:07:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:08:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:09:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:14:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:14:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:14:35 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:15:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:15:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:15:51 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:16:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:16:02 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:16:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:16:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:26:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:26:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:29:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:30:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:37:05 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:38:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:46:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:47:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:47:09 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:50:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 21:55:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:01:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:01:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:02:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:01 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:19 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:50 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:03:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:01 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:08 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:04:23 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[27-May-2025 22:09:32 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:06:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:15:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:17:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:23:39 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:26:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 20:27:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[28-May-2025 23:37:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:20:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:23:53 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:24:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:25:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:27:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:33:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:36:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:36:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:37:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 21:38:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:32:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:32:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:33:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:52:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:52:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:53:17 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:53:18 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:53:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:54:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:10 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:11 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:56:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:57:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:57:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 22:57:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:11:55 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:12:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:12:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:13:04 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:13:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:18:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:18:36 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:18:47 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:18:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:19:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:15 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:20:22 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:22:13 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:22:30 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:22:37 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:22:44 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:24:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:24:27 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:24:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:25:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[29-May-2025 23:26:29 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[31-May-2025 20:26:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:13:43 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:18:16 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:23:26 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:24:38 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:25:33 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:27:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:28:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:30:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:30:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:37:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:38:49 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 22:39:59 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:04:34 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:04:56 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:40 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:46 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:07:52 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:09:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:09:58 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:10:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[02-Jun-2025 23:10:12 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:03:57 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:08:24 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:11:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:11:07 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:11:14 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:11:25 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:11:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:13:03 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:56:41 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 21:58:21 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 22:04:00 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 22:04:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
-[03-Jun-2025 22:04:45 Europe/Berlin] DEBUG: No se ha encontrado el servicio
+[04-Jun-2025 20:49:21 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:49:21 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:49:21 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:49:54 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:49:54 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:49:54 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:50:07 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:50:07 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":8}
+[04-Jun-2025 20:50:07 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:50:31 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[04-Jun-2025 20:50:31 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[04-Jun-2025 20:50:31 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:50:34 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":7}
+[04-Jun-2025 20:50:34 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":7}
+[04-Jun-2025 20:50:34 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:50:49 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":6}
+[04-Jun-2025 20:50:49 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":6}
+[04-Jun-2025 20:50:49 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[04-Jun-2025 20:50:57 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[04-Jun-2025 20:50:57 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[04-Jun-2025 20:50:57 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[04-Jun-2025 20:54:28 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 20:54:28 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 20:54:28 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 20:54:28 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:29 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:32 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:54:33 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:58:58 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902A"}
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902A"}
+[04-Jun-2025 20:59:17 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:59:24 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 20:59:39 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:28 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:45 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:14:46 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:46 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:14:46 Europe/Berlin] DEBUG - Servicio solicitado: validateResetToken
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:16:44 Europe/Berlin] DEBUG - Servicio solicitado: validateResetToken
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"validateResetToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:25:53 Europe/Berlin] DEBUG - Servicio solicitado: validateResetToken
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:27:24 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:32 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:43 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:31:46 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:46 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:31:46 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:39:07 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"87a49a36444554f755d635621af08de9b5537dd8bee8df76f033fb07264b902b"}
+[04-Jun-2025 21:40:43 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: driandevs@gmail.com
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: driandevs@gmail.com
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Usuario encontrado: Adrián
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Token generado: 305cdb5304b51c846350b882d48edc834c0ba2c1d946d93365c6f1915a79fa18
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Token guardado en BD
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - API Key: Configurada
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[04-Jun-2025 21:41:01 Europe/Berlin] DEBUG - Intentando enviar email a: driandevs@gmail.com
+[04-Jun-2025 21:41:02 Europe/Berlin] DEBUG - Email enviado exitosamente. ID: Sin ID
+[04-Jun-2025 21:41:02 Europe/Berlin] DEBUG - Email de recuperación enviado exitosamente
+[04-Jun-2025 21:41:02 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":true,"message":"Se ha enviado un correo electr\u00f3nico con las instrucciones para restablecer tu contrase\u00f1a"}
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: driandevs@gmail.com
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: driandevs@gmail.com
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Usuario encontrado: Adrián
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Token generado: 881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Token guardado en BD
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - API Key: Configurada
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[04-Jun-2025 21:44:37 Europe/Berlin] DEBUG - Intentando enviar email a: driandevs@gmail.com
+[04-Jun-2025 21:44:38 Europe/Berlin] DEBUG - Email enviado exitosamente. ID: Sin ID
+[04-Jun-2025 21:44:38 Europe/Berlin] DEBUG - Email de recuperación enviado exitosamente
+[04-Jun-2025 21:44:38 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":true,"message":"Se ha enviado un correo electr\u00f3nico con las instrucciones para restablecer tu contrase\u00f1a"}
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Usuario encontrado: Johny
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Token generado: b054aaf899d1dd65b984fe9b55d164f1042bd0872559a1a31495d0246ac2bcb7
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Token guardado en BD
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - API Key: Configurada
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[04-Jun-2025 21:44:44 Europe/Berlin] DEBUG - Intentando enviar email a: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:45 Europe/Berlin] ERROR enviando email: You can only send testing emails to your own email address (driandevs@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+[04-Jun-2025 21:44:45 Europe/Berlin] ERROR Stack trace: #0 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Transporters\HttpTransporter.php(47): Resend\Transporters\HttpTransporter->throwIfJsonError(Array, '{"statusCode":4...')
+#1 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(32): Resend\Transporters\HttpTransporter->request(Object(Resend\ValueObjects\Transporter\Payload))
+#2 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(44): Resend\Service\Email->create(Array, Array)
+#3 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(372): Resend\Service\Email->send(Array)
+#4 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(284): Modelo->sendPasswordResetEmail('nicknicknickcpr...', 'Johny', 'b054aaf899d1dd6...')
+#5 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(63): Modelo->ForgotPassword('nicknicknickcpr...')
+#6 {main}
+[04-Jun-2025 21:44:45 Europe/Berlin] ERROR - No se pudo enviar el email de recuperación
+[04-Jun-2025 21:44:45 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":false,"message":"Error al enviar el correo electr\u00f3nico. Por favor, int\u00e9ntalo de nuevo m\u00e1s tarde."}
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Usuario encontrado: Johny
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Token generado: a7118fe7e2f39dc334708c7c6528c2bb3fc80b71536687ff82b62d98eb766d72
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Token guardado en BD
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - API Key: Configurada
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[04-Jun-2025 21:44:46 Europe/Berlin] DEBUG - Intentando enviar email a: nicknicknickcpr@gmail.com
+[04-Jun-2025 21:44:47 Europe/Berlin] ERROR enviando email: You can only send testing emails to your own email address (driandevs@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+[04-Jun-2025 21:44:47 Europe/Berlin] ERROR Stack trace: #0 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Transporters\HttpTransporter.php(47): Resend\Transporters\HttpTransporter->throwIfJsonError(Array, '{"statusCode":4...')
+#1 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(32): Resend\Transporters\HttpTransporter->request(Object(Resend\ValueObjects\Transporter\Payload))
+#2 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(44): Resend\Service\Email->create(Array, Array)
+#3 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(372): Resend\Service\Email->send(Array)
+#4 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(284): Modelo->sendPasswordResetEmail('nicknicknickcpr...', 'Johny', 'a7118fe7e2f39dc...')
+#5 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(63): Modelo->ForgotPassword('nicknicknickcpr...')
+#6 {main}
+[04-Jun-2025 21:44:47 Europe/Berlin] ERROR - No se pudo enviar el email de recuperación
+[04-Jun-2025 21:44:47 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":false,"message":"Error al enviar el correo electr\u00f3nico. Por favor, int\u00e9ntalo de nuevo m\u00e1s tarde."}
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"305cdb5304b51c846350b882d48edc834c0ba2c1d946d93365c6f1915a79fa18"}
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"305cdb5304b51c846350b882d48edc834c0ba2c1d946d93365c6f1915a79fa18"}
+[04-Jun-2025 21:44:59 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:45:03 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"305cdb5304b51c846350b882d48edc834c0ba2c1d946d93365c6f1915a79fa18"}
+[04-Jun-2025 21:45:03 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"305cdb5304b51c846350b882d48edc834c0ba2c1d946d93365c6f1915a79fa18"}
+[04-Jun-2025 21:45:03 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d"}
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d"}
+[04-Jun-2025 21:45:21 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"resetPassword","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d","password":"tartaria"}
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"resetPassword","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d","password":"tartaria"}
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Servicio solicitado: resetPassword
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Ejecutando resetPassword
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Token recibido: 881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Password recibido: [OCULTO]
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Verificando token...
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Resultado verificación token: {"success":true,"message":"Token v\u00e1lido"}
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Token válido, procediendo con reset de password...
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Iniciando proceso
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Token recibido: 881307d471...
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Password length: 8
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: User ID encontrado: 7
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Hash generado para nueva password
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Password actualizada en BD
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Token marcado como usado
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - ResetPassword: Proceso completado exitosamente
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Resultado ResetPassword: {"success":true,"message":"Contrase\u00f1a restablecida exitosamente"}
+[04-Jun-2025 21:45:58 Europe/Berlin] DEBUG - Reset exitoso, enviando respuesta OK
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Datos raw recibidos: 
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Datos decodificados: null
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Servicio solicitado: NO DEFINIDO
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - No se recibieron datos válidos
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"verificarToken","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d"}
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"verificarToken","token":"881307d4716c6cf7e0a770563c44fce1e042de972eac263df7ccdca73c57243d"}
+[04-Jun-2025 21:46:28 Europe/Berlin] DEBUG - Servicio solicitado: verificarToken
+[04-Jun-2025 21:46:39 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":7}
+[04-Jun-2025 21:46:39 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":7}
+[04-Jun-2025 21:46:39 Europe/Berlin] DEBUG - Servicio solicitado: getUser

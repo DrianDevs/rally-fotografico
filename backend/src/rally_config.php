@@ -1,30 +1,53 @@
 <?php
+error_reporting(E_ALL); // 1 para mostrar todos los tipos de errores
+ini_set('display_errors', 0); // para no mostrar errores
+ini_set('log_errors', 1); // para logear errores
+ini_set('error_log', __DIR__ . '/../logs/php-error.log'); // ruta del log de errores
 
-header("Access-Control-Allow-Origin: *"); // allow request from all origin
+require_once(__DIR__ . '/../config.php');
+require_once('../vendor/autoload.php');
+
+header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');
 header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization");
-header('Content-Type: application/json');  //  Todo se devolverá en formato JSON.
+header('Content-Type: application/json');
 
-$modelo = new Modelo();
+// Manejo de solicitud OPTIONS para CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
-$datos = file_get_contents('php://input');
-$datos = json_decode($datos);
+try {
+    $modelo = new Modelo();
+    $datos = json_decode(file_get_contents('php://input'));
 
-if ($datos != null) {
+    if ($datos === null) {
+        throw new Exception('Datos de entrada inválidos', 400);
+    }
+
     switch ($datos->servicio) {
         case 'getConfig':
             print json_encode($modelo->ObtenerConfig());
             break;
         case 'updateConfig':
-            if ($modelo->ActualizarConfig($datos))
-                print '{"result":"OK"}';
-            else
-                print '{"result":"FAIL"}';
+            $resultado = $modelo->ActualizarConfig($datos);
+            print json_encode([
+                'result' => $resultado ? 'OK' : 'FAIL',
+                'message' => $resultado ? 'Configuración actualizada correctamente' : 'Error al actualizar la configuración'
+            ]);
             break;
+        default:
+            throw new Exception('Servicio no válido', 400);
     }
+} catch (Exception $e) {
+    http_response_code($e->getCode() ?: 500);
+    print json_encode([
+        'result' => 'FAIL',
+        'error' => $e->getMessage()
+    ]);
 }
-
 
 class Modelo
 {
@@ -33,10 +56,11 @@ class Modelo
     public function __CONSTRUCT()
     {
         try {
-            require_once('../config.php');
+            include(__DIR__ . '/../config.php');
             $this->pdo = $pdo;
         } catch (Exception $e) {
-            die($e->getMessage());
+            error_log($e->getMessage());
+            throw new Exception('Error al conectar con la base de datos');
         }
     }
 
@@ -48,7 +72,8 @@ class Modelo
             $stm->execute();
             return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            die($e->getMessage());
+            error_log($e->getMessage());
+            throw new Exception('Error al obtener la configuración');
         }
     }
 
@@ -56,23 +81,23 @@ class Modelo
     {
         try {
             $sql = "UPDATE settings SET 
-                                    max_photos_per_user = ?,
-                                    upload_start_date = ?,
-                                    upload_end_date = ?,
-                                    voting_start_date = ?,
-                                    voting_end_date = ?
-                            WHERE id = 1";
-            $this->pdo->prepare($sql)->execute(array(
+                    max_photos_per_user = ?,
+                    upload_start_date = ?,
+                    upload_end_date = ?,
+                    voting_start_date = ?,
+                    voting_end_date = ?
+                    WHERE id = 1";
+
+            return $this->pdo->prepare($sql)->execute([
                 $data->limiteFotos,
                 $data->recepcionInicio,
                 $data->recepcionFin,
                 $data->votacionInicio,
                 $data->votacionFin
-            ));
-            return true;
+            ]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al actualizar la configuración');
         }
     }
 }

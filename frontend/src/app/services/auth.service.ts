@@ -21,8 +21,8 @@ export class AuthService {
       .post<any>(this.apiUrl + '/src/login.php', { email, password })
       .pipe(
         tap((response) => {
-          if (response.token) {
-            localStorage.setItem(this.tokenKey, response.token);
+          if (response.data && response.data.token) {
+            localStorage.setItem(this.tokenKey, response.data.token);
           }
         })
       );

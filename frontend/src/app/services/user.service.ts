@@ -73,4 +73,13 @@ export class UserService {
     });
     return this.http.post<any>(this.url, body);
   }
+
+  resetPassword(token: string, password: string) {
+    let body = JSON.stringify({
+      servicio: 'resetPassword',
+      token: token,
+      password: password,
+    });
+    return this.http.post<any>(this.url, body);
+  }
 }

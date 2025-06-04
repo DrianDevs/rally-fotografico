@@ -5,12 +5,20 @@ ini_set('log_errors', 1); // para logear errores
 ini_set('error_log', __DIR__ . '/../logs/php-error.log'); // ruta del log de errores
 
 require_once(__DIR__ . '/../config.php');
+require_once('../vendor/autoload.php');
+
 
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');
 header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization");
 header('Content-Type: application/json');
+
+// Manejo de solicitud OPTIONS para CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 try {
     $modelo = new Modelo();
@@ -24,99 +32,104 @@ try {
         $servicio = $datos->servicio ?? null;
     }
 
-    if ($servicio) {
-        switch ($servicio) {
-            case 'getPhotos':
-                print json_encode($modelo->ObtenerPhotos());
-                break;
-            case 'getAcceptedPhotos':
-                print json_encode($modelo->ObtenerPhotosAccepted());
-                break;
-            case 'getPhoto':
-                print json_encode($modelo->ObtenerPhoto($datos->id));
-                break;
-            case 'getPhotosByUserId':
-                print json_encode($modelo->ObtenerPhotosByUserId($datos->userId));
-                break;
-            case 'getPendingPhotos':
-                print json_encode($modelo->ObtenerPhotosPending());
-                break;
-            case 'uploadPhoto':
-                // error_log('DEBUG: $_FILES contents: ' . print_r($_FILES, true)); // Para logear los detalles de la imagen
-                // error_log('DEBUG: $_POST contents: ' . print_r($_POST, true));   // Para logear los detalles del formulario
+    if (!$servicio) {
+        throw new Exception('No se ha especificado el servicio', 400);
+    }
 
-                if (!isset($_FILES['image'])) {
-                    print json_encode(['result' => 'FAIL', 'error' => 'No se ha enviado ninguna imagen']);
-                    break;
-                }
+    switch ($servicio) {
+        case 'getPhotos':
+            print json_encode($modelo->ObtenerPhotos());
+            break;
+        case 'getAcceptedPhotos':
+            print json_encode($modelo->ObtenerPhotosAccepted());
+            break;
+        case 'getPhoto':
+            if (!isset($datos->id)) {
+                throw new Exception('ID de foto no especificado', 400);
+            }
+            print json_encode($modelo->ObtenerPhoto($datos->id));
+            break;
+        case 'getPhotosByUserId':
+            if (!isset($datos->userId)) {
+                throw new Exception('ID de usuario no especificado', 400);
+            }
+            print json_encode($modelo->ObtenerPhotosByUserId($datos->userId));
+            break;
+        case 'getPendingPhotos':
+            print json_encode($modelo->ObtenerPhotosPending());
+            break;
+        case 'uploadPhoto':
+            if (!isset($_FILES['image'])) {
+                throw new Exception('No se ha enviado ninguna imagen', 400);
+            }
 
-                if (!$modelo->ValidarPhoto($_FILES['image'])) {
-                    print json_encode(['result' => 'FAIL', 'error' => 'Imagen no válida']);
-                    break;
-                }
+            if (!$modelo->ValidarPhoto($_FILES['image'])) {
+                throw new Exception('Imagen no válida', 400);
+            }
 
-                $filePath = $modelo->GuardarPhoto($_FILES['image']);
-                if (!$filePath) {
-                    print json_encode(['result' => 'FAIL', 'error' => 'No se pudo guardar la imagen']);
-                    break;
-                }
+            $filePath = $modelo->GuardarPhoto($_FILES['image']);
+            if (!$filePath) {
+                throw new Exception('No se pudo guardar la imagen', 500);
+            }
 
-                $photoData = new stdClass();
-                $photoData->title = $_POST['title'];
-                $photoData->description = $_POST['description'];
-                $photoData->file_path = $filePath;
-                $photoData->user_id = $_POST['user_id'] ?? null;
-                $photoData->status = 'pending';
+            $photoData = new stdClass();
+            $photoData->title = $_POST['title'];
+            $photoData->description = $_POST['description'];
+            $photoData->file_path = $filePath;
+            $photoData->user_id = $_POST['user_id'] ?? null;
+            $photoData->status = 'pending';
 
-                print $modelo->InsertarPhoto($photoData) ?
-                    json_encode(['result' => 'OK']) :
-                    json_encode(['result' => 'FAIL', 'error' => 'No se pudo insertar en la base de datos']);
-                break;
-            case 'updatePhoto':
-                if ($modelo->ActualizarPhoto($datos))
-                    print json_encode(['result' => 'OK']);
-                else
-                    print json_encode(['result' => 'FAIL']);
-                break;
-            case 'updateStatus':
-                if ($modelo->ActualizarStatus($datos)) {
-                    $pendingPhotos = $modelo->ObtenerPhotosPending();
-                    print json_encode($pendingPhotos);
-                } else {
-                    print json_encode(['result' => 'FAIL']);
-                }
-                break;
-            case 'likePhoto':
-                if ($modelo->ExisteVoto($datos->photoId, $datos->userId)) {
-                    $modelo->BorrarVoto($datos->photoId, $datos->userId);
-                    print json_encode(['result' => 'OK', 'action' => 'unliked']);
-                } else {
-                    $modelo->CrearVoto($datos->photoId, $datos->userId);
-                    print json_encode(['result' => 'OK', 'action' => 'liked']);
-                }
-                break;
-            case 'deletePhoto':
-                if ($modelo->EliminarPhoto($datos->id))
-                    print '{"result":"OK"}';
-                else
-                    print '{"result":"FAIL"}';
-                break;
-            case 'getTopPhotosToday':
-                print json_encode($modelo->ObtenerTopPhotosDeHoy());
-                break;
-            default:
-                print json_encode(['result' => 'FAIL', 'error' => 'Servicio no válido']);
-                break;
-        }
-    } else {
-        error_log('DEBUG: No se ha encontrado el servicio');
-        print json_encode(['result' => 'FAIL', 'error' => 'No se ha encontrado el servicio']);
+            if (!$modelo->InsertarPhoto($photoData)) {
+                throw new Exception('No se pudo insertar en la base de datos', 500);
+            }
+
+            print json_encode(['result' => 'OK']);
+            break;
+        case 'updatePhoto':
+            if (!$modelo->ActualizarPhoto($datos)) {
+                throw new Exception('Error al actualizar la foto', 500);
+            }
+            print json_encode(['result' => 'OK']);
+            break;
+        case 'updateStatus':
+            if (!$modelo->ActualizarStatus($datos)) {
+                throw new Exception('Error al actualizar el estado', 500);
+            }
+            print json_encode($modelo->ObtenerPhotosPending());
+            break;
+        case 'likePhoto':
+            if (!isset($datos->photoId) || !isset($datos->userId)) {
+                throw new Exception('Faltan datos necesarios', 400);
+            }
+
+            if ($modelo->ExisteVoto($datos->photoId, $datos->userId)) {
+                $modelo->BorrarVoto($datos->photoId, $datos->userId);
+                print json_encode(['result' => 'OK', 'action' => 'unliked']);
+            } else {
+                $modelo->CrearVoto($datos->photoId, $datos->userId);
+                print json_encode(['result' => 'OK', 'action' => 'liked']);
+            }
+            break;
+        case 'deletePhoto':
+            if (!isset($datos->id)) {
+                throw new Exception('ID de foto no especificado', 400);
+            }
+            if (!$modelo->EliminarPhoto($datos->id)) {
+                throw new Exception('Error al eliminar la foto', 500);
+            }
+            print json_encode(['result' => 'OK']);
+            break;
+        case 'getTopPhotosToday':
+            print json_encode($modelo->ObtenerTopPhotosDeHoy());
+            break;
+        default:
+            throw new Exception('Servicio no válido', 400);
     }
 } catch (Exception $e) {
-    error_log($e->getMessage());
-    print json_encode(['result' => 'FAIL', 'error' => 'Error al procesar la solicitud']);
+    error_log('Error en photos.php: ' . $e->getMessage());
+    http_response_code($e->getCode() ?: 500);
+    print json_encode(['result' => 'FAIL', 'error' => $e->getMessage()]);
 }
-
 
 class Modelo
 {
@@ -125,8 +138,7 @@ class Modelo
     public function __CONSTRUCT()
     {
         try {
-            require_once(__DIR__ . '/../config.php');
-            global $pdo;
+            include(__DIR__ . '/../config.php');
             $this->pdo = $pdo;
         } catch (Exception $e) {
             error_log($e->getMessage());
@@ -143,7 +155,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return $e->getMessage();
+            throw new Exception('Error al obtener las fotos');
         }
     }
 
@@ -160,7 +172,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return $e->getMessage();
+            throw new Exception('Error al obtener las fotos aceptadas');
         }
     }
 
@@ -169,11 +181,11 @@ class Modelo
         try {
             $consulta = "SELECT * FROM photos WHERE id = ?";
             $stm = $this->pdo->prepare($consulta);
-            $stm->execute(array($id));
+            $stm->execute([$id]);
             return $stm->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return $e->getMessage();
+            throw new Exception('Error al obtener la foto');
         }
     }
 
@@ -185,11 +197,11 @@ class Modelo
                      JOIN users u ON p.user_id = u.id 
                      WHERE p.user_id = ?";
             $stm = $this->pdo->prepare($consulta);
-            $stm->execute(array($userId));
+            $stm->execute([$userId]);
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return $e->getMessage();
+            throw new Exception('Error al obtener las fotos del usuario');
         }
     }
 
@@ -205,7 +217,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return $e->getMessage();
+            throw new Exception('Error al obtener las fotos pendientes');
         }
     }
 
@@ -214,17 +226,16 @@ class Modelo
         try {
             $sql = "INSERT INTO photos (user_id, title, description, file_path, status) 
                     VALUES (?, ?, ?, ?, ?)";
-            $this->pdo->prepare($sql)->execute(array(
+            return $this->pdo->prepare($sql)->execute([
                 $data->user_id,
                 $data->title,
                 $data->description,
                 $data->file_path,
                 $data->status ?? 'pending'
-            ));
-            return true;
+            ]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al insertar la foto');
         }
     }
 
@@ -236,16 +247,15 @@ class Modelo
                     description = ?,
                     file_path = ?
                 WHERE id = ?";
-            $this->pdo->prepare($sql)->execute(array(
+            return $this->pdo->prepare($sql)->execute([
                 $data->title,
                 $data->description,
                 $data->file_path,
                 $data->id
-            ));
-            return true;
+            ]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al actualizar la foto');
         }
     }
 
@@ -253,14 +263,13 @@ class Modelo
     {
         try {
             $sql = "UPDATE photos SET status = ? WHERE id = ?";
-            $this->pdo->prepare($sql)->execute(array(
+            return $this->pdo->prepare($sql)->execute([
                 $data->status,
                 $data->id
-            ));
-            return true;
+            ]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al actualizar el estado');
         }
     }
 
@@ -268,11 +277,10 @@ class Modelo
     {
         try {
             $sql = "DELETE FROM photos WHERE id = ?";
-            $this->pdo->prepare($sql)->execute(array($id));
-            return true;
+            return $this->pdo->prepare($sql)->execute([$id]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al eliminar la foto');
         }
     }
 
@@ -281,15 +289,11 @@ class Modelo
         global $maxSize, $allowedTypes; // Para poder acceder a las variables de configuración
 
         if ($file['size'] > $maxSize) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Archivo demasiado grande']);
-            return false;
+            throw new Exception('Archivo demasiado grande', 400);
         }
 
         if (!in_array($file['type'], $allowedTypes)) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Tipo de archivo no permitido']);
-            return false;
+            throw new Exception('Tipo de archivo no permitido', 400);
         }
 
         return true;
@@ -301,7 +305,7 @@ class Modelo
 
         // Si la carpeta no existe, la crea
         if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true); // Crea la ruta completa, y si faltan carpetas en el camino, también se crean
+            mkdir($uploadDir, 0777, true);
         }
 
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
@@ -310,21 +314,12 @@ class Modelo
         $fullPath = $uploadDir . $filename;
 
         if (!move_uploaded_file($file['tmp_name'], $fullPath)) {
-            http_response_code(500);
-            echo json_encode(['error' => 'No se pudo guardar el archivo']);
-            return false;
+            throw new Exception('No se pudo guardar el archivo', 500);
         }
 
         return $relativePath;
     }
 
-    /**
-     * Verifica si un usuario ya ha votado por una foto en concreto.
-     *
-     * @param int $photoId ID de la foto.
-     * @param int $userId ID del usuario.
-     * @return bool True si el usuario ya ha votado, false en caso contrario.
-     */
     public function ExisteVoto($photoId, $userId)
     {
         try {
@@ -334,51 +329,32 @@ class Modelo
             return $stm->fetchColumn() > 0;
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al verificar el voto');
         }
     }
 
-    /**
-     * Elimina el voto de un usuario por una foto en concreto.
-     *
-     * @param int $photoId ID de la foto.
-     * @param int $userId ID del usuario.
-     * @return bool True si se eliminó el voto, false en caso contrario.
-     */
     public function BorrarVoto($photoId, $userId)
     {
         try {
             $sql = "DELETE FROM votes WHERE photo_id = ? AND user_id = ?";
-            $stm = $this->pdo->prepare($sql);
-            return $stm->execute([$photoId, $userId]);
+            return $this->pdo->prepare($sql)->execute([$photoId, $userId]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al borrar el voto');
         }
-    }    /**
-         * Crea un nuevo voto para una foto por parte de un usuario.
-         *
-         * @param int $photoId ID de la foto.
-         * @param int $userId ID del usuario.
-         * @return bool True si se creó el voto, false en caso contrario.
-         */
+    }
+
     public function CrearVoto($photoId, $userId)
     {
         try {
             $sql = "INSERT INTO votes (photo_id, user_id) VALUES (?, ?)";
-            $stm = $this->pdo->prepare($sql);
-            return $stm->execute([$photoId, $userId]);
+            return $this->pdo->prepare($sql)->execute([$photoId, $userId]);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return false;
+            throw new Exception('Error al crear el voto');
         }
     }
 
-    /**
-     * Obtiene las 10 fotos más votadas del día actual.
-     *
-     * @return array Array con las fotos más votadas de hoy.
-     */
     public function ObtenerTopPhotosDeHoy()
     {
         try {
@@ -394,8 +370,7 @@ class Modelo
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            return [];
+            throw new Exception('Error al obtener las fotos más votadas');
         }
     }
-
 }

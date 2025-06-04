@@ -1,9 +1,13 @@
 <?php
+error_reporting(E_ALL); // 1 para mostrar todos los tipos de errores
+ini_set('display_errors', 0); // para no mostrar errores
+ini_set('log_errors', 1); // para logear errores
+ini_set('error_log', __DIR__ . '/../logs/php-error.log'); // ruta del log de errores
 
-// Cargar el autoloader de Composer al inicio
+require_once(__DIR__ . '/../config.php');
 require_once('../vendor/autoload.php');
 
-header("Access-Control-Allow-Origin: *"); // allow request from all origin
+header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');
 header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -72,18 +76,33 @@ if ($datos != null) {
             ]);
             break;
         case 'resetPassword':
+            error_log('DEBUG - Ejecutando resetPassword');
+            error_log('DEBUG - Token recibido: ' . ($datos->token ?? 'NULL'));
+            error_log('DEBUG - Password recibido: ' . (isset($datos->password) ? '[OCULTO]' : 'NULL'));
+
+            // Primero verificar que el token sea válido
+            error_log('DEBUG - Verificando token...');
+            $verificacion = $modelo->VerificarToken($datos->token);
+            error_log('DEBUG - Resultado verificación token: ' . json_encode($verificacion));
+
+            if (!$verificacion['success']) {
+                error_log('DEBUG - Token inválido, enviando respuesta FAIL');
+                print json_encode(['result' => 'FAIL', 'message' => $verificacion['message']]);
+                break;
+            }
+
+            // Si el token es válido, proceder con el reset
+            error_log('DEBUG - Token válido, procediendo con reset de password...');
             $resultado = $modelo->ResetPassword($datos->token, $datos->password);
-            if ($resultado['success'])
+            error_log('DEBUG - Resultado ResetPassword: ' . json_encode($resultado));
+
+            if ($resultado['success']) {
+                error_log('DEBUG - Reset exitoso, enviando respuesta OK');
                 print json_encode(['result' => 'OK', 'message' => $resultado['message']]);
-            else
+            } else {
+                error_log('DEBUG - Reset falló, enviando respuesta FAIL');
                 print json_encode(['result' => 'FAIL', 'message' => $resultado['message']]);
-            break;
-        case 'validateResetToken':
-            $resultado = $modelo->ValidateResetToken($datos->token);
-            if ($resultado['success'])
-                print json_encode(['result' => 'OK', 'message' => $resultado['message']]);
-            else
-                print json_encode(['result' => 'FAIL', 'message' => $resultado['message']]);
+            }
             break;
         default:
             error_log('DEBUG - Servicio no encontrado: ' . ($datos->servicio ?? 'NULL'));
@@ -107,13 +126,14 @@ class Modelo
     public function __CONSTRUCT()
     {
         try {
-            require_once('../config.php');
+            include(__DIR__ . '/../config.php');
             $this->pdo = $pdo;
             $this->resend_api_key = $resend_api_key;
             $this->from_email = $from_email;
             $this->app_url = $app_url;
         } catch (Exception $e) {
             error_log($e->getMessage());
+            throw new Exception('Error al conectar con la base de datos');
         }
     }
 
@@ -254,21 +274,24 @@ class Modelo
 
             // Limpiar tokens anteriores del usuario
             $cleanupSql = "DELETE FROM password_resets WHERE user_id = ?";
-            $this->pdo->prepare($cleanupSql)->execute(array($user['id']));
-
-            // Guardar token en BD
+            $this->pdo->prepare($cleanupSql)->execute(array($user['id']));            // Guardar token en BD
             $insertSql = "INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)";
             $this->pdo->prepare($insertSql)->execute(array($user['id'], $token, $expiresAt));
 
             error_log('DEBUG - Token guardado en BD');
 
-            // TEMPORAL: Simular envío exitoso y mostrar enlace en logs
-            $resetLink = $this->app_url . '/reset-password?token=' . $token;
-            error_log('=== EMAIL SIMULADO ===');
-            error_log('Para: ' . $email);
-            error_log('Nombre: ' . $user['name']);
-            error_log('Enlace de recuperación: ' . $resetLink);
-            error_log('======================');
+            // Enviar email de recuperación
+            $emailSent = $this->sendPasswordResetEmail($email, $user['name'], $token);
+
+            if (!$emailSent) {
+                error_log('ERROR - No se pudo enviar el email de recuperación');
+                return [
+                    'success' => false,
+                    'message' => 'Error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde.'
+                ];
+            }
+
+            error_log('DEBUG - Email de recuperación enviado exitosamente');
 
             return [
                 'success' => true,
@@ -304,7 +327,7 @@ class Modelo
 
             $resend = \Resend::client($this->resend_api_key);
 
-            $resetLink = $this->app_url . '/reset-password?token=' . $token;
+            $resetLink = $this->app_url . '/reset-password/' . $token;
 
             $htmlContent = '
         <!DOCTYPE html>
@@ -388,11 +411,14 @@ class Modelo
             ];
         }
     }
-
     public function ResetPassword($token, $newPassword)
     {
         try {
-            // Verificar que el token existe y no ha expirado
+            error_log('DEBUG - ResetPassword: Iniciando proceso');
+            error_log('DEBUG - ResetPassword: Token recibido: ' . substr($token, 0, 10) . '...');
+            error_log('DEBUG - ResetPassword: Password length: ' . strlen($newPassword));
+
+            // Obtener el user_id del token (ya sabemos que es válido)
             $sql = "SELECT user_id FROM password_resets 
                     WHERE token = ? AND expires_at > NOW() AND used = FALSE";
             $stmt = $this->pdo->prepare($sql);
@@ -400,49 +426,51 @@ class Modelo
             $tokenData = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$tokenData) {
+                error_log('DEBUG - ResetPassword: Token no encontrado o ya usado');
                 return [
                     'success' => false,
-                    'message' => 'Token inválido o expirado'
+                    'message' => 'Token inválido o ya utilizado'
                 ];
             }
 
+            error_log('DEBUG - ResetPassword: User ID encontrado: ' . $tokenData['user_id']);
+
             // Actualizar la contraseña del usuario
             $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
-            $updateSql = "UPDATE users SET password_hash = ? WHERE id = ?";
-            $this->pdo->prepare($updateSql)->execute(array($passwordHash, $tokenData['user_id']));            // Marcar el token como usado
-            $markUsedSql = "UPDATE password_resets SET used = TRUE WHERE token = ?";
-            $this->pdo->prepare($markUsedSql)->execute(array($token));
+            error_log('DEBUG - ResetPassword: Hash generado para nueva password');
 
+            $updateSql = "UPDATE users SET password_hash = ? WHERE id = ?";
+            $updateResult = $this->pdo->prepare($updateSql)->execute(array($passwordHash, $tokenData['user_id']));
+
+            if (!$updateResult) {
+                error_log('DEBUG - ResetPassword: Error actualizando password en BD');
+                return [
+                    'success' => false,
+                    'message' => 'Error actualizando la contraseña'
+                ];
+            }
+
+            error_log('DEBUG - ResetPassword: Password actualizada en BD');
+
+            // Marcar el token como usado
+            $markUsedSql = "UPDATE password_resets SET used = TRUE WHERE token = ?";
+            $markResult = $this->pdo->prepare($markUsedSql)->execute(array($token));
+
+            if (!$markResult) {
+                error_log('DEBUG - ResetPassword: Error marcando token como usado');
+            } else {
+                error_log('DEBUG - ResetPassword: Token marcado como usado');
+            }
+
+            error_log('DEBUG - ResetPassword: Proceso completado exitosamente');
             return [
                 'success' => true,
                 'message' => 'Contraseña restablecida exitosamente'
             ];
 
         } catch (Exception $e) {
-            error_log($e->getMessage());
-            return [
-                'success' => false,
-                'message' => 'Error interno del servidor'
-            ];
-        }
-    }
-
-    public function ValidateResetToken($token)
-    {
-        try {
-            $sql = "SELECT user_id FROM password_resets 
-                    WHERE token = ? AND expires_at > NOW() AND used = FALSE";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(array($token));
-            $tokenData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            return [
-                'success' => $tokenData !== false,
-                'message' => $tokenData ? 'Token válido' : 'Token inválido o expirado'
-            ];
-
-        } catch (Exception $e) {
-            error_log($e->getMessage());
+            error_log('ERROR - ResetPassword: ' . $e->getMessage());
+            error_log('ERROR - ResetPassword Stack: ' . $e->getTraceAsString());
             return [
                 'success' => false,
                 'message' => 'Error interno del servidor'

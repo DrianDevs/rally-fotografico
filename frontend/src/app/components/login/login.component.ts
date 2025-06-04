@@ -36,7 +36,9 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: () => {
+        console.log('Inicio de sesión exitoso');
         const role = this.authService.getUserRole();
+        console.log('Rol del usuario:', role);
         this.router.navigate([role === 'admin' ? '/admin' : '/participante']);
       },
       error: () => {

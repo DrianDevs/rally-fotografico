@@ -98,6 +98,7 @@ export class MainComponent implements OnInit {
     // Comparar si la fecha de hoy está en el rango (inclusive)
     return currentDate >= startDate && currentDate <= endDate;
   }
+
   likePhoto(photoId: number) {
     if (!this.user) {
       this.snackBar.open('ℹ️ Necesitas iniciar sesión para poder votar las fotografías.', 'Cerrar', {
