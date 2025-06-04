@@ -72,6 +72,14 @@ export const routes: Routes = [
     canActivate: [authGuard, adminGuard],
   },
   {
+    path: 'lista-photos',
+    loadComponent: () =>
+      import('./components/lista-photos/lista-photos.component').then(
+        (m) => m.ListaPhotosComponent
+      ),
+    canActivate: [authGuard, adminGuard],
+  },
+  {
     path: 'subir-foto',
     loadComponent: () =>
       import('./components/upload-photo/upload-photo.component').then(

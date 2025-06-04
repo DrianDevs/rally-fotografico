@@ -17,7 +17,7 @@ export class ListaUsersComponent implements OnInit {
   public formModified: boolean = false;
   private originalUser: User | null = null;
 
-  constructor(private peticion: UserService) {}
+  constructor(private peticion: UserService) { }
 
   ngOnInit(): void {
     this.peticion.obtenerUsers().subscribe({
@@ -31,10 +31,18 @@ export class ListaUsersComponent implements OnInit {
   }
 
   eliminarUser(userId: number) {
+    const userToDelete = this.users.find((user) => user.id === userId);
+
+    if (userToDelete?.role === 'admin') {
+      alert('No se puede eliminar un usuario administrador.');
+      return;
+    }
+
     if (!confirm('¿Está seguro que desea eliminar este usuario?')) return;
 
     this.peticion.eliminarUser(userId).subscribe({
       next: (response) => {
+        console.log(response);
         this.peticion.obtenerUsers().subscribe({
           next: (data) => {
             this.users = data;

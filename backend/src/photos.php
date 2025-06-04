@@ -86,8 +86,35 @@ try {
             print json_encode(['result' => 'OK']);
             break;
         case 'updatePhoto':
-            if (!$modelo->ActualizarPhoto($datos)) {
-                throw new Exception('Error al actualizar la foto', 500);
+            if (isset($_FILES['image'])) {
+                // Si hay una nueva imagen, primero la guardamos
+                if (!$modelo->ValidarPhoto($_FILES['image'])) {
+                    throw new Exception('Imagen no válida', 400);
+                }
+
+                $filePath = $modelo->GuardarPhoto($_FILES['image']);
+                if (!$filePath) {
+                    throw new Exception('No se pudo guardar la imagen', 500);
+                }
+
+                $photoData = new stdClass();
+                $photoData->id = $_POST['photo_id'];
+                $photoData->title = $_POST['title'];
+                $photoData->description = $_POST['description'];
+                $photoData->file_path = $filePath;
+
+                if (!$modelo->ActualizarPhoto($photoData)) {
+                    throw new Exception('Error al actualizar la foto', 500);
+                }
+            } else {
+                // Si no hay nueva imagen, actualizamos solo los datos
+                if (!isset($datos)) {
+                    throw new Exception('No se recibieron datos para actualizar', 400);
+                }
+
+                if (!$modelo->ActualizarPhoto($datos)) {
+                    throw new Exception('Error al actualizar la foto', 500);
+                }
             }
             print json_encode(['result' => 'OK']);
             break;

@@ -51,6 +51,13 @@ export class PhotoService {
     return this.http.post<any>(this.url, body);
   }
 
+  getPhotos() {
+    const body = {
+      servicio: 'getPhotos'
+    }
+    return this.http.post<any>(this.url, body);
+  }
+
   getAcceptedPhotos() {
     const body = {
       servicio: 'getAcceptedPhotos'
@@ -69,6 +76,17 @@ export class PhotoService {
   getTopPhotosToday() {
     const body = {
       servicio: 'getTopPhotosToday'
+    }
+    return this.http.post<any>(this.url, body);
+  }
+
+  updatePhoto(photoData: any) {
+    const body = {
+      servicio: 'updatePhoto',
+      id: photoData.id,
+      title: photoData.title,
+      description: photoData.description,
+      file_path: photoData.file_path
     }
     return this.http.post<any>(this.url, body);
   }

@@ -141,10 +141,12 @@ export class ZonaUserComponent implements OnInit {
       buttonElement.style.display = 'block';
     }
 
-    // Deshabilitar el input para editarlo
+    // Deshabilitar el input y restaurar el valor original
     const inputElement = document.getElementById(campo) as HTMLInputElement;
     if (inputElement) {
       inputElement.disabled = true;
+      // Restaurar el valor original del campo
+      inputElement.value = this.user[campo as keyof typeof this.user] as string;
     }
   }
 }
