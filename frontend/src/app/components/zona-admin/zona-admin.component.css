@@ -12,7 +12,156 @@
     #011827 75%,
     #000a0f 100%
   );
+  background-size: 400% 400%;
+  animation: oceanWave 25s ease infinite;
   overflow: hidden;
+}
+
+.admin-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Burbujas flotantes - Capa principal */
+.admin-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.4) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(147, 197, 253, 0.3) 2px, transparent 2px),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 3px, transparent 3px),
+    radial-gradient(circle, rgba(96, 165, 250, 0.15) 4px, transparent 4px);
+  background-size: 120px 120px, 180px 180px, 250px 250px, 350px 350px;
+  background-position: 0px 0px, 60px 60px, 120px 120px, 180px 180px;
+  animation: bubbleFloat 25s infinite linear,
+    bubbleSway 12s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Añadir burbujas pequeñas adicionales */
+.admin-wrapper > *:first-child::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(147, 197, 253, 0.3) 0.5px,
+      transparent 0.5px
+    ),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 1px, transparent 1px);
+  background-size: 60px 60px, 90px 90px;
+  background-position: 30px 30px, 45px 45px;
+  animation: bubbleFloatSmall 18s infinite linear,
+    bubbleSway 6s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes oceanWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación de burbujas */
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(100vh) scale(0.1);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.3;
+  }
+  15% {
+    opacity: 0.8;
+    transform: translateY(90vh) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) scale(0.7);
+  }
+  85% {
+    opacity: 0.8;
+    transform: translateY(15vh) scale(1);
+  }
+  95% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(15px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(20px);
+  }
+}
+
+/* Animación adicional para burbujas más pequeñas */
+@keyframes bubbleFloatSmall {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Content wrapper centered within full-width background */
@@ -71,112 +220,4 @@
   width: 20px;
   height: 20px;
   fill: currentColor;
-}
-
-/* Bubble Animations */
-.bubble {
-  position: absolute;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.1)
-  );
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: bubbleFloat 25s infinite linear;
-}
-
-.bubble:nth-child(odd) {
-  animation: bubbleFloat 25s infinite linear,
-    bubbleSway 12s infinite ease-in-out;
-}
-
-.bubble:nth-child(even) {
-  animation: bubbleFloatSmall 18s infinite linear,
-    bubbleSway 15s infinite ease-in-out reverse;
-}
-
-.bubble:nth-child(3n) {
-  opacity: 0.4;
-  animation-delay: -8s;
-}
-
-.bubble:nth-child(4n) {
-  opacity: 0.3;
-  animation-delay: -15s;
-}
-
-.bubble:nth-child(5n) {
-  opacity: 0.5;
-  animation-delay: -22s;
-}
-
-/* Bubble size variations */
-.bubble-small {
-  width: 8px;
-  height: 8px;
-}
-.bubble-medium {
-  width: 15px;
-  height: 15px;
-}
-.bubble-large {
-  width: 25px;
-  height: 25px;
-}
-.bubble-xlarge {
-  width: 35px;
-  height: 35px;
-}
-
-/* Keyframe animations */
-@keyframes bubbleFloat {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-    transform: translateY(90vh) scale(1);
-  }
-  90% {
-    opacity: 0.6;
-    transform: translateY(-10vh) scale(1);
-  }
-  100% {
-    transform: translateY(-20vh) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleFloatSmall {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.4;
-    transform: translateY(85vh) scale(1);
-  }
-  85% {
-    opacity: 0.4;
-    transform: translateY(-5vh) scale(1);
-  }
-  100% {
-    transform: translateY(-15vh) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleSway {
-  0%,
-  100% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(20px);
-  }
-  75% {
-    transform: translateX(-20px);
-  }
 }

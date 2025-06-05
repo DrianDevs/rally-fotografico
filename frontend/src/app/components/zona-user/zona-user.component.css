@@ -1,0 +1,307 @@
+/* Deep Ocean Theme for Zona User */
+
+/* Deep Ocean Background Container */
+.user-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(
+    135deg,
+    #016691 0%,
+    #014a6b 25%,
+    #012a3b 50%,
+    #011827 75%,
+    #000a0f 100%
+  );
+  background-size: 400% 400%;
+  animation: oceanWave 25s ease infinite;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.user-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Burbujas flotantes - Capa principal */
+.user-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.4) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(147, 197, 253, 0.3) 2px, transparent 2px),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 3px, transparent 3px),
+    radial-gradient(circle, rgba(96, 165, 250, 0.15) 4px, transparent 4px);
+  background-size: 120px 120px, 180px 180px, 250px 250px, 350px 350px;
+  background-position: 0px 0px, 60px 60px, 120px 120px, 180px 180px;
+  animation: bubbleFloat 25s infinite linear,
+    bubbleSway 12s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Añadir burbujas pequeñas adicionales */
+.user-wrapper > *:first-child::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(147, 197, 253, 0.3) 0.5px,
+      transparent 0.5px
+    ),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 1px, transparent 1px);
+  background-size: 60px 60px, 90px 90px;
+  background-position: 30px 30px, 45px 45px;
+  animation: bubbleFloatSmall 18s infinite linear,
+    bubbleSway 6s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes oceanWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación de burbujas */
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(100vh) scale(0.1);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.3;
+  }
+  15% {
+    opacity: 0.8;
+    transform: translateY(90vh) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) scale(0.7);
+  }
+  85% {
+    opacity: 0.8;
+    transform: translateY(15vh) scale(1);
+  }
+  95% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(15px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(20px);
+  }
+}
+
+/* Animación adicional para burbujas más pequeñas */
+@keyframes bubbleFloatSmall {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Content wrapper centered within full-width background */
+.user-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Override Tailwind white backgrounds with glassmorphism */
+:host ::ng-deep .bg-white {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Gray backgrounds for avatars and elements */
+:host ::ng-deep .bg-gray-200 {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Text colors for better contrast */
+:host ::ng-deep .text-gray-700 {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Input styling */
+:host ::ng-deep input {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+}
+
+:host ::ng-deep input:focus {
+  outline: none !important;
+  border-color: rgba(14, 165, 233, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+:host ::ng-deep input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+:host ::ng-deep input:disabled {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Blue buttons with oceanic theme */
+:host ::ng-deep .bg-blue-500 {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7, #016691) !important;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+:host ::ng-deep .bg-blue-500:hover,
+:host ::ng-deep .hover\:bg-blue-600:hover {
+  background: linear-gradient(135deg, #0284c7, #016691, #014a6b) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4) !important;
+}
+
+/* Green buttons */
+:host ::ng-deep .bg-green-500 {
+  background: linear-gradient(135deg, #10b981, #059669, #047857) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+:host ::ng-deep .bg-green-500:hover,
+:host ::ng-deep .hover\:bg-green-600:hover {
+  background: linear-gradient(135deg, #059669, #047857, #065f46) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Red buttons */
+:host ::ng-deep .bg-red-500 {
+  background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c) !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+:host ::ng-deep .bg-red-500:hover,
+:host ::ng-deep .hover\:bg-red-600:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Button text styling */
+:host ::ng-deep button {
+  color: white !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Labels styling */
+:host ::ng-deep label {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 600 !important;
+}
+
+/* Border colors */
+:host ::ng-deep .border-blue-500 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Focus ring colors */
+:host ::ng-deep .focus\:ring-blue-400:focus {
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) !important;
+}
+
+/* Image styling for avatar */
+:host ::ng-deep img {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Container adjustments */
+.user-profile-container {
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,162 @@
+/* Deep Ocean Theme for Photo Validation */
+
+/* Title styling */
+:host ::ng-deep h2 {
+  color: white !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #b3e5fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Container styling */
+:host ::ng-deep .container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin: 1rem;
+}
+
+/* Table container */
+:host ::ng-deep .overflow-x-auto {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Table styling */
+:host ::ng-deep table {
+  background: transparent !important;
+}
+
+/* Table header */
+:host ::ng-deep thead {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+}
+
+:host ::ng-deep .bg-gray-100 {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+}
+
+:host ::ng-deep th {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+:host ::ng-deep .text-gray-600 {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Table body */
+:host ::ng-deep tbody {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+:host ::ng-deep .bg-white {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+:host ::ng-deep tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+:host ::ng-deep .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Table cells */
+:host ::ng-deep td {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+:host ::ng-deep .text-gray-900 {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects */
+:host ::ng-deep .hover\:bg-gray-50:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* Images */
+:host ::ng-deep img {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep img:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+  transform: scale(1.05);
+}
+
+/* Buttons */
+:host ::ng-deep .bg-green-500 {
+  background: linear-gradient(135deg, #10b981, #059669, #047857) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .bg-green-500:hover,
+:host ::ng-deep .hover\:bg-green-600:hover {
+  background: linear-gradient(135deg, #059669, #047857, #065f46) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+:host ::ng-deep .bg-red-500 {
+  background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c) !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .bg-red-500:hover,
+:host ::ng-deep .hover\:bg-red-600:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+/* Button text */
+:host ::ng-deep button {
+  color: white !important;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar styling for webkit browsers */
+:host ::ng-deep .overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+:host ::ng-deep .overflow-x-auto::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+:host ::ng-deep .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+:host ::ng-deep .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

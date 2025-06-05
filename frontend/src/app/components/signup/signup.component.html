@@ -1,71 +1,55 @@
-<div class="signup-container">
-  <h2>Registro de Usuario</h2>
+<div class="signup-wrapper">
+  <div class="signup-content">
+    <div class="signup-container">
+      <h2>Registro de Usuario</h2>
 
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input
-        type="text"
-        id="name"
-        formControlName="name"
-        placeholder="Ingrese su nombre"
-        [ngClass]="{
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" formControlName="name" placeholder="Ingrese su nombre" [ngClass]="{
           error:
             signupForm.get('name')?.invalid && signupForm.get('name')?.touched
-        }"
-      />
-      @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
-        <div class="error-message">
-          El nombre es requerido y debe tener al menos 3 caracteres
+        }" />
+          @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+          <div class="error-message">
+            El nombre es requerido y debe tener al menos 3 caracteres
+          </div>
+          }
         </div>
-      }
-    </div>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        formControlName="email"
-        placeholder="Ingrese su email"
-        [ngClass]="{
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Ingrese su email" [ngClass]="{
           error:
             signupForm.get('email')?.invalid && signupForm.get('email')?.touched
-        }"
-      />
-      @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
-        <div class="error-message">
-          Por favor ingrese un email válido
+        }" />
+          @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+          <div class="error-message">
+            Por favor ingrese un email válido
+          </div>
+          }
         </div>
-      }
-    </div>
 
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input
-        type="password"
-        id="password"
-        formControlName="password"
-        placeholder="Ingrese su contraseña"
-        [ngClass]="{
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña" [ngClass]="{
           error:
             signupForm.get('password')?.invalid &&
             signupForm.get('password')?.touched
-        }"
-      />
-      @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
-        <div class="error-message">
-          La contraseña debe tener al menos 6 caracteres
+        }" />
+          @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+          <div class="error-message">
+            La contraseña debe tener al menos 6 caracteres
+          </div>
+          }
         </div>
-      }
+
+        @if (errorMessage) {
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+        } <button type="submit" [disabled]="signupForm.invalid">Registrarse</button>
+      </form>
     </div>
-
-    @if (errorMessage) {
-      <div class="error-message">
-        {{ errorMessage }}
-      </div>
-    }
-
-    <button type="submit" [disabled]="signupForm.invalid">Registrarse</button>
-  </form>
+  </div>
 </div>
