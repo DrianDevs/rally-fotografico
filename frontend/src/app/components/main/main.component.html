@@ -1,7 +1,9 @@
 <div class="hero-container">
   <div class="hero-content">
     <h1>Bienvenido al Rally Fotográfico</h1>
-    <p>Disponible desde el 15 de junio al 3 de julio</p>
+    <p>Disponible desde el <b>{{ config.upload_start_date | date:'d MMMM y'}}</b>
+      al <b>{{ config.upload_end_date |
+        date:'d MMMM y' }}</b></p>
     <p>¡Sube tus fotos favoritas de Punta Cana!</p>
   </div>
   <div class="wave wave1"></div>

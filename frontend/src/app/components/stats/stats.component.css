@@ -1,24 +1,200 @@
 .stats-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(
+    135deg,
+    #016691 0%,
+    #014a6b 25%,
+    #012a3b 50%,
+    #011827 75%,
+    #000a0f 100%
+  );
+  background-size: 400% 400%;
+  animation: oceanWave 25s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Burbujas flotantes - Capa principal */
+.stats-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.4) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(147, 197, 253, 0.3) 2px, transparent 2px),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 3px, transparent 3px),
+    radial-gradient(circle, rgba(96, 165, 250, 0.15) 4px, transparent 4px);
+  background-size: 120px 120px, 180px 180px, 250px 250px, 350px 350px;
+  background-position: 0px 0px, 60px 60px, 120px 120px, 180px 180px;
+  animation: bubbleFloat 25s infinite linear,
+    bubbleSway 12s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Añadir burbujas pequeñas adicionales */
+.stats-container > *:first-child::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(147, 197, 253, 0.3) 0.5px,
+      transparent 0.5px
+    ),
+    radial-gradient(circle, rgba(59, 130, 246, 0.2) 1px, transparent 1px);
+  background-size: 60px 60px, 90px 90px;
+  background-position: 30px 30px, 45px 45px;
+  animation: bubbleFloatSmall 18s infinite linear,
+    bubbleSway 6s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes oceanWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación de burbujas */
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(100vh) scale(0.1);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.3;
+  }
+  15% {
+    opacity: 0.8;
+    transform: translateY(90vh) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) scale(0.7);
+  }
+  85% {
+    opacity: 0.8;
+    transform: translateY(15vh) scale(1);
+  }
+  95% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(15px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(20px);
+  }
+}
+
+/* Animación adicional para burbujas más pequeñas */
+@keyframes bubbleFloatSmall {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .top-photos-section {
   text-align: center;
   margin-bottom: 4rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .top-photos-section h2 {
   font-size: 2.5rem;
-  color: #2c3e50;
+  background: linear-gradient(45deg, #ffffff, #f0f8ff, #e0f6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 }
 
 .top-photos-section p {
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .podium-container {
@@ -134,7 +310,7 @@
 }
 
 .author {
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
@@ -157,26 +333,33 @@
 .top-users-section {
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
   padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .top-users-section h2 {
   font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, #3498db, #9b59b6);
+  background: linear-gradient(45deg, #ffffff, #f0f8ff, #e0f6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 }
 
 .top-users-section p {
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .chart-container {
@@ -321,8 +504,18 @@
 .no-users {
   text-align: center;
   padding: 3rem;
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor interno para centrar el contenido */
+.stats-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -374,26 +567,33 @@
 .today-photos-section {
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #fff5f5, #ffffff);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
   padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .today-photos-section h2 {
   font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, #e74c3c, #f39c12);
+  background: linear-gradient(45deg, #ffffff, #f0f8ff, #e0f6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 }
 
 .today-photos-section p {
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .today-photos-container {
@@ -546,8 +746,9 @@
 .no-photos-today {
   text-align: center;
   padding: 3rem;
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Media queries para fotos de hoy */
