@@ -6,10 +6,11 @@ import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfigService } from '../../services/config.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-main',
-  imports: [RouterModule, ImageViewerComponent],
+  imports: [RouterModule, ImageViewerComponent, DatePipe],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })

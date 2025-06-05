@@ -1,0 +1,24 @@
+[05-Jun-2025 20:12:10 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:10 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:10 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 20:12:14 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:14 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:14 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 20:12:15 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:15 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[05-Jun-2025 20:12:15 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 21:00:53 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[05-Jun-2025 21:00:53 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[05-Jun-2025 21:00:53 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 21:17:25 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"insertarUser","email":"nicknicknickcpr@gmail.com","password":"123456","name":"Nick","role":"participant"}
+[05-Jun-2025 21:17:25 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"insertarUser","email":"nicknicknickcpr@gmail.com","password":"123456","name":"Nick","role":"participant"}
+[05-Jun-2025 21:17:25 Europe/Berlin] DEBUG - Servicio solicitado: insertarUser
+[05-Jun-2025 21:17:28 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:17:28 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:17:28 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 21:17:30 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:17:30 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:17:30 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[05-Jun-2025 21:18:04 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:18:04 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":10}
+[05-Jun-2025 21:18:04 Europe/Berlin] DEBUG - Servicio solicitado: getUser
