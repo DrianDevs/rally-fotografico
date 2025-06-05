@@ -1,32 +1,56 @@
-<div class="admin-container">
-  <app-rally-config></app-rally-config>
-</div>
-<div class="admin-container">
-  <app-photo-validation></app-photo-validation>
-</div>
-<div class="mt-6 flex justify-center">
-  <button routerLink="/lista-usuarios"
-    class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl hover:from-blue-600 hover:to-indigo-700 transition duration-300 ease-in-out shadow-lg hover:shadow-xl flex items-center cursor-pointer">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
-      <path
-        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z" />
-    </svg>
-    Administrar Usuarios
-  </button>
-  <button routerLink="/lista-photos"
-    class="ml-4 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition duration-300 ease-in-out shadow-lg hover:shadow-xl flex items-center cursor-pointer">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd"
-        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-        clip-rule="evenodd" />
-    </svg>
-    Administrar Fotos
-  </button>
-  <button routerLink="/participante"
-    class="ml-4 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:from-green-600 hover:to-emerald-700 transition duration-300 ease-in-out shadow-lg hover:shadow-xl flex items-center cursor-pointer">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
-      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
-    </svg>
-    Ir a Zona Usuario
-  </button>
+<div class="admin-wrapper">
+  <!-- Animated Bubbles -->
+  <div class="bubble bubble-small" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="bubble bubble-medium" style="left: 20%; animation-delay: -5s;"></div>
+  <div class="bubble bubble-large" style="left: 30%; animation-delay: -10s;"></div>
+  <div class="bubble bubble-small" style="left: 40%; animation-delay: -15s;"></div>
+  <div class="bubble bubble-xlarge" style="left: 50%; animation-delay: -20s;"></div>
+  <div class="bubble bubble-medium" style="left: 60%; animation-delay: -3s;"></div>
+  <div class="bubble bubble-small" style="left: 70%; animation-delay: -8s;"></div>
+  <div class="bubble bubble-large" style="left: 80%; animation-delay: -13s;"></div>
+  <div class="bubble bubble-medium" style="left: 90%; animation-delay: -18s;"></div>
+  <div class="bubble bubble-small" style="left: 15%; animation-delay: -25s;"></div>
+  <div class="bubble bubble-xlarge" style="left: 35%; animation-delay: -7s;"></div>
+  <div class="bubble bubble-medium" style="left: 55%; animation-delay: -12s;"></div>
+  <div class="bubble bubble-small" style="left: 75%; animation-delay: -17s;"></div>
+  <div class="bubble bubble-large" style="left: 85%; animation-delay: -22s;"></div>
+  <div class="bubble bubble-medium" style="left: 25%; animation-delay: -2s;"></div>
+  <div class="bubble bubble-small" style="left: 45%; animation-delay: -9s;"></div>
+  <div class="bubble bubble-xlarge" style="left: 65%; animation-delay: -14s;"></div>
+  <div class="bubble bubble-medium" style="left: 5%; animation-delay: -19s;"></div>
+  <div class="bubble bubble-small" style="left: 95%; animation-delay: -24s;"></div>
+  <div class="bubble bubble-large" style="left: 12%; animation-delay: -4s;"></div>
+
+  <div class="admin-content">
+    <div class="admin-container">
+      <app-rally-config></app-rally-config>
+    </div>
+    <div class="admin-container">
+      <app-photo-validation></app-photo-validation>
+    </div>
+
+    <div class="admin-buttons">
+      <button routerLink="/lista-usuarios" class="ocean-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path
+            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z" />
+        </svg>
+        Administrar Usuarios
+      </button>
+      <button routerLink="/lista-photos" class="ocean-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+            clip-rule="evenodd" />
+        </svg>
+        Administrar Fotos
+      </button>
+      <button routerLink="/participante" class="ocean-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
+        </svg>
+        Ir a Zona Usuario
+      </button>
+    </div>
+  </div>
 </div>
