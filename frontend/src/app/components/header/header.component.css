@@ -1,1 +1,291 @@
+/* Zona de detección de hover en la parte superior */
+.header-trigger-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Área para detección del hover */
+  z-index: 999; /* Menor que el header para no interferir */
+  background: transparent;
+  pointer-events: all;
+}
 
+/* Container del header */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transform: translateY(-100%); /* Oculto por defecto */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 8px 32px rgba(1, 102, 145, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none; /* Sin eventos cuando está oculto */
+}
+
+/* Mostrar header cuando se hace hover en la zona de trigger */
+.header-trigger-zone:hover + .header-container,
+.header-container:hover {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Habilitar eventos cuando está visible */
+}
+
+/* Mantener el header visible mientras se navega por él */
+.header-container:hover {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Asegurar que los clics funcionen */
+}
+
+/* Asegurar que todos los elementos del header sean clickables cuando visible */
+.header-trigger-zone:hover + .header-container *,
+.header-container:hover * {
+  pointer-events: all;
+}
+
+/* Asegurar que los botones y enlaces mantengan su funcionalidad */
+.header-container nav button,
+.header-container nav a,
+.header-container .group {
+  pointer-events: all !important;
+  cursor: pointer;
+}
+
+/* Efecto de ondas oceánicas en el fondo */
+.header-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(14, 165, 233, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(6, 182, 212, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(59, 130, 246, 0.15) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animación de burbujas oceánicas en el header */
+.header-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    ),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(
+      1px 1px at 130px 80px,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: oceanBubbles 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes oceanBubbles {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(-30px) translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateX(30px) translateY(-10px) rotate(240deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(360deg);
+  }
+}
+
+/* Estilos adicionales para mejorar la experiencia visual */
+.header-container .container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Efecto glassmorphism mejorado para los botones del header */
+.header-container nav button,
+.header-container nav a {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none !important; /* Eliminar borde sólido que causa el problema */
+  cursor: pointer; /* Cursor pointer explícito */
+  pointer-events: all; /* Asegurar que sean clickables */
+  box-shadow: 
+    0 4px 15px rgba(1, 102, 145, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(14, 165, 233, 0.15) !important; /* Borde interno sutil */
+  /* Anular posibles conflictos de Tailwind */
+  border-radius: 9999px !important;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+.header-container nav button:hover,
+.header-container nav a:hover {
+  cursor: pointer; /* Asegurar cursor pointer en hover */
+  box-shadow: 
+    0 6px 20px rgba(1, 102, 145, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(14, 165, 233, 0.25) !important; /* Borde interno más visible en hover */
+  /* Anular sombras de Tailwind que pueden causar conflictos */
+  --tw-shadow: none !important;
+  --tw-shadow-colored: none !important;
+}
+
+.header-container nav button::before,
+.header-container nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+  pointer-events: none; /* Los pseudo-elementos no deben interferir */
+  border-radius: inherit; /* Heredar el border-radius del padre */
+}
+
+/* Crear un borde sutil que se integre con el gradiente */
+.header-container nav button::after,
+.header-container nav a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1px; /* Grosor del "borde" */
+  background: linear-gradient(135deg, 
+    rgba(14, 165, 233, 0.1) 0%,
+    rgba(2, 132, 199, 0.15) 25%,
+    rgba(14, 165, 233, 0.1) 50%,
+    rgba(6, 182, 212, 0.15) 75%,
+    rgba(14, 165, 233, 0.1) 100%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Asegurar que no haya líneas extrañas en los bordes */
+.header-container nav button,
+.header-container nav a {
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+.header-container nav button:hover::before,
+.header-container nav a:hover::before {
+  left: 100%;
+}
+
+.header-container nav button:hover::after,
+.header-container nav a:hover::after {
+  background: linear-gradient(135deg, 
+    rgba(14, 165, 233, 0.2) 0%,
+    rgba(2, 132, 199, 0.25) 25%,
+    rgba(14, 165, 233, 0.2) 50%,
+    rgba(6, 182, 212, 0.25) 75%,
+    rgba(14, 165, 233, 0.2) 100%
+  );
+}
+
+/* Indicador visual sutil para mostrar que hay un header */
+.header-trigger-zone::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(14, 165, 233, 0.6),
+    transparent
+  );
+  border-radius: 0 0 3px 3px;
+  opacity: 0;
+  animation: headerHint 3s ease-in-out infinite;
+}
+
+@keyframes headerHint {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+/* Mejorar la transición del logo */
+.header-container .group:hover .w-8 {
+  transform: scale(1.1) rotate(360deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-trigger-zone {
+    height: 50px;
+  }
+
+  .header-container nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .header-container nav button,
+  .header-container nav a {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    cursor: pointer; /* Asegurar cursor en móvil también */
+  }
+}

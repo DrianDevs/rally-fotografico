@@ -278,3 +278,6 @@
 [06-Jun-2025 20:32:41 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
 [06-Jun-2025 20:32:41 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
 [06-Jun-2025 20:32:41 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[06-Jun-2025 20:38:39 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[06-Jun-2025 20:38:39 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[06-Jun-2025 20:38:39 Europe/Berlin] DEBUG - Servicio solicitado: getUser
