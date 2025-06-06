@@ -1,4 +1,5 @@
-<header style="background: linear-gradient(to right, #016691, #0284c7, #0ea5e9)" class="shadow-xl relative overflow-hidden">
+<header style="background: linear-gradient(to right, #016691, #0284c7, #0ea5e9)"
+    class="shadow-xl relative overflow-hidden">
     <!-- Efecto de onda decorativa -->
     <div class="absolute inset-0 opacity-20">
         <svg class="w-full h-full" viewBox="0 0 1000 100" preserveAspectRatio="none">
@@ -28,30 +29,29 @@
 
             <!-- Botones de navegación -->
             <nav class="flex items-center space-x-3">
-                <button (click)="irAGaleria()"
-                    style="background: linear-gradient(to right, #0ea5e9, #0284c7)" class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button (click)="irAGaleria()" style="background: linear-gradient(to right, #0ea5e9, #0284c7)"
+                    class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     📸 Galería
                 </button>
-                <a routerLink="/estadisticas"
-                    style="background: linear-gradient(to right, #0ea5e9, #0284c7)" class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <a routerLink="/estadisticas" style="background: linear-gradient(to right, #0ea5e9, #0284c7)"
+                    class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     📊 Estadísticas
                 </a>
                 @if (authService.isLoggedIn()) {
-                @if (authService.isAdmin) {
-                <a routerLink="/admin"
-                    style="background: linear-gradient(to right, #014a6b, #012a3b)"
-                    class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    👑 Zona Admin
-                </a>
-                }
                 <a routerLink="/participante" style="background: linear-gradient(to right, #60a5fa, #016691)"
                     class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     🏄‍♂️ Mi Zona
                 </a>
+                @if (authService.isAdmin) {
+                <a routerLink="/admin" style="background: linear-gradient(to right, #014a6b, #012a3b)"
+                    class="px-5 py-2.5 text-white rounded-full hover:opacity-90 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    🔧 Zona Admin
+                </a>
+                }
                 <button (click)="logout()"
                     class="px-5 py-2.5 bg-gradient-to-r from-blue-700 to-blue-900 text-white rounded-full hover:from-blue-800 hover:to-gray-900 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     🚪 Salir
-                </button>                } @else {
+                </button> } @else {
                 <a routerLink="/login"
                     class="px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-600 text-white rounded-full hover:from-cyan-500 hover:to-blue-700 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     🌊 Iniciar Sesión
