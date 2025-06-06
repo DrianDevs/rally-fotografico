@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../../services/photo.service';
 import { UserService } from '../../services/user.service';
+import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 
 @Component({
   selector: 'app-stats',
-  imports: [],
+  imports: [ImageViewerComponent],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.css'
 })
@@ -12,6 +13,7 @@ export class StatsComponent implements OnInit {
   public topPhotos: any[] = [];
   public topUsers: any[] = [];
   public topPhotosToday: any[] = [];
+  public selectedImage: { url: string; alt: string } | null = null;
 
   constructor(private photoService: PhotoService, private userService: UserService) { }
 
@@ -67,5 +69,13 @@ export class StatsComponent implements OnInit {
     if (this.topUsers.length === 0) return 0;
     const maxVotes = Math.max(...this.topUsers.map(user => user.total_votes));
     return maxVotes > 0 ? (votes / maxVotes) * 100 : 0;
+  }
+
+  openImageViewer(imageUrl: string, imageAlt: string): void {
+    this.selectedImage = { url: imageUrl, alt: imageAlt };
+  }
+
+  closeImageViewer(): void {
+    this.selectedImage = null;
   }
 }

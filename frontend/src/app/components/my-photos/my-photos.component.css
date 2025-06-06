@@ -1,0 +1,30 @@
+/* Override text colors for better legibility with white text */
+.text-gray-700 {
+  color: white !important;
+}
+
+.text-gray-800 {
+  color: white !important;
+}
+
+.text-gray-600 {
+  color: white !important;
+}
+
+/* Ensure proper contrast for status colors on white backgrounds */
+.text-yellow-500 {
+  color: #eab308 !important;
+}
+
+.text-green-500 {
+  color: #22c55e !important;
+}
+
+.text-red-500 {
+  color: #ef4444 !important;
+}
+
+/* Maintain gray color for vote count as it provides good contrast */
+.text-gray-500 {
+  color: #9ca3af !important;
+}

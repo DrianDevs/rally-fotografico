@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PhotoService } from '../../services/photo.service';
 import { FormsModule } from '@angular/forms';
+import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 
 @Component({
     selector: 'app-lista-photos',
-    imports: [RouterLink, FormsModule],
+    imports: [RouterLink, FormsModule, ImageViewerComponent],
     templateUrl: './lista-photos.component.html',
     styleUrl: './lista-photos.component.css',
 })
@@ -16,6 +17,7 @@ export class ListaPhotosComponent implements OnInit {
     public formModified: boolean = false;
     private originalPhoto: any = null;
     public selectedFile: File | null = null;
+    public selectedImage: { url: string; alt: string } | null = null;
 
     constructor(private photoService: PhotoService) { }
 
@@ -143,4 +145,12 @@ export class ListaPhotosComponent implements OnInit {
     getPhotoUrl(filePath: string): string {
         return this.photoService.getPhotoUrl(filePath);
     }
-} 
+
+    openImageViewer(imageUrl: string, imageAlt: string): void {
+        this.selectedImage = { url: imageUrl, alt: imageAlt };
+    }
+
+    closeImageViewer(): void {
+        this.selectedImage = null;
+    }
+}

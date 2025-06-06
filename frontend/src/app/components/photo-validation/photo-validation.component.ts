@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { PhotoService } from '../../services/photo.service';
-import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 
 @Component({
   selector: 'app-photo-validation',
   standalone: true,
-  imports: [CommonModule, DatePipe, ImageViewerComponent],
+  imports: [CommonModule, DatePipe],
   templateUrl: './photo-validation.component.html',
   styleUrl: './photo-validation.component.css'
 })
 export class PhotoValidationComponent implements OnInit {
   pendingPhotos: any[] = [];
-  selectedImage: { url: string; alt: string } | null = null;
 
   constructor(private photoService: PhotoService) { }
 
@@ -47,7 +45,6 @@ export class PhotoValidationComponent implements OnInit {
       );
     }
   }
-
   rejectPhoto(photoId: number) {
     if (confirm('¿Quieres rechazar esta foto?')) {
       this.photoService.updatePhotoStatus(photoId, 'rejected').subscribe(
@@ -59,13 +56,5 @@ export class PhotoValidationComponent implements OnInit {
         }
       );
     }
-  }
-
-  openImageViewer(imageUrl: string, imageAlt: string) {
-    this.selectedImage = { url: imageUrl, alt: imageAlt };
-  }
-
-  closeImageViewer() {
-    this.selectedImage = null;
   }
 }

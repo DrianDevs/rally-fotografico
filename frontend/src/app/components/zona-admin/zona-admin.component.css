@@ -181,6 +181,27 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Admin panel title styling */
+.admin-title {
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Ensure internal components are properly aligned */
+.admin-container app-rally-config,
+.admin-container app-photo-validation {
+  width: 100%;
+  display: block;
 }
 
 /* Button styling with oceanic theme */
@@ -188,7 +209,6 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
   flex-wrap: wrap;
 }
 

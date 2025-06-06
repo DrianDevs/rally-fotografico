@@ -287,6 +287,12 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.podium-photo:hover {
+  transform: scale(1.02);
 }
 
 .first-place .podium-photo {
@@ -689,6 +695,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .today-photo-card:hover .today-photo-image {
