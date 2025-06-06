@@ -108,25 +108,12 @@
     );
   background-repeat: repeat;
   background-size: 150px 100px;
-  animation: oceanBubbles 20s linear infinite;
+  /* Removida la animación oceanBubbles */
   pointer-events: none;
   z-index: -1;
 }
 
-@keyframes oceanBubbles {
-  0% {
-    transform: translateX(0) translateY(0) rotate(0deg);
-  }
-  33% {
-    transform: translateX(-30px) translateY(-20px) rotate(120deg);
-  }
-  66% {
-    transform: translateX(30px) translateY(-10px) rotate(240deg);
-  }
-  100% {
-    transform: translateX(0) translateY(0) rotate(360deg);
-  }
-}
+/* Keyframes removidos - ya no se necesitan */
 
 /* Estilos adicionales para mejorar la experiencia visual */
 .header-container .container {
@@ -234,36 +221,9 @@
   );
 }
 
-/* Indicador visual sutil para mostrar que hay un header */
-.header-trigger-zone::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(14, 165, 233, 0.6),
-    transparent
-  );
-  border-radius: 0 0 3px 3px;
-  opacity: 0;
-  animation: headerHint 3s ease-in-out infinite;
-}
+/* Indicador visual sutil para mostrar que hay un header - REMOVIDO */
 
-@keyframes headerHint {
-  0%,
-  90%,
-  100% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 1;
-  }
-}
+/* Keyframes de headerHint removidos - ya no se necesitan */
 
 /* Mejorar la transición del logo */
 .header-container .group:hover .w-8 {
