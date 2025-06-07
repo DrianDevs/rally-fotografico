@@ -425,3 +425,42 @@
 [07-Jun-2025 14:52:55 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
 [07-Jun-2025 14:52:55 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
 [07-Jun-2025 14:52:55 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 16:56:20 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 16:56:20 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 16:56:20 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[07-Jun-2025 16:59:30 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 16:59:30 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 16:59:30 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[07-Jun-2025 17:00:11 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:00:11 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:00:11 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[07-Jun-2025 17:00:29 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:00:29 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:00:29 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:02 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:02 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:02 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:12 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:12 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:12 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:29 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:29 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:29 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:36 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:36 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:36 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:51 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:51 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:51 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:04:58 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:58 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:04:58 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:05:10 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:05:10 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:05:10 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:07:35 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:07:35 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:07:35 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Servicio solicitado: getUser

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { PhotoService } from '../../services/photo.service';
 import { NgClass } from '@angular/common';
@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-my-photos',
-  imports: [RouterLink, NgClass, ImageViewerComponent],
+  imports: [NgClass, ImageViewerComponent],
   templateUrl: './my-photos.component.html',
   styleUrl: './my-photos.component.css'
 })
