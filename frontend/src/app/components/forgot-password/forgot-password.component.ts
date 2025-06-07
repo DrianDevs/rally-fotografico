@@ -32,18 +32,17 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit(): void {
+    // Si el formulario es válido, procedemos a enviar el correo
     if (this.forgotPasswordForm.valid) {
       this.isLoading = true;
       this.errorMessage = '';
-
       const email = this.forgotPasswordForm.value.email;
 
-      console.log('Email enviado:', email);
       this.userService.forgotPassword(email).subscribe({
         next: (response) => {
           console.log(response);
 
-          // Si lo recibido es FAIL, mostramos el mensaje de error concreto
+          // Si lo recibido es FAIL, mostramos el mensaje de error
           if (response.result === 'FAIL') {
             this.errorMessage = response.message || 'Error al procesar la solicitud';
             this.isLoading = false;
@@ -62,6 +61,7 @@ export class ForgotPasswordComponent implements OnInit {
     }
   }
 
+  // Reinicia el formulario y el mensaje de error
   resetForm(): void {
     this.emailSent = false;
     this.errorMessage = '';

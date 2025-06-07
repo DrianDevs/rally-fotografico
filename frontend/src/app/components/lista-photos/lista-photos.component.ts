@@ -25,6 +25,7 @@ export class ListaPhotosComponent implements OnInit {
         this.loadPhotos();
     }
 
+    // Carga todas las fotos desde el servidor
     loadPhotos() {
         this.photoService.getPhotos().subscribe({
             next: (data) => {
@@ -37,6 +38,7 @@ export class ListaPhotosComponent implements OnInit {
         });
     }
 
+    // Elimina una foto después de la confirmación del usuario
     eliminarPhoto(photoId: number) {
         if (!confirm('¿Está seguro que desea eliminar esta foto?')) return;
 
@@ -50,6 +52,7 @@ export class ListaPhotosComponent implements OnInit {
         });
     }
 
+    // Prepara una foto para ser editada abriendo el formulario
     modificarPhoto(photoId: number) {
         const photoToEdit = this.photos.find((photo) => photo.id === photoId);
         if (photoToEdit) {
@@ -61,10 +64,12 @@ export class ListaPhotosComponent implements OnInit {
         }
     }
 
+    // Marca el formulario como modificado
     onFormChange() {
         this.formModified = true;
     }
 
+    // Maneja la selección de un nuevo archivo
     onFileSelected(event: any) {
         const file = event.target.files[0];
         if (file) {
@@ -73,6 +78,7 @@ export class ListaPhotosComponent implements OnInit {
         }
     }
 
+    // Guarda los cambios realizados en una foto
     guardarCambios() {
         if (!this.selectedPhoto) {
             alert('No hay foto seleccionada para modificar.');
@@ -126,6 +132,7 @@ export class ListaPhotosComponent implements OnInit {
         }
     }
 
+    // Cancela la edición y restaura los valores originales
     cancelarEdicion() {
         if (this.originalPhoto && this.selectedPhoto) {
             const index = this.photos.findIndex(
@@ -142,14 +149,17 @@ export class ListaPhotosComponent implements OnInit {
         this.selectedFile = null;
     }
 
+    // Obtiene la URL completa de una foto
     getPhotoUrl(filePath: string): string {
         return this.photoService.getPhotoUrl(filePath);
     }
 
+    // Abre el visor de imágenes con la imagen seleccionada
     openImageViewer(imageUrl: string, imageAlt: string): void {
         this.selectedImage = { url: imageUrl, alt: imageAlt };
     }
 
+    // Cierra el visor de imágenes
     closeImageViewer(): void {
         this.selectedImage = null;
     }

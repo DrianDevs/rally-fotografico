@@ -18,6 +18,7 @@ export class HeaderComponent {
     }
 
     irAGaleria() {
+        // Ir a main y hacer scroll a la sección de galería
         this.router.navigate(['/']).then(() => {
             setTimeout(() => {
                 const gallerySection = document.querySelector('.gallery-section');

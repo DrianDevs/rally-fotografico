@@ -464,3 +464,9 @@
 [07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
 [07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
 [07-Jun-2025 17:07:38 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[07-Jun-2025 17:14:39 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:14:39 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:14:39 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[07-Jun-2025 17:16:03 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:16:03 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[07-Jun-2025 17:16:03 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
