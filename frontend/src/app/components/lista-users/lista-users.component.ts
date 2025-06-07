@@ -20,19 +20,26 @@ export class ListaUsersComponent implements OnInit {
   constructor(private peticion: UserService) { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  // Carga todos los usuarios desde el backend
+  loadUsers() {
     this.peticion.obtenerUsers().subscribe({
       next: (data) => {
         this.users = data;
       },
       error: (error) => {
-        console.error('Error al cargar la configuración:', error);
+        console.error('Error al cargar los usuarios:', error);
       },
     });
   }
 
+  // Elimina un usuario después de la confirmación
   eliminarUser(userId: number) {
     const userToDelete = this.users.find((user) => user.id === userId);
 
+    // Prevenir eliminación de usuarios admins
     if (userToDelete?.role === 'admin') {
       alert('No se puede eliminar un usuario administrador.');
       return;
@@ -43,11 +50,7 @@ export class ListaUsersComponent implements OnInit {
     this.peticion.eliminarUser(userId).subscribe({
       next: (response) => {
         console.log(response);
-        this.peticion.obtenerUsers().subscribe({
-          next: (data) => {
-            this.users = data;
-          },
-        });
+        this.loadUsers(); // Recargar la lista después de eliminar
       },
       error: (error) => {
         console.error('Error al eliminar un usuario:', error);
@@ -55,6 +58,7 @@ export class ListaUsersComponent implements OnInit {
     });
   }
 
+  // Prepara un usuario para ser editado abriendo el formulario
   modificarUser(userId: number) {
     const userToEdit = this.users.find((user) => user.id === userId);
     if (userToEdit) {
@@ -66,10 +70,12 @@ export class ListaUsersComponent implements OnInit {
     }
   }
 
+  // Marca el formulario como modificado
   onFormChange() {
     this.formModified = true;
   }
 
+  // Guarda los cambios realizados en un usuario
   guardarCambios() {
     if (
       !this.selectedUser ||
@@ -81,16 +87,12 @@ export class ListaUsersComponent implements OnInit {
     } else {
       this.peticion.actualizarUser(this.selectedUser).subscribe({
         next: (response: any) => {
+          // Restablecemos las variables y volvemos a cargar los usuarios
           this.showEditForm = false;
           this.selectedUser = null;
           this.originalUser = null;
           this.formModified = false;
-
-          this.peticion.obtenerUsers().subscribe({
-            next: (data) => {
-              this.users = data;
-            },
-          });
+          this.loadUsers();
         },
         error: (error: any) => {
           console.error('Error al actualizar el usuario:', error);
@@ -99,6 +101,7 @@ export class ListaUsersComponent implements OnInit {
     }
   }
 
+  // Cancela la edición y restaura los valores originales
   cancelarEdicion() {
     if (this.originalUser && this.selectedUser) {
       const index = this.users.findIndex(

@@ -25,7 +25,7 @@ export class ListaPhotosComponent implements OnInit {
         this.loadPhotos();
     }
 
-    // Carga todas las fotos desde el servidor
+    // Carga todas las fotos desde el backend
     loadPhotos() {
         this.photoService.getPhotos().subscribe({
             next: (data) => {
@@ -38,7 +38,7 @@ export class ListaPhotosComponent implements OnInit {
         });
     }
 
-    // Elimina una foto después de la confirmación del usuario
+    // Elimina una foto después de la confirmación
     eliminarPhoto(photoId: number) {
         if (!confirm('¿Está seguro que desea eliminar esta foto?')) return;
 
@@ -56,6 +56,7 @@ export class ListaPhotosComponent implements OnInit {
     modificarPhoto(photoId: number) {
         const photoToEdit = this.photos.find((photo) => photo.id === photoId);
         if (photoToEdit) {
+            // Guarda una copia de los datos originales por si es necesario
             this.originalPhoto = { ...photoToEdit };
             this.selectedPhoto = { ...photoToEdit };
             this.showEditForm = true;
@@ -69,7 +70,7 @@ export class ListaPhotosComponent implements OnInit {
         this.formModified = true;
     }
 
-    // Maneja la selección de un nuevo archivo
+    // Evento que salta cuando se selecciona un archivo en el formulario
     onFileSelected(event: any) {
         const file = event.target.files[0];
         if (file) {
@@ -97,6 +98,7 @@ export class ListaPhotosComponent implements OnInit {
 
             this.photoService.uploadPhoto(formData).subscribe({
                 next: (response: any) => {
+                    // Restablecemos las variables y volvemos a cargar las fotos
                     this.showEditForm = false;
                     this.selectedPhoto = null;
                     this.originalPhoto = null;
@@ -119,6 +121,7 @@ export class ListaPhotosComponent implements OnInit {
 
             this.photoService.updatePhoto(photoData).subscribe({
                 next: (response: any) => {
+                    // Restablecemos las variables y volvemos a cargar las fotos
                     this.showEditForm = false;
                     this.selectedPhoto = null;
                     this.originalPhoto = null;
