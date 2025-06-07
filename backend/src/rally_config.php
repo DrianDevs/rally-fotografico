@@ -5,7 +5,7 @@ ini_set('log_errors', 1); // para logear errores
 ini_set('error_log', __DIR__ . '/../logs/php-error.log'); // ruta del log de errores
 
 require_once(__DIR__ . '/../config.php');
-require_once('../vendor/autoload.php');
+require __DIR__ . '/../vendor/autoload.php';
 
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');

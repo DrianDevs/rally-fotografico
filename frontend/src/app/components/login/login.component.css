@@ -1,6 +1,4 @@
-/* Deep Ocean Theme for Login Component */
-
-/* Deep Ocean Background Container */
+/* Contenedor de Fondo de Océano Profundo */
 .login-wrapper {
   position: relative;
   min-height: 100vh;
@@ -45,7 +43,6 @@
   pointer-events: none;
 }
 
-/* Burbujas flotantes - Capa principal */
 .login-wrapper::after {
   content: "";
   position: absolute;
@@ -69,7 +66,6 @@
   z-index: 0;
 }
 
-/* Añadir burbujas pequeñas adicionales */
 .login-wrapper > *:first-child::after {
   content: "";
   position: fixed;
@@ -103,7 +99,6 @@
   }
 }
 
-/* Animación de burbujas */
 @keyframes bubbleFloat {
   0% {
     transform: translateY(100vh) scale(0.1);
@@ -149,7 +144,6 @@
   }
 }
 
-/* Animación adicional para burbujas más pequeñas */
 @keyframes bubbleFloatSmall {
   0% {
     transform: translateY(100vh) scale(0) rotate(0deg);
@@ -167,7 +161,6 @@
   }
 }
 
-/* Content wrapper centered within full-width background */
 .login-content {
   position: relative;
   z-index: 2;
@@ -176,7 +169,7 @@
   padding: 20px;
 }
 
-/* Override Tailwind white backgrounds with glassmorphism */
+/* Para sobreescribir fondos blancos de Tailwind */
 :host ::ng-deep .bg-white {
   background: rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(15px) !important;
@@ -184,7 +177,6 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Header styling */
 :host ::ng-deep h1 {
   background: linear-gradient(135deg, #ffffff, #e0f2fe, #b3e5fc) !important;
   -webkit-background-clip: text !important;
@@ -194,7 +186,6 @@
   font-weight: 700 !important;
 }
 
-/* Text colors for better contrast */
 :host ::ng-deep .text-gray-700 {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
@@ -208,14 +199,14 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Labels styling */
+/* Estilos de las labels */
 :host ::ng-deep label {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
   font-weight: 600 !important;
 }
 
-/* Input styling */
+/* Estilos de los inputs */
 :host ::ng-deep input {
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(5px) !important;
@@ -235,7 +226,7 @@
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Button styling */
+/* Estilos de los botones */
 :host ::ng-deep .bg-blue-600 {
   background: linear-gradient(135deg, #0ea5e9, #0284c7, #016691) !important;
   box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
@@ -260,7 +251,6 @@
   box-shadow: none !important;
 }
 
-/* Link styling */
 :host ::ng-deep a {
   color: rgba(255, 255, 255, 0.9) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
@@ -288,14 +278,12 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Button text styling */
 :host ::ng-deep button {
   color: white !important;
   font-weight: 600 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Error message styling */
 :host ::ng-deep .text-red-600 {
   color: #fca5a5 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
@@ -306,12 +294,10 @@
   border: 1px solid rgba(239, 68, 68, 0.2) !important;
 }
 
-/* SVG icon styling */
 :host ::ng-deep svg {
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* Focus ring colors */
 :host ::ng-deep .focus\:ring-blue-500:focus {
   box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) !important;
 }
@@ -320,7 +306,6 @@
   box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.2) !important;
 }
 
-/* Border colors override */
 :host ::ng-deep .border {
   border-color: rgba(255, 255, 255, 0.3) !important;
 }

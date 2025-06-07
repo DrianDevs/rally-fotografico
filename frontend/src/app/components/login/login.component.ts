@@ -36,9 +36,9 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: () => {
-        console.log('Inicio de sesión exitoso');
+        // Si el login es exitoso, redirigir al usuario a la ruta correspondiente según su rol
+        this.error = null; // Resetea el error si el login es exitoso
         const role = this.authService.getUserRole();
-        console.log('Rol del usuario:', role);
         this.router.navigate([role === 'admin' ? '/admin' : '/participante']);
       },
       error: () => {

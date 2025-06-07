@@ -3,6 +3,7 @@ import { CanActivateFn, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { map, catchError, of } from 'rxjs';
 
+// Protege el formulario de reestablecer contraseña de usuarios sin token o con token inválido
 export const tokenGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {
     const router = inject(Router);
     const authService = inject(AuthService);
