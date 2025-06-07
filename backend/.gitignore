@@ -1,0 +1,20 @@
+# Composer
+/vendor/
+composer.phar
+
+# Logs
+/logs/*.log
+
+# Configuration (if needed)
+# config.php
+
+# Uploads (optional - depends if you want to track uploaded files)
+# /uploads/
+
+# IDE
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
