@@ -1,0 +1,6 @@
+[submodule "backend/vendor/firebase"]
+  path = backend/vendor/firebase
+  url = https://github.com/firebase/firebase-php.git
+[submodule "backend/vendor/firebase/php-jwt"]
+  path = backend/vendor/firebase/php-jwt
+  url = https://github.com/firebase/php-jwt.git
