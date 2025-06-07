@@ -3,7 +3,7 @@
         'name' => 'driandevs/rally_backend',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'faeec6efda2309514000b690db90a0e927d0e1a8',
+        'reference' => 'd3ae1de84eaf21f224de34b14fe1e301c96c9ccf',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'driandevs/rally_backend' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'faeec6efda2309514000b690db90a0e927d0e1a8',
+            'reference' => 'd3ae1de84eaf21f224de34b14fe1e301c96c9ccf',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
