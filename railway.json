@@ -1,0 +1,10 @@
+{
+  "build": {
+    "builder": "nixpacks",
+    "buildCommand": "cd backend && composer install",
+    "runCommand": "cd backend && php -S 0.0.0.0:$PORT"
+  },
+  "deploy": {
+    "startCommand": "cd backend && php -S 0.0.0.0:$PORT"
+  }
+}
