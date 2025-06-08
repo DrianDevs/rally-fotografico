@@ -13,7 +13,7 @@
             [value]="user.name" disabled />
           <button
             class="ml-2 p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow transition-all boton-name"
-            title="Editar nombre" type="button" (click)="editarCampo('name')">
+            title="Editar nombre" type="button" (click)="editField('name')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -22,14 +22,14 @@
           </button>
           <div class="editar-name">
             <button class="ml-2 p-2 rounded-full bg-green-500 hover:bg-green-600 text-white shadow transition-all"
-              title="Confirmar edición" type="button" (click)="confirmarEdicion('name')">
+              title="Confirmar edición" type="button" (click)="submitEdit('name')">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </button>
             <button class="ml-2 p-2 rounded-full bg-red-500 hover:bg-red-600 text-white shadow transition-all"
-              title="Cancelar edición" type="button" (click)="quitarEdicion('name')">
+              title="Cancelar edición" type="button" (click)="cancelEdit('name')">
               <svg xmlns=" http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -44,7 +44,7 @@
             [value]="user.email" disabled />
           <button
             class="ml-2 p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow transition-all boton-email"
-            title="Editar email" type="button" (click)="editarCampo('email')">
+            title="Editar email" type="button" (click)="editField('email')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -53,14 +53,14 @@
           </button>
           <div class="editar-email">
             <button class="ml-2 p-2 rounded-full bg-green-500 hover:bg-green-600 text-white shadow transition-all"
-              title="Confirmar edición" type="button" (click)="confirmarEdicion('email')">
+              title="Confirmar edición" type="button" (click)="submitEdit('email')">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </button>
             <button class="ml-2 p-2 rounded-full bg-red-500 hover:bg-red-600 text-white shadow transition-all"
-              title="Cancelar edición" type="button" (click)="quitarEdicion('email')">
+              title="Cancelar edición" type="button" (click)="cancelEdit('email')">
               <svg xmlns=" http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -75,7 +75,7 @@
             [value]="" placeholder="Nueva contraseña" disabled />
           <button
             class="ml-2 p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow transition-all boton-password"
-            title="Editar contraseña" type="button" (click)="editarCampo('password')">
+            title="Editar contraseña" type="button" (click)="editField('password')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -84,14 +84,14 @@
           </button>
           <div class="editar-password">
             <button class="ml-2 p-2 rounded-full bg-green-500 hover:bg-green-600 text-white shadow transition-all"
-              title="Confirmar edición" type="button" (click)="confirmarEdicion('password')">
+              title="Confirmar edición" type="button" (click)="submitEdit('password')">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </button>
             <button class="ml-2 p-2 rounded-full bg-red-500 hover:bg-red-600 text-white shadow transition-all"
-              title="Cancelar edición" type="button" (click)="quitarEdicion('password')">
+              title="Cancelar edición" type="button" (click)="cancelEdit('password')">
               <svg xmlns=" http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

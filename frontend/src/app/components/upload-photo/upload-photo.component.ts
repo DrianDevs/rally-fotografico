@@ -35,6 +35,7 @@ export class UploadPhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Obtiene la configuración del backend
     this.configService.obtenerConfig().subscribe({
       next: (config) => {
         this.config = config;
@@ -44,7 +45,7 @@ export class UploadPhotoComponent implements OnInit {
       }
     });
 
-
+    // Obtiene el usuario que quiere subir la foto
     const userId = this.authService.getUserInfo()?.sub;
     if (userId) {
       this.userService.obtenerUser(userId).subscribe({
@@ -60,6 +61,7 @@ export class UploadPhotoComponent implements OnInit {
       });
     }
 
+    // Obtiene las fotos subidas por el usuario
     this.photoService.getPhotosById(userId).subscribe({
       next: (photos) => {
         this.numPhotosSubidas = photos.length;
@@ -77,96 +79,80 @@ export class UploadPhotoComponent implements OnInit {
     this.selectedFile = null;
   }
 
+  // Coge el archivo seleccionado por del input
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
     }
   }
-
+  // Si pasa todas las validaciones, sube la foto
   onSubmit() {
-    if (!this.validarPeriodoSubida()) {
+    if (!this.validateUploadPeriod()) {
       return;
     }
 
-    if (!this.validarLimiteFotos()) {
+    if (!this.validatePhotoLimit()) {
       return;
     }
 
-    if (!this.validarFormulario()) {
+    if (!this.validateForm()) {
       return;
     }
 
-    this.subirFoto();
+    this.uploadPhoto();
   }
-
-  private validarPeriodoSubida(): boolean {
-    if (!this.verificarFechaSubida()) {
-      this.mostrarMensajeError('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.');
-      return false;
-    }
-    return true;
-  }
-
-  private validarLimiteFotos(): boolean {
-    if (this.config.max_photos_per_user <= this.numPhotosSubidas) {
-      this.mostrarMensajeError('❌ Has alcanzado el límite de fotos permitidas.');
-      return false;
-    }
-    return true;
-  }
-
-  private validarFormulario(): boolean {
-    if (this.photoForm.invalid || !this.selectedFile) {
-      this.mostrarMensajeError('❌ Por favor, completa todos los campos y selecciona una foto.');
-      return false;
-    }
-    return true;
-  }
-
-  private subirFoto(): void {
+  // Obtiene toda la información de la photo, la pone en formato FormData y la envía al backend
+  uploadPhoto(): void {
     const formData = new FormData();
     formData.append('title', this.photoForm.value.title);
     formData.append('description', this.photoForm.value.description);
     formData.append('image', this.selectedFile!);
     formData.append('user_id', this.user.id.toString());
-    formData.append('servicio', 'uploadPhoto');
-
-    this.photoService.uploadPhoto(formData).subscribe({
+    formData.append('servicio', 'uploadPhoto'); this.photoService.uploadPhoto(formData).subscribe({
       next: () => {
-        this.limpiarFormulario();
-        this.mostrarMensajeExito('✅ La foto se ha subido correctamente');
+        this.resetForm();
+        this.showMessage('La foto se ha subido correctamente', 'success');
         this.router.navigate(['/participante']);
       },
       error: (err) => {
-        this.mostrarMensajeError('❌ Error al subir la foto');
+        this.showMessage('Error al subir la foto', 'error');
         console.error('Error al subir la foto', err);
       },
     });
   }
 
-  private limpiarFormulario(): void {
+  // Resetea el formulario y resetea el input de la foto
+  resetForm(): void {
     this.photoForm.reset();
     this.selectedFile = null;
   }
 
-  private mostrarMensajeError(mensaje: string): void {
-    this.snackBar.open(mensaje, 'Cerrar', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-    });
+  validateUploadPeriod(): boolean {
+    if (!this.verifyUploadDate()) {
+      this.showMessage('No puedes subir fotos en este momento. El periodo de subida no está activo.', 'error');
+      return false;
+    }
+    return true;
   }
 
-  private mostrarMensajeExito(mensaje: string): void {
-    this.snackBar.open(mensaje, 'Cerrar', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-    });
+  validatePhotoLimit(): boolean {
+    if (this.config.max_photos_per_user <= this.numPhotosSubidas) {
+      this.showMessage('Has alcanzado el límite de fotos permitidas.', 'error');
+      return false;
+    }
+    return true;
   }
 
-  verificarFechaSubida() {
+  validateForm(): boolean {
+    if (this.photoForm.invalid || !this.selectedFile) {
+      this.showMessage('Por favor, completa todos los campos y selecciona una foto.', 'error');
+      return false;
+    }
+    return true;
+  }
+
+  verifyUploadDate() {
     if (!this.config || !this.config.upload_start_date || !this.config.upload_end_date) {
       return false;
     }
@@ -183,5 +169,16 @@ export class UploadPhotoComponent implements OnInit {
 
     // Comparar si la fecha de hoy está en el rango (inclusive)
     return currentDate >= startDate && currentDate <= endDate;
+  }
+
+
+  // Muestra mensajes con snackBar (error o success)
+  showMessage(mensaje: string, tipo: 'error' | 'success'): void {
+    const icono = tipo === 'error' ? '❌' : '✅';
+    this.snackBar.open(`${icono} ${mensaje}`, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }

@@ -1,6 +1,4 @@
-/* Deep Ocean Theme for Upload Photo Component */
-
-/* Deep Ocean Background Container */
+/* Tema Océano Profundo */
 .upload-wrapper {
   position: relative;
   min-height: 100vh;
@@ -45,7 +43,6 @@
   pointer-events: none;
 }
 
-/* Burbujas flotantes - Capa principal */
 .upload-wrapper::after {
   content: "";
   position: absolute;
@@ -69,7 +66,6 @@
   z-index: 0;
 }
 
-/* Añadir burbujas pequeñas adicionales */
 .upload-wrapper > *:first-child::after {
   content: "";
   position: fixed;
@@ -103,7 +99,6 @@
   }
 }
 
-/* Animación de burbujas */
 @keyframes bubbleFloat {
   0% {
     transform: translateY(100vh) scale(0.1);
@@ -149,7 +144,6 @@
   }
 }
 
-/* Animación adicional para burbujas más pequeñas */
 @keyframes bubbleFloatSmall {
   0% {
     transform: translateY(100vh) scale(0) rotate(0deg);
@@ -167,7 +161,6 @@
   }
 }
 
-/* Content wrapper centered within full-width background */
 .upload-content {
   position: relative;
   z-index: 2;
@@ -176,7 +169,6 @@
   padding: 20px;
 }
 
-/* Override Tailwind white backgrounds with glassmorphism */
 :host ::ng-deep .bg-white {
   background: rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(15px) !important;
@@ -184,7 +176,6 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Header text styling */
 :host ::ng-deep h2 {
   background: linear-gradient(135deg, #ffffff, #e0f2fe, #b3e5fc) !important;
   -webkit-background-clip: text !important;
@@ -194,7 +185,6 @@
   font-weight: 700 !important;
 }
 
-/* Text colors for better contrast */
 :host ::ng-deep .text-gray-700 {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
@@ -208,14 +198,14 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Labels styling */
+/* Estilos de las labels */
 :host ::ng-deep label {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
   font-weight: 600 !important;
 }
 
-/* Input styling */
+/* Estilos de los inputs */
 :host ::ng-deep input,
 :host ::ng-deep textarea {
   background: rgba(255, 255, 255, 0.2) !important;
@@ -238,7 +228,7 @@
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* File input styling */
+/* Estilos del input para subir archivo */
 :host ::ng-deep input[type="file"] {
   background: rgba(255, 255, 255, 0.1) !important;
   color: rgba(255, 255, 255, 0.9) !important;
@@ -261,7 +251,7 @@
   transform: translateY(-1px) !important;
 }
 
-/* Blue button styling */
+/* Estilos de los botones azules */
 :host ::ng-deep .bg-blue-600 {
   background: linear-gradient(135deg, #0ea5e9, #0284c7, #016691) !important;
   box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
@@ -286,24 +276,23 @@
   box-shadow: none !important;
 }
 
-/* Button text styling */
+/* Estilos del texto de los botones */
 :host ::ng-deep button {
   color: white !important;
   font-weight: 600 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Border colors override */
+/* Sobreescribir colores de bordes */
 :host ::ng-deep .border-blue-300 {
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* Focus ring colors */
 :host ::ng-deep .focus\:ring-blue-400:focus {
   box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) !important;
 }
 
-/* Error message styling */
+/* Estilos de los mensajes de error */
 :host ::ng-deep .text-red-500 {
   color: #fca5a5 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
@@ -313,7 +302,7 @@
   backdrop-filter: blur(5px) !important;
 }
 
-/* Form container */
+/* Contenedor del formulario */
 :host ::ng-deep form {
   position: relative;
   z-index: 2;

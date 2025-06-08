@@ -43,7 +43,6 @@
   pointer-events: none;
 }
 
-/* Burbujas flotantes - Capa principal */
 .stats-container::after {
   content: "";
   position: absolute;
@@ -67,7 +66,6 @@
   z-index: 0;
 }
 
-/* Añadir burbujas pequeñas adicionales */
 .stats-container > *:first-child::after {
   content: "";
   position: fixed;
@@ -101,7 +99,6 @@
   }
 }
 
-/* Animación de burbujas */
 @keyframes bubbleFloat {
   0% {
     transform: translateY(100vh) scale(0.1);
@@ -147,7 +144,6 @@
   }
 }
 
-/* Animación adicional para burbujas más pequeñas */
 @keyframes bubbleFloatSmall {
   0% {
     transform: translateY(100vh) scale(0) rotate(0deg);
@@ -343,7 +339,6 @@
   font-size: 1.2rem;
 }
 
-/* Estilos para la sección de usuarios más votados */
 .top-users-section {
   text-align: center;
   margin-bottom: 3rem;
@@ -421,7 +416,6 @@
   background: linear-gradient(45deg, #3498db, #2980b9);
 }
 
-/* Colores especiales para las primeras posiciones */
 .bar-fill.position-1 {
   background: linear-gradient(45deg, #ffd700, #f39c12);
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
@@ -498,7 +492,6 @@
   font-size: 1rem;
 }
 
-/* Posiciones especiales */
 .bar-item:nth-child(1) .user-position {
   background: linear-gradient(45deg, #ffd700, #f39c12);
   color: #2c3e50;
@@ -523,7 +516,6 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenedor interno para centrar el contenido */
 .stats-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -577,7 +569,6 @@
   }
 }
 
-/* Estilos para la sección de fotos más votadas de hoy */
 .today-photos-section {
   text-align: center;
   margin-bottom: 3rem;
@@ -766,7 +757,6 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Media queries para fotos de hoy */
 @media (max-width: 768px) {
   .today-photos-section {
     padding: 2rem 1rem;

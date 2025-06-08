@@ -1,6 +1,4 @@
-/* Deep Ocean Theme for Photo Validation */
-
-/* Title styling */
+/* Estilos del título */
 :host ::ng-deep h2 {
   color: white !important;
   background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #b3e5fc 100%);
@@ -10,7 +8,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Container styling */
+/* Estilos del contenedor */
 :host ::ng-deep .container {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -21,7 +19,7 @@
   margin: 1rem;
 }
 
-/* Table container */
+/* Contenedor de la tabla */
 :host ::ng-deep .overflow-x-auto {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -30,12 +28,11 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Table styling */
+/* Estilos de la tabla */
 :host ::ng-deep table {
   background: transparent !important;
 }
 
-/* Table header */
 :host ::ng-deep thead {
   background: rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(10px);
@@ -57,7 +54,6 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Table body */
 :host ::ng-deep tbody {
   background: rgba(255, 255, 255, 0.05) !important;
 }
@@ -74,7 +70,6 @@
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Table cells */
 :host ::ng-deep td {
   color: white !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -85,13 +80,12 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover effects */
 :host ::ng-deep .hover\:bg-gray-50:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(5px);
 }
 
-/* Images */
+/* Imágenes */
 :host ::ng-deep img {
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -104,7 +98,7 @@
   transform: scale(1.05);
 }
 
-/* Buttons */
+/* Botones */
 :host ::ng-deep .bg-green-500 {
   background: linear-gradient(135deg, #10b981, #059669, #047857) !important;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
@@ -135,14 +129,13 @@
   box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
 }
 
-/* Button text */
+/* Texto de dentro de los botones */
 :host ::ng-deep button {
   color: white !important;
   font-weight: 500;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Scrollbar styling for webkit browsers */
 :host ::ng-deep .overflow-x-auto::-webkit-scrollbar {
   height: 8px;
 }

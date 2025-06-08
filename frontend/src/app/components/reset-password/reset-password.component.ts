@@ -31,16 +31,13 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Obtiene el token de la URL
+    // (La validación del token la hace el tokenGuard)
     this.token = this.route.snapshot.paramMap.get('token') || '';
   }
-
-  get passwordsMatch(): boolean {
-    const password = this.resetPasswordForm.get('password')?.value;
-    const confirmPassword = this.resetPasswordForm.get('confirmPassword')?.value;
-    return password === confirmPassword;
-  }
-
+  
   onSubmit(): void {
+    // Verifica si el formulario es válido y las contraseñas coinciden
     if (this.resetPasswordForm.valid && this.passwordsMatch) {
       this.isLoading = true;
       this.errorMessage = '';
@@ -67,6 +64,13 @@ export class ResetPasswordComponent implements OnInit {
         }
       });
     }
+  }
+
+  // Compruba si las contraseñas del formulario coinciden
+  get passwordsMatch(): boolean {
+    const password = this.resetPasswordForm.get('password')?.value;
+    const confirmPassword = this.resetPasswordForm.get('confirmPassword')?.value;
+    return password === confirmPassword;
   }
 
   navigateToLogin(): void {

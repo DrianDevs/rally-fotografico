@@ -23,25 +23,26 @@ export class StatsComponent implements OnInit {
     this.loadTopPhotosToday();
   }
 
+  // Obtiene las 3 fotos con más votos para el podio
   loadTopPhotos() {
     this.photoService.getAcceptedPhotos().subscribe({
       next: (photos) => {
-        // Tomamos sólo las 3 fotos con más votos
+        // Ordena las fotos por votos y toma las 3 con más votos
         this.topPhotos = photos
           .sort((a: any, b: any) => (b.votes_count || 0) - (a.votes_count || 0))
           .slice(0, 3);
-        console.log('Top photos loaded:', this.topPhotos);
       },
       error: (error) => {
         console.error('Error loading top photos:', error);
       }
     });
   }
+
+  // Obtiene los usuarios con más votos entre todas sus fotos
   loadTopUsers() {
     this.userService.obtenerUsuariosMasVotados().subscribe({
       next: (users) => {
         this.topUsers = users;
-        console.log('Top users loaded:', this.topUsers);
       },
       error: (error) => {
         console.error('Error loading top users:', error);
@@ -49,11 +50,11 @@ export class StatsComponent implements OnInit {
     });
   }
 
+  // Obtiene las fotos más votadas subidas día de hoy
   loadTopPhotosToday() {
     this.photoService.getTopPhotosToday().subscribe({
       next: (photos) => {
         this.topPhotosToday = photos;
-        console.log('Top photos today loaded:', this.topPhotosToday);
       },
       error: (error) => {
         console.error('Error loading top photos today:', error);
@@ -65,16 +66,22 @@ export class StatsComponent implements OnInit {
     return this.photoService.getPhotoUrl(filePath);
   }
 
+  // Calcula el ancho de la barra de progreso para el gráfico de usuarios más votados  
   getBarWidth(votes: number): number {
+    // Si no hay usuarios, devolvemos 0 para evitar una división entre cero
     if (this.topUsers.length === 0) return 0;
+
+    // Porcentaje de ancho de la barra (0-100) basado en los votos máximos
     const maxVotes = Math.max(...this.topUsers.map(user => user.total_votes));
     return maxVotes > 0 ? (votes / maxVotes) * 100 : 0;
   }
 
+  // Abre el visor de imágenes con la imagen seleccionada
   openImageViewer(imageUrl: string, imageAlt: string): void {
     this.selectedImage = { url: imageUrl, alt: imageAlt };
   }
 
+  // Cierra el visor de imágenes
   closeImageViewer(): void {
     this.selectedImage = null;
   }

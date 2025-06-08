@@ -6,7 +6,6 @@
 
             <div class="podium-container">
                 @if (topPhotos.length > 0) {
-                <!-- Segundo lugar -->
                 @if (topPhotos.length > 1) { <div class="podium-position second-place">
                     <div class="position-number">2</div>
                     <div class="photo-card">
@@ -24,7 +23,6 @@
                 </div>
                 }
 
-                <!-- Primer lugar -->
                 <div class="podium-position first-place">
                     <div class="position-number">1</div>
                     <div class="photo-card">
@@ -41,7 +39,6 @@
                     </div>
                 </div>
 
-                <!-- Tercer lugar -->
                 @if (topPhotos.length > 2) { <div class="podium-position third-place">
                     <div class="position-number">3</div>
                     <div class="photo-card">
@@ -66,7 +63,6 @@
             </div>
         </div>
 
-        <!-- Nueva sección de usuarios más votados -->
         <div class="top-users-section">
             <h2>🏆 Top 10 Usuarios Más Votados</h2>
             <p>Los usuarios con más votos acumulados en sus fotografías</p>
@@ -104,7 +100,6 @@
             </div>
         </div>
 
-        <!-- Nueva sección de fotos más votadas de hoy -->
         <div class="today-photos-section">
             <h2>🏆 Top 10 Fotos Más Votadas de Hoy</h2>
             <p>Las fotografías con más votos subidas en el día de hoy</p>

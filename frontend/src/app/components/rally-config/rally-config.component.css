@@ -1,4 +1,4 @@
-/* Deep Ocean Theme for Rally Config */
+/* Tema Océano Profundo */
 h1 {
   text-align: center;
   color: white;
@@ -19,7 +19,7 @@ h1 {
   padding: 20px;
 }
 
-/* Ocean-themed container with glassmorphism */
+/* Contenedor con tema oceánico y efecto de glassmorphism */
 :host ::ng-deep .bg-white {
   background: rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(15px) !important;
@@ -108,7 +108,7 @@ h1 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Override Tailwind input styles */
+/* Pa sobreescribir los estilos de Tailwind */
 :host ::ng-deep input {
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(5px) !important;
@@ -154,7 +154,6 @@ button[type="submit"]:hover:not(:disabled) {
   background: linear-gradient(135deg, #0284c7, #016691, #014a6b);
 }
 
-/* Override Tailwind button styles */
 :host ::ng-deep .bg-blue-600 {
   background: linear-gradient(135deg, #0ea5e9, #0284c7, #016691) !important;
   box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;

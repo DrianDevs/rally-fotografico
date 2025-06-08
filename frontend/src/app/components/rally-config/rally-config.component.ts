@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ConfigService } from '../../services/config.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-rally-config',
@@ -16,7 +17,11 @@ import { ConfigService } from '../../services/config.service';
 export class RallyConfigComponent implements OnInit {
   public configForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private configService: ConfigService) {
+  constructor(
+    private fb: FormBuilder,
+    private configService: ConfigService,
+    private snackBar: MatSnackBar
+  ) {
     this.configForm = this.fb.group({
       recepcionInicio: ['', Validators.required],
       recepcionFin: ['', Validators.required],
@@ -27,14 +32,45 @@ export class RallyConfigComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cargarConfig();
+    this.loadConfig();
   }
 
   onSubmit() {
-    if (this.validarCampos()) this.actualizarConfig();
+    if (this.validateForm()) this.updateConfig();
   }
 
-  validarCampos() {
+  // Obtiene la configuración actual del backend
+  loadConfig() {
+    this.configService.obtenerConfig().subscribe({
+      next: (data) => {
+        this.configForm.patchValue({
+          recepcionInicio: this.formatDate(data.upload_start_date),
+          recepcionFin: this.formatDate(data.upload_end_date),
+          votacionInicio: this.formatDate(data.voting_start_date),
+          votacionFin: this.formatDate(data.voting_end_date),
+          limiteFotos: data.max_photos_per_user,
+        });
+      },
+      error: (error) => {
+        this.showMessage('❌ Error al cargar la configuración', 'error');
+      },
+    });
+  }
+
+  // Actualiza la configuración en el backend
+  updateConfig() {
+    this.configService.actualizarConfig(this.configForm.value).subscribe({
+      next: (data) => {
+        this.showMessage('✅ Configuración actualizada exitosamente', 'success');
+      },
+      error: (error) => {
+        console.error('Error al actualizar la configuración:', error);
+        this.showMessage('❌ Error al actualizar la configuración', 'error');
+      },
+    });
+  }
+
+  validateForm() {
     // Validación inicial del form
     if (!this.configForm.valid) return false;
 
@@ -44,52 +80,13 @@ export class RallyConfigComponent implements OnInit {
 
     // Comprueba que los pares de fechas sean válidos
     return (
-      this.validarPeriodoFechas(recepcionInicio, recepcionFin, 'recepción') &&
-      this.validarPeriodoFechas(votacionInicio, votacionFin, 'votación')
+      this.validateDatePeriod(recepcionInicio, recepcionFin, 'recepción') &&
+      this.validateDatePeriod(votacionInicio, votacionFin, 'votación')
     );
   }
 
-  // ----------------- PETICIONES SERVICIO CONFIG -----------------
-
-  cargarConfig() {
-    this.configService.obtenerConfig().subscribe({
-      next: (data) => {
-        this.configForm.patchValue({
-          recepcionInicio: this.formatearFecha(data.upload_start_date),
-          recepcionFin: this.formatearFecha(data.upload_end_date),
-          votacionInicio: this.formatearFecha(data.voting_start_date),
-          votacionFin: this.formatearFecha(data.voting_end_date),
-          limiteFotos: data.max_photos_per_user,
-        });
-      },
-      error: (error) => {
-        console.error('Error al cargar la configuración:', error);
-      },
-    });
-  }
-
-  actualizarConfig() {
-    this.configService.actualizarConfig(this.configForm.value).subscribe({
-      next: (data) => {
-        alert('Configuración actualizada exitosamente');
-      },
-      error: (error) => {
-        console.error('Error al actualizar la configuración:', error);
-        alert('Error al actualizar la configuración');
-      },
-    });
-  }
-
-  // ----------------- FUNCIONES AUXILIARES -----------------
-
-  // Función para formatear la fecha que devuelve el backend a yyyy-MM-dd (formato del formulario)
-  formatearFecha = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0];
-  };
-
   // Función para validar un período de fechas
-  validarPeriodoFechas(
+  validateDatePeriod(
     fechaDesde: string,
     fechaHasta: string,
     nombrePeriodo: string
@@ -102,17 +99,31 @@ export class RallyConfigComponent implements OnInit {
     const dias = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     if (fechaInicio >= fechaFin) {
-      alert(
-        `La fecha de inicio de ${nombrePeriodo} debe ser anterior a la fecha de fin`
-      );
+      this.showMessage(`❌ La fecha de inicio de ${nombrePeriodo} debe ser anterior a la fecha de fin`, 'error');
       return false;
     }
 
     if (dias === 0) {
-      alert(`El período de ${nombrePeriodo} debe ser de al menos un día`);
+      this.showMessage(`❌ El período de ${nombrePeriodo} debe ser de al menos un día`, 'error');
       return false;
     }
 
     return true;
+  }
+
+  // Formatea la fecha que devuelve el backend a yyyy-MM-dd (formato del formulario)
+  formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
+  // Muestra mensajes con snackBar (error o success)
+  showMessage(mensaje: string, tipo: 'error' | 'success'): void {
+    const icono = tipo === 'error' ? '❌' : '✅';
+    this.snackBar.open(`${icono} ${mensaje}`, 'Cerrar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }

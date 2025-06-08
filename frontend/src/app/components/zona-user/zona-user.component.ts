@@ -54,37 +54,38 @@ export class ZonaUserComponent implements OnInit {
     });
   }
 
-  editarCampo(campo: string) {
+  editField(field: string) {
     // Mostrar los botones de confirmar y cancelar
-    const clase = 'editar-' + campo;
-    const elements = document.getElementsByClassName(clase);
+    const className = 'editar-' + field;
+    const elements = document.getElementsByClassName(className);
     for (let i = 0; i < elements.length; i++) {
       (elements[i] as HTMLElement).style.display = 'block';
     }
 
     // Ocultar el botón de editar el campo
     const buttonElement = document.getElementsByClassName(
-      'boton-' + campo
+      'boton-' + field
     )[0] as HTMLElement;
     if (buttonElement) {
       buttonElement.style.display = 'none';
     }
 
     // Habilitar el input para editarlo
-    const inputElement = document.getElementById(campo) as HTMLInputElement;
+    const inputElement = document.getElementById(field) as HTMLInputElement;
     if (inputElement) {
       inputElement.disabled = false;
       inputElement.focus();
     }
   }
-  confirmarEdicion(campo: string) {
+
+  submitEdit(field: string) {
     // Obtener el valor del campo editado
-    const campoElement = document.getElementById(campo) as HTMLInputElement;
-    const nuevoValor = campoElement.value;
+    const fieldElement = document.getElementById(field) as HTMLInputElement;
+    const nuevoValor = fieldElement.value;
 
 
     // Si el campo editado es la contraseña, se llama a un servicio dedicado por seguridad
-    if (campo === 'password') {
+    if (field === 'password') {
       // Validar que la contraseña tenga al menos 6 caracteres
       if (nuevoValor.length < 6) {
         alert('La contraseña debe tener al menos 6 caracteres');
@@ -100,17 +101,17 @@ export class ZonaUserComponent implements OnInit {
         },
       });
 
-      this.quitarEdicion(campo)
-      return
+      this.cancelEdit(field);
+      return;
     }
 
 
     // Comprobar si el nuevo valor es igual al valor anterior (name y email)
-    if (this.user[campo as keyof typeof this.user] === nuevoValor) {
-      console.log(`El ${campo} es igual al anterior.`);
+    if (this.user[field as keyof typeof this.user] === nuevoValor) {
+      console.log(`El ${field} es igual al anterior.`);
       return;
     } else {
-      this.user[campo as keyof typeof this.user] = nuevoValor
+      this.user[field as keyof typeof this.user] = nuevoValor
     }
 
     this.userService.actualizarUser(this.user).subscribe({
@@ -122,31 +123,31 @@ export class ZonaUserComponent implements OnInit {
       },
     });
 
-    this.quitarEdicion(campo);
+    this.cancelEdit(field);
   }
 
-  quitarEdicion(campo: string) {
+  cancelEdit(field: string) {
     // Oculta los botones de confirmar y cancelar
-    const clase = 'editar-' + campo;
-    const elements = document.getElementsByClassName(clase);
+    const className = 'editar-' + field;
+    const elements = document.getElementsByClassName(className);
     for (let i = 0; i < elements.length; i++) {
       (elements[i] as HTMLElement).style.display = 'none';
     }
 
     // Mostrar el botón de editar el campo
     const buttonElement = document.getElementsByClassName(
-      'boton-' + campo
+      'boton-' + field
     )[0] as HTMLElement;
     if (buttonElement) {
       buttonElement.style.display = 'block';
     }
 
     // Deshabilitar el input y restaurar el valor original
-    const inputElement = document.getElementById(campo) as HTMLInputElement;
+    const inputElement = document.getElementById(field) as HTMLInputElement;
     if (inputElement) {
       inputElement.disabled = true;
       // Restaurar el valor original del campo
-      inputElement.value = this.user[campo as keyof typeof this.user] as string;
+      inputElement.value = this.user[field as keyof typeof this.user] as string;
     }
   }
 }

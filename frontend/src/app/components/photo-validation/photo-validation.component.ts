@@ -18,6 +18,7 @@ export class PhotoValidationComponent implements OnInit {
     this.loadPendingPhotos();
   }
 
+  // Traer todas las fotos pendientes del backend
   loadPendingPhotos() {
     this.photoService.getPendingPhotos().subscribe(
       (photos) => {
@@ -33,6 +34,7 @@ export class PhotoValidationComponent implements OnInit {
     return this.photoService.getPhotoUrl(filePath);
   }
 
+  // Cambia el estado de la foto a aceptada
   acceptPhoto(photoId: number) {
     if (confirm('¿Quieres aceptar esta foto?')) {
       this.photoService.updatePhotoStatus(photoId, 'accepted').subscribe(
@@ -45,6 +47,8 @@ export class PhotoValidationComponent implements OnInit {
       );
     }
   }
+
+  // Cambia el estado de la foto a rechazada
   rejectPhoto(photoId: number) {
     if (confirm('¿Quieres rechazar esta foto?')) {
       this.photoService.updatePhotoStatus(photoId, 'rejected').subscribe(
