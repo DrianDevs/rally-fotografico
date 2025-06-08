@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './my-photos.component.css'
 })
 export class MyPhotosComponent implements OnInit, OnChanges {
-  @Input() user: any;
+  @Input() user: any; // Recibimos el usuario desde el componente Zona User
   public config: any;
   public photos: any[] = [];
   public cantidadPhotos: number[] = [];
@@ -80,44 +80,49 @@ export class MyPhotosComponent implements OnInit, OnChanges {
     }
   }
 
+  // Abre el visor de imágenes con la imagen seleccionada
   openImageViewer(imageUrl: string, imageAlt: string) {
     this.selectedImage = { url: imageUrl, alt: imageAlt };
   }
 
+  // Cierra el visor de imágenes
   closeImageViewer() {
     this.selectedImage = null;
   }
 
+  // Lleva al componente de Upload Photos si las validaciones son correctas
   goToUploadPhoto() {
-    if (!this.validarPeriodoSubida()) {
+    // Verifica si el periodo de subida de photos está activo
+    if (!this.validateUploadPeriod()) {
       return;
     }
 
-    if (!this.validarLimiteFotos()) {
+    // Si el usuario ha alcanzado el límite de photos subidas, no permite subir más
+    if (!this.checkMaxPhotos()) {
       return;
     }
 
-    // Si pasa las validaciones, navega a la página de subida de fotos
     this.router.navigate(['/subir-foto']);
   }
 
-  private validarPeriodoSubida(): boolean {
-    if (!this.verificarFechaSubida()) {
-      this.mostrarMensajeError('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.');
+  private validateUploadPeriod(): boolean {
+    if (!this.isInAllowedPeriod()) {
+      this.showErrorMessage('❌ No puedes subir fotos en este momento. El periodo de subida no está activo.');
       return false;
     }
     return true;
   }
 
-  private validarLimiteFotos(): boolean {
+  private checkMaxPhotos(): boolean {
     if (this.config.max_photos_per_user <= this.photos.length) {
-      this.mostrarMensajeError('❌ No puedes subir más fotos. Elimina alguna foto para poder subir una nueva.');
+      this.showErrorMessage('❌ No puedes subir más fotos. Elimina alguna foto para poder subir una nueva.');
       return false;
     }
     return true;
   }
 
-  private mostrarMensajeError(mensaje: string): void {
+  // Función auxiliar para mostrar mensajes de error con snackBar
+  private showErrorMessage(mensaje: string): void {
     this.snackBar.open(mensaje, 'Cerrar', {
       duration: 3000,
       horizontalPosition: 'center',
@@ -125,7 +130,8 @@ export class MyPhotosComponent implements OnInit, OnChanges {
     });
   }
 
-  verificarFechaSubida() {
+  // Verifica si la fecha de hoy está dentro del periodo permitido
+  isInAllowedPeriod() {
     if (!this.config || !this.config.upload_start_date || !this.config.upload_end_date) {
       return false;
     }

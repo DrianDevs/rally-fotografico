@@ -1,4 +1,4 @@
-/* Override text colors for better legibility with white text */
+/* Colores de texto personalizados */
 .text-gray-700 {
   color: white !important;
 }
@@ -11,7 +11,6 @@
   color: white !important;
 }
 
-/* Ensure proper contrast for status colors on white backgrounds */
 .text-yellow-500 {
   color: #eab308 !important;
 }
@@ -24,12 +23,11 @@
   color: #ef4444 !important;
 }
 
-/* Maintain gray color for vote count as it provides good contrast */
 .text-gray-500 {
   color: #9ca3af !important;
 }
 
-/* Upload button styles matching the main component's popular button */
+/* Botón de upload */
 .upload-button {
   padding: 0.75rem 1.5rem;
   border: 2px solid #60a5fa;

@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require_once('../vendor/autoload.php');
 
 // Configuración de la base de datos
 $host = 'localhost';

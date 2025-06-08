@@ -262,7 +262,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Gray button for "Volver al inicio" */
 :host ::ng-deep .bg-gray-100 {
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px) !important;

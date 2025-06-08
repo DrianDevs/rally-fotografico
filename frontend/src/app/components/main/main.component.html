@@ -58,9 +58,8 @@
     <button class="sort-button" [class.active]="sortBy === 'recent'" (click)="setSortBy('recent')">
       ⏰ Recientes
     </button>
-  </div>
-  <div class="gallery-grid">
-    @for (photo of acceptedPhotos; track photo.id) {
+  </div>  <div class="gallery-grid">
+    @for (photo of sortedPhotos; track photo.id) {
     <div class="photo-card">
       <div class="photo-container" (click)="openImageViewer(getPhotoUrl(photo.file_path), photo.title)">
         <img [src]="getPhotoUrl(photo.file_path)" [alt]="photo.title" class="photo-image" />
@@ -81,7 +80,7 @@
     </div>
     }
 
-    @if (acceptedPhotos.length === 0) {
+    @if (sortedPhotos.length === 0) {
     <div class="no-photos">
       <p>No hay fotos aceptadas aún. ¡Sé el primero en participar!</p>
     </div>

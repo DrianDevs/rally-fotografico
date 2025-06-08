@@ -12,9 +12,10 @@ html {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden; /* ✅ solo oculta scroll lateral */
+  overflow-x: hidden;
 }
 
+/* Estilos del Hero Banner */
 .hero-container {
   position: relative;
   width: 100%;
@@ -45,7 +46,7 @@ html {
 
 .hero-content {
   position: relative;
-  z-index: 2; /* Aseguramos que el contenido esté por encima del overlay */
+  z-index: 2;
   color: white;
   padding: 2rem;
   max-width: 600px;
@@ -123,7 +124,7 @@ html {
   transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* Diseño responsive */
 @media (max-width: 768px) {
   .info-content {
     flex-direction: column;
@@ -148,7 +149,7 @@ html {
   }
 }
 
-/* Gallery Section Styles */
+/* Galería de photos */
 .gallery-section {
   background: linear-gradient(to bottom, #014a6b, #012a3b);
   padding: 4rem 2rem;
@@ -177,7 +178,6 @@ html {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Sort Buttons Styles */
 .sort-buttons {
   display: flex;
   justify-content: center;
@@ -357,7 +357,7 @@ html {
   font-size: 1.1rem;
 }
 
-/* Responsive Design for Gallery */
+/* Diseño responsive para la galería */
 @media (max-width: 768px) {
   .sort-buttons {
     flex-direction: column;
