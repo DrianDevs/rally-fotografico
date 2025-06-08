@@ -3,7 +3,7 @@
 composer.phar
 
 # Logs
-/logs/*.log
+/logs/
 
 # Configuration (if needed)
 # config.php
