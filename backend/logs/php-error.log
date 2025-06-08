@@ -716,3 +716,40 @@ Stack trace:
 #6 {main}
 [08-Jun-2025 13:33:19 Europe/Berlin] ERROR - No se pudo enviar el email de recuperación
 [08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":false,"message":"Error al enviar el correo electr\u00f3nico. Por favor, int\u00e9ntalo de nuevo m\u00e1s tarde."}
+[08-Jun-2025 15:53:55 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[08-Jun-2025 15:53:55 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[08-Jun-2025 15:53:55 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[08-Jun-2025 15:58:00 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUsers"}
+[08-Jun-2025 15:58:00 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUsers"}
+[08-Jun-2025 15:58:00 Europe/Berlin] DEBUG - Servicio solicitado: getUsers
+[08-Jun-2025 15:58:03 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:03 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:03 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 15:58:07 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:07 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:07 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 15:58:19 Europe/Berlin] Error en photos.php: Archivo demasiado grande
+[08-Jun-2025 15:58:31 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:31 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:31 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 15:58:40 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"updateUser","id":1,"name":"Administrador","email":"admin@rally.com","role":"admin","password":""}
+[08-Jun-2025 15:58:40 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"updateUser","id":1,"name":"Administrador","email":"admin@rally.com","role":"admin","password":""}
+[08-Jun-2025 15:58:40 Europe/Berlin] DEBUG - Servicio solicitado: updateUser
+[08-Jun-2025 15:58:44 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:44 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 15:58:44 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: driandevs@gmail.com
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: driandevs@gmail.com
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Usuario encontrado: Adrián
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Token generado: 9e274482606e45dfe23a384453ce38b6c39a497cf754ebfbbd81b87d1f15647e
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Token guardado en BD
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - API Key: Configurada
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[08-Jun-2025 15:59:08 Europe/Berlin] DEBUG - Intentando enviar email a: driandevs@gmail.com
+[08-Jun-2025 15:59:09 Europe/Berlin] DEBUG - Email enviado exitosamente. ID: Sin ID
+[08-Jun-2025 15:59:09 Europe/Berlin] DEBUG - Email de recuperación enviado exitosamente
+[08-Jun-2025 15:59:09 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":true,"message":"Se ha enviado un correo electr\u00f3nico con las instrucciones para restablecer tu contrase\u00f1a"}
