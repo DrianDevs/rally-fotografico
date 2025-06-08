@@ -4,15 +4,18 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
 
 // Configuración de la base de datos
-$host = $_ENV['DB_HOST'];
-$db = $_ENV['DB_NAME'];
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASS'];
-$charset = $_ENV['DB_CHARSET'];
+$host = getenv('DB_HOST');
+$db = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$charset = getenv('DB_CHARSET');
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -29,14 +32,14 @@ try {
 }
 
 // Clave secreta para JWT
-$jwt_secret = $_ENV['JWT_SECRET'];
+$jwt_secret = getenv('JWT_SECRET');
 
 // Configuración de Resend
-$resend_api_key = $_ENV['RESEND_API_KEY'];
-$from_email = $_ENV['FROM_EMAIL'];
-$app_url = $_ENV['APP_URL'];
+$resend_api_key = getenv('RESEND_API_KEY');
+$from_email = getenv('FROM_EMAIL');
+$app_url = getenv('APP_URL');
 
 // Configuración para fotos
-$uploadDir = __DIR__ . '/' . $_ENV['UPLOAD_DIR'];
+$uploadDir = __DIR__ . '/' . getenv('UPLOAD_DIR');
 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-$maxSize = (int) $_ENV['MAX_FILE_SIZE'];
+$maxSize = (int) getenv('MAX_FILE_SIZE');

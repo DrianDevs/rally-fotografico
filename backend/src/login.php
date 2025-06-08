@@ -5,7 +5,7 @@ require_once __DIR__ . '/../bootstrap.php';
 use Firebase\JWT\JWT;
 
 // Configuración de headers CORS
-header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header('Content-Type: application/json');

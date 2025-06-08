@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: 'http://localhost/Drian/rally-fotografico/backend',
+  API_URL: 'https://rally-fotografico-backend.onrender.com',
 };
