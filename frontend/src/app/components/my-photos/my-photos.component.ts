@@ -61,6 +61,7 @@ export class MyPhotosComponent implements OnInit, OnChanges {
 
     this.photoService.getPhotosById(this.user.id).subscribe((photos) => {
       this.photos = photos;
+      console.log("photos", this.photos);
       const cantidadFotosRestantes = this.config.max_photos_per_user - this.photos.length;
       this.fotosRestantes = Array.from({ length: cantidadFotosRestantes });
     });

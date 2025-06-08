@@ -24,7 +24,8 @@ export class PhotoService {
   }
 
   getPhotoUrl(filePath: string): string {
-    return `http://localhost/Drian/rally-fotografico/backend/${filePath}`;
+    console.log(`hola ${environment.API_URL}/../${filePath}`);
+    return `${environment.API_URL}/../${filePath}`;
   }
 
   getPendingPhotos() {

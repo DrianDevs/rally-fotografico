@@ -335,7 +335,7 @@ class Modelo
 
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $filename = uniqid('photo_', true) . '.' . $extension;
-        $relativePath = 'uploads/' . $filename;
+        $relativePath = 'public/' . $filename;
         $fullPath = $uploadDir . $filename;
 
         if (!move_uploaded_file($file['tmp_name'], $fullPath)) {
