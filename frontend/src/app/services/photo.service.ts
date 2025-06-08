@@ -24,8 +24,8 @@ export class PhotoService {
   }
 
   getPhotoUrl(filePath: string): string {
-    console.log(`hola ${environment.API_URL}/../${filePath}`);
-    return `${environment.API_URL}/../${filePath}`;
+    console.log(`${environment.API_URL}${filePath}`);
+    return `${environment.API_URL}${filePath}`;
   }
 
   getPendingPhotos() {

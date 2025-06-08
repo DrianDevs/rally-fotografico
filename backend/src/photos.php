@@ -322,11 +322,12 @@ class Modelo
         }
 
         return true;
-    }
-
-    public function GuardarPhoto($file)
+    }    public function GuardarPhoto($file)
     {
         global $uploadDir; // La carpeta donde se guardarán las fotos (Establecida en config.php)
+        
+        // Log para verificar el valor de uploadDir
+        error_log("uploadDir value: " . ($uploadDir ?? 'NULL'));
 
         // Si la carpeta no existe, la crea
         if (!is_dir($uploadDir)) {
@@ -337,6 +338,7 @@ class Modelo
         $filename = uniqid('photo_', true) . '.' . $extension;
         $relativePath = 'upload/' . $filename;
         $fullPath = $uploadDir . $filename;
+
 
         if (!move_uploaded_file($file['tmp_name'], $fullPath)) {
             throw new Exception('No se pudo guardar el archivo', 500);
