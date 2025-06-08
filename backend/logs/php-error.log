@@ -765,3 +765,28 @@ Stack trace:
 [08-Jun-2025 17:15:45 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
 [08-Jun-2025 17:15:45 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
 [08-Jun-2025 17:15:45 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[08-Jun-2025 21:50:59 Europe/Berlin] PHP Fatal error:  Cannot redeclare env() (previously declared in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php:23) in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php on line 24
+[08-Jun-2025 21:53:58 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:53:58 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:53:58 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:54:01 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:01 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:01 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:54:09 Europe/Berlin] Error en photos.php: Archivo demasiado grande
+[08-Jun-2025 21:54:36 Europe/Berlin] uploadDir value: C:\Users\Adria\DWES\PHP\rally-fotografico\backend/uploads/
+[08-Jun-2025 21:54:36 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:36 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:36 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:54:53 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:53 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:54:53 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:56:50 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:56:50 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:56:50 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:56:58 Europe/Berlin] uploadDir value: C:\Users\Adria\DWES\PHP\rally-fotografico\backend/uploads/
+[08-Jun-2025 21:56:58 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:56:58 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:56:58 Europe/Berlin] DEBUG - Servicio solicitado: getUser
+[08-Jun-2025 21:57:19 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:57:19 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getUser","id":1}
+[08-Jun-2025 21:57:19 Europe/Berlin] DEBUG - Servicio solicitado: getUser

@@ -337,7 +337,7 @@ class Modelo
 
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $filename = uniqid('photo_', true) . '.' . $extension;
-        $relativePath = $envDir . $filename;
+        $relativePath = 'uploads/' . $filename;
         $fullPath = $uploadDir . $filename;
 
 
