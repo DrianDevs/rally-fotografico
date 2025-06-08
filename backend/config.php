@@ -26,10 +26,10 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Error de conexión a la base de datos']);
+    echo json_encode(['error' => 'Error de conexión a la base de datos', 'message' => $e->getMessage()]);
     exit;
 }
+
 
 // Clave secreta para JWT
 $jwt_secret = getenv('JWT_SECRET');
