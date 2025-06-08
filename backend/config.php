@@ -40,6 +40,7 @@ $from_email = getenv('FROM_EMAIL');
 $app_url = getenv('APP_URL');
 
 // Configuración para fotos
+$envDir = getenv('ENV_DIR');
 $uploadDir = __DIR__ . '/' . getenv('UPLOAD_DIR');
 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
 $maxSize = (int) getenv('MAX_FILE_SIZE');

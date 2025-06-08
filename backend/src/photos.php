@@ -325,6 +325,7 @@ class Modelo
     }    public function GuardarPhoto($file)
     {
         global $uploadDir; // La carpeta donde se guardarán las fotos (Establecida en config.php)
+        global $envDir; // La carpeta donde se guardarán las fotos (Establecida en config.php)
         
         // Log para verificar el valor de uploadDir
         error_log("uploadDir value: " . ($uploadDir ?? 'NULL'));
@@ -336,7 +337,7 @@ class Modelo
 
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $filename = uniqid('photo_', true) . '.' . $extension;
-        $relativePath = 'upload/' . $filename;
+        $relativePath = $envDir . $filename;
         $fullPath = $uploadDir . $filename;
 
 
