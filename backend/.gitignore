@@ -8,6 +8,9 @@ composer.phar
 # Configuration (if needed)
 # config.php
 
+# Environment variables
+.env
+
 # Uploads (optional - depends if you want to track uploaded files)
 # /uploads/
 

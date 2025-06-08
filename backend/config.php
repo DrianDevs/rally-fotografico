@@ -1,13 +1,18 @@
 <?php
 
-require_once('../vendor/autoload.php');
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // Configuración de la base de datos
-$host = 'localhost';
-$db = 'rally_fotografico';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+$host = $_ENV['DB_HOST'];
+$db = $_ENV['DB_NAME'];
+$user = $_ENV['DB_USER'];
+$pass = $_ENV['DB_PASS'];
+$charset = $_ENV['DB_CHARSET'];
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -24,14 +29,14 @@ try {
 }
 
 // Clave secreta para JWT
-$jwt_secret = 'clave-super-secreta-que-deberías-cambiar';
+$jwt_secret = $_ENV['JWT_SECRET'];
 
 // Configuración de Resend
-$resend_api_key = 're_aru5N42R_386Cmt1cmPYfZ8kZkTifsHfB';
-$from_email = 'onboarding@resend.dev'; // Dominio de prueba, cambiar en el futuro
-$app_url = 'http://localhost:4200'; // URL del frontend
+$resend_api_key = $_ENV['RESEND_API_KEY'];
+$from_email = $_ENV['FROM_EMAIL'];
+$app_url = $_ENV['APP_URL'];
 
 // Configuración para fotos
-$uploadDir = __DIR__ . '/uploads/';
+$uploadDir = __DIR__ . '/' . $_ENV['UPLOAD_DIR'];
 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-$maxSize = 5 * 1024 * 1024; // 5 MB
+$maxSize = (int) $_ENV['MAX_FILE_SIZE'];

@@ -654,3 +654,65 @@ Stack trace:
 #1 {main}
   thrown in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php on line 3
 [08-Jun-2025 01:42:46 Europe/Berlin] Error en photos.php: No se ha especificado el servicio
+[08-Jun-2025 13:23:45 Europe/Berlin] PHP Warning:  require_once(C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php on line 8
+[08-Jun-2025 13:23:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php on line 8
+[08-Jun-2025 13:24:36 Europe/Berlin] PHP Warning:  require_once(C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php on line 8
+[08-Jun-2025 13:24:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src../vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php on line 8
+[08-Jun-2025 13:30:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Dotenv\Dotenv" not found in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php:5
+Stack trace:
+#0 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\bootstrap.php(2): require_once()
+#1 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\rally_config.php(7): require_once('C:\\Users\\Adria\\...')
+#2 {main}
+  thrown in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php on line 5
+[08-Jun-2025 13:30:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Dotenv\Dotenv" not found in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php:5
+Stack trace:
+#0 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\bootstrap.php(2): require_once()
+#1 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\photos.php(7): require_once('C:\\Users\\Adria\\...')
+#2 {main}
+  thrown in C:\Users\Adria\DWES\PHP\rally-fotografico\backend\config.php on line 5
+[08-Jun-2025 13:32:59 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"getMostVotedUsers"}
+[08-Jun-2025 13:32:59 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"getMostVotedUsers"}
+[08-Jun-2025 13:32:59 Europe/Berlin] DEBUG - Servicio solicitado: getMostVotedUsers
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"driandevs@gmail.com"}
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: driandevs@gmail.com
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: driandevs@gmail.com
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Usuario encontrado: Adrián
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Token generado: bcb8d01e714d5774dacf912a69fa95c8e76706f1367b358c18908baa5ca5ea43
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - Token guardado en BD
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - API Key: Configurada
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[08-Jun-2025 13:33:06 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[08-Jun-2025 13:33:08 Europe/Berlin] DEBUG - Intentando enviar email a: driandevs@gmail.com
+[08-Jun-2025 13:33:12 Europe/Berlin] DEBUG - Email enviado exitosamente. ID: Sin ID
+[08-Jun-2025 13:33:12 Europe/Berlin] DEBUG - Email de recuperación enviado exitosamente
+[08-Jun-2025 13:33:12 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":true,"message":"Se ha enviado un correo electr\u00f3nico con las instrucciones para restablecer tu contrase\u00f1a"}
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Datos raw recibidos: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Datos decodificados: {"servicio":"forgotPassword","email":"nicknicknickcpr@gmail.com"}
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Servicio solicitado: forgotPassword
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Ejecutando forgotPassword para email: nicknicknickcpr@gmail.com
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Iniciando ForgotPassword para: nicknicknickcpr@gmail.com
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Usuario encontrado: Nick
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Token generado: 5147e8fa33ec5232108de2ed781a663fc80f8817ae69d8bc091fbe7cc9c7d75b
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Token guardado en BD
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - API Key: Configurada
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - From Email: onboarding@resend.dev
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - App URL: http://localhost:4200
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Intentando enviar email a: nicknicknickcpr@gmail.com
+[08-Jun-2025 13:33:19 Europe/Berlin] ERROR enviando email: You can only send testing emails to your own email address (driandevs@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+[08-Jun-2025 13:33:19 Europe/Berlin] ERROR Stack trace: #0 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Transporters\HttpTransporter.php(47): Resend\Transporters\HttpTransporter->throwIfJsonError(Array, '{"statusCode":4...')
+#1 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(32): Resend\Transporters\HttpTransporter->request(Object(Resend\ValueObjects\Transporter\Payload))
+#2 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\vendor\resend\resend-php\src\Service\Email.php(44): Resend\Service\Email->create(Array, Array)
+#3 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(371): Resend\Service\Email->send(Array)
+#4 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(283): Modelo->sendPasswordResetEmail('nicknicknickcpr...', 'Nick', '5147e8fa33ec523...')
+#5 C:\Users\Adria\DWES\PHP\rally-fotografico\backend\src\users.php(62): Modelo->ForgotPassword('nicknicknickcpr...')
+#6 {main}
+[08-Jun-2025 13:33:19 Europe/Berlin] ERROR - No se pudo enviar el email de recuperación
+[08-Jun-2025 13:33:19 Europe/Berlin] DEBUG - Resultado ForgotPassword: {"success":false,"message":"Error al enviar el correo electr\u00f3nico. Por favor, int\u00e9ntalo de nuevo m\u00e1s tarde."}
